@@ -1,0 +1,10 @@
+C:\Users\jenne\source\repos\Calculator_Test_1\bin\Debug\Calculator_Test_1.exe.config
+C:\Users\jenne\source\repos\Calculator_Test_1\bin\Debug\Calculator_Test_1.exe
+C:\Users\jenne\source\repos\Calculator_Test_1\bin\Debug\Calculator_Test_1.pdb
+C:\Users\jenne\source\repos\Calculator_Test_1\obj\Debug\Calculator_Test_1.csprojAssemblyReference.cache
+C:\Users\jenne\source\repos\Calculator_Test_1\obj\Debug\Calculator_Test_1.Form1.resources
+C:\Users\jenne\source\repos\Calculator_Test_1\obj\Debug\Calculator_Test_1.Properties.Resources.resources
+C:\Users\jenne\source\repos\Calculator_Test_1\obj\Debug\Calculator_Test_1.csproj.GenerateResource.cache
+C:\Users\jenne\source\repos\Calculator_Test_1\obj\Debug\Calculator_Test_1.csproj.CoreCompileInputs.cache
+C:\Users\jenne\source\repos\Calculator_Test_1\obj\Debug\Calculator_Test_1.exe
+C:\Users\jenne\source\repos\Calculator_Test_1\obj\Debug\Calculator_Test_1.pdb
