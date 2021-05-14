@@ -16,7 +16,7 @@ namespace Calculator_Test_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new test_label2());
+            Application.Run(new Form1());
         }
     }
 }
