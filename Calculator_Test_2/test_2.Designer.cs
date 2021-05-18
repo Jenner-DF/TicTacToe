@@ -119,6 +119,7 @@
             this._percent.TabIndex = 48;
             this._percent.Text = "%";
             this._percent.UseVisualStyleBackColor = true;
+            this._percent.Click += new System.EventHandler(this._percent_Click);
             // 
             // _divide
             // 
@@ -142,6 +143,7 @@
             this._sqrroot.Size = new System.Drawing.Size(78, 58);
             this._sqrroot.TabIndex = 46;
             this._sqrroot.UseVisualStyleBackColor = true;
+            this._sqrroot.Click += new System.EventHandler(this._sqrroot_Click);
             // 
             // _sqr
             // 
@@ -153,6 +155,7 @@
             this._sqr.Size = new System.Drawing.Size(78, 58);
             this._sqr.TabIndex = 45;
             this._sqr.UseVisualStyleBackColor = true;
+            this._sqr.Click += new System.EventHandler(this._sqr_Click);
             // 
             // _reciprocal
             // 
@@ -164,6 +167,7 @@
             this._reciprocal.Size = new System.Drawing.Size(78, 58);
             this._reciprocal.TabIndex = 44;
             this._reciprocal.UseVisualStyleBackColor = true;
+            this._reciprocal.Click += new System.EventHandler(this._reciprocal_Click);
             // 
             // _multiply
             // 
@@ -376,13 +380,12 @@
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(3, 56);
+            this.label2.Location = new System.Drawing.Point(-1, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(289, 37);
+            this.label2.Size = new System.Drawing.Size(291, 37);
             this.label2.TabIndex = 53;
-            this.label2.Text = "history";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // test_label
@@ -451,7 +454,7 @@
             this.Controls.Add(this._Sign);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
-            this.Text = "Calc_v150521";
+            this.Text = "Calc_v190521";
             this.Load += new System.EventHandler(this.test_2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Calculator_Test_2
+namespace Calculator_Test_2 
 {
     public partial class Form1 : Form
     {
-        bool optr_clicked, num_clicked, equal_clicked = false;
-        double first_num, second_num;
+        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, reciprocal_clicked, percent_clicked = false; //can merge reciprocal and symbol
+        double first_num, second_num, symbol_base;
+        byte char_symbols = 0;
         char optr_selected;
+
+        string[] optr_check = { "+", "-", "x", "÷" };
 
         public Form1()
         {
@@ -49,9 +52,14 @@ namespace Calculator_Test_2
             label2.Text = "";
             label1.Text = "0";
             test_label.Text = "";
+            test_label2.Text = "";
             optr_clicked = false;
             equal_clicked = false;
             num_clicked = false;
+            reciprocal_clicked = false;
+            symbols_clicked = false;
+            char_symbols = 0;
+
         } //running
 
         private void _backspace_Click(object sender, EventArgs e)
@@ -66,18 +74,102 @@ namespace Calculator_Test_2
             }
 
         } //running
+
+        private void _reciprocal_Click(object sender, EventArgs e)
+        {
+            var reciprocal = 1 / Convert.ToDouble(label1.Text);
+            label1.Text = reciprocal.ToString();
+            reciprocal_clicked = true;
+        }//running
+
+        private void _sqr_Click(object sender, EventArgs e)
+        {
+            var sqr_char = "sqr( ";
+
+            if (symbols_clicked)
+            {
+                //to display 
+                test_label2.Text = label2.Text.Length.ToString();
+
+                var minus_symbol = symbol_base.ToString().Length + (char_symbols);
+                label2.Text = label2.Text.Insert(label2.Text.Length - minus_symbol, sqr_char);
+                label2.Text = label2.Text.Insert(label2.Text.Length, " )");
+
+                //to display 
+                test_label.Text = (minus_symbol).ToString();
+            }
+            else
+            {
+                symbol_base = Convert.ToDouble(label1.Text);
+                var sqr_name = sqr_char + symbol_base.ToString() + " )"; 
+                label2.Text = label2.Text.Insert(label2.Text.Length, sqr_name);
+
+                //to display
+                test_label.Text = label2.Text;
+                test_label2.Text = label2.Text.Length.ToString();
+                symbols_clicked = true;  // when clicked
+            }
+
+            char_symbols += 7;
+            var sqr = Math.Pow(Convert.ToDouble(label1.Text), 2);
+            label1.Text = sqr.ToString();
+            //(symbol_base.Length + (7 * sqr_name_clicked)
+
+
+        }//running
+        private void _sqrroot_Click(object sender, EventArgs e)
+        {
+            var sqr_root = "√( ";
+
+            if (symbols_clicked)
+            {
+                var minus_symbol = symbol_base.ToString().Length + (char_symbols);
+                label2.Text = label2.Text.Insert(label2.Text.Length - minus_symbol, sqr_root);
+                label2.Text = label2.Text.Insert(label2.Text.Length, " )");
+            }
+            else
+            {
+                symbol_base = Convert.ToDouble(label1.Text);
+                var sqr_name = sqr_root + symbol_base.ToString() + " )"; //added space for proper format (ex. 10 +sqr => 10 + sqr) 
+                label2.Text = label2.Text.Insert(label2.Text.Length, sqr_name);
+                symbols_clicked = true;  // when clicked
+
+                //to display
+                test_label.Text = label2.Text;
+                test_label2.Text = label2.Text.Length.ToString();
+            }
+            char_symbols += 5;
+            var sqr = Math.Sqrt(Convert.ToDouble(label1.Text));
+            label1.Text = sqr.ToString();
+        } //running
+        private void _percent_Click(object sender, EventArgs e)
+        {
+            if (optr_check.Any(label2.Text.Contains))
+            {
+                var percent = first_num * (Convert.ToDouble(label1.Text) / 100);
+                label1.Text = percent.ToString();
+                optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1, 1));
+                label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + percent.ToString();
+            }
+            else
+            {
+                label1.Text = "0";
+            }
+            percent_clicked = true; 
+        }//running
+
         private void num_click(object sender, EventArgs e)
         {
             Button nums = (Button)sender;
-            if (optr_clicked) //i separate it will not work if i put it here both as optr needs to be click to run  
-            { 
+            if (optr_clicked) //I separate it, will not work if i put it here both as optr needs to be click to run  
+            {
                 label1.Text = nums.Text;
                 optr_clicked = false;
                 equal_clicked = false;
                 num_clicked = true;
-                
+
             }
-            else if (equal_clicked)
+            else if (equal_clicked || symbols_clicked || reciprocal_clicked || percent_clicked)
             {
                 label2.Text = "";
                 label1.Text = nums.Text;
@@ -93,142 +185,129 @@ namespace Calculator_Test_2
             else
             {
                 label1.Text = label1.Text + nums.Text;
-            }
 
+            }
+            symbols_clicked = false;
+            reciprocal_clicked = false;
+            percent_clicked = false;
+            char_symbols = 0;
+            
         }//running
 
         private void Operator(object sender, EventArgs e)
         {
             Button optr = (Button)sender;
 
-            string[] optr_check = { "+", "-", "x", "÷" };
-
-            if (optr_check.Any(label2.Text.Contains) && num_clicked)
+            if (optr_check.Any(label2.Text.Contains) && num_clicked || symbols_clicked || percent_clicked)
             {
-                
-                first_num = Convert.ToDouble(label2.Text.Substring(0, label2.Text.Length - 1)); //change first second num add num1 num 2
                 second_num = Convert.ToDouble(label1.Text);
-                optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1, 1)); //cannot find if there is second number (equals button)
+
+                //test diplay
                 test_label.Text = first_num.ToString();
                 test_label2.Text = label1.Text;
 
-                switch (optr_selected)  
-                {
-                    case '+':
-                        double optr_answer = first_num + second_num;
-                        label2.Text = optr_answer.ToString() + " " + optr.Text;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                    case '-':
-                        optr_answer = first_num - second_num;
+                //solving using function/method
+                var ans = solve(first_num, second_num);
+                label1.Text = ans.ToString();
+                label2.Text = ans.ToString() + " " + optr.Text;
 
-                        label2.Text = optr_answer.ToString() + " " + optr.Text;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                    case 'x':
-                        optr_answer = first_num * second_num;
-                        label2.Text = optr_answer.ToString() + " " + optr.Text;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                    case '÷':
-                        optr_answer = first_num / second_num;
-                        label2.Text = optr_answer.ToString() + " " + optr.Text;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                }
-               num_clicked = false;
+                num_clicked = false; // to not increment by itself
+
+                first_num = Convert.ToDouble(label1.Text);
             }
             else
-            {   
+            {
                 label2.Text = Convert.ToDouble(label1.Text) + " " + optr.Text;
+                first_num = Convert.ToDouble(label1.Text);
+                
+                //test display
                 test_label.Text = label2.Text;
             }
+
+            //button reset
+            symbols_clicked = false;
+            reciprocal_clicked = false;
+            percent_clicked = false;
+            char_symbols = 0;
+            equal_clicked = false; //need to put if clicking equals without clicking a number (operator clicked only)
             optr_clicked = true;
-        }//running, can now use operators
+        }//running
 
-        private void _equals_Click(object sender, EventArgs e) 
+        private void _equals_Click(object sender, EventArgs e)
         {
-            if (equal_clicked)
+            try
             {
-                optr_selected = Convert.ToChar(label2.Text.Substring(label2.Text.Length - (second_num.ToString().Length + 2), 1));
-                first_num = Convert.ToDouble(label1.Text);
-
-                switch (optr_selected) //some adjustments needed to switch places so label 1 and label 2 is not the same value
+                if (equal_clicked && optr_check.Any(label2.Text.Contains)) // if equals button clicked once // if num clicked: else will run
                 {
-                    case '+':
-                        label2.Text = first_num.ToString() + " + " + second_num.ToString();
-                        var optr_answer = first_num + second_num;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                    case '-':
-                        label2.Text = first_num.ToString() + " - " + second_num.ToString();
-                        optr_answer = first_num - second_num;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                    case 'x':
-                        label2.Text = first_num.ToString() + " x " + second_num.ToString();
-                        optr_answer = first_num * second_num;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                    case '÷':
-                        label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
-                        optr_answer = first_num / second_num;
-                        label1.Text = optr_answer.ToString();
-                        break;
-                }//need to improve later for other operations(%,1/x,sqrroot,x^2)
+                    first_num = Convert.ToDouble(label1.Text);
+                    label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
+                    var ans = solve(first_num, second_num);
+                    label1.Text = ans.ToString();
 
-            }
-            else if (num_clicked)//just copy and pasted it (must not copy and paste, fix this) use function 
-            {
-                try
+                    //test display
+                    test_label.Text = optr_selected.ToString();
+                }
+                else  //if equals button clicked for first time
                 {
-                    first_num = Convert.ToDouble(label2.Text.Substring(0, label2.Text.Length - 1)); //change first second num add num1 num 2
+                    //constant
                     second_num = Convert.ToDouble(label1.Text);
 
+                    var ans = solve(first_num, second_num);
+                    label1.Text = ans.ToString();
+                    label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
-                    optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1, 1)); //cannot find if there is second number (equals button)
-                    test_label.Text = first_num.ToString();
-                    test_label2.Text = label1.Text;
-
-                    switch (optr_selected)
-                    {
-                        case '+':
-                            var optr_answer = first_num + second_num;
-                            label2.Text = first_num.ToString() + " + " + second_num.ToString();
-                            label1.Text = optr_answer.ToString();
-                            break;
-                        case '-':
-                            optr_answer = first_num - second_num;
-
-                            label2.Text = first_num.ToString() + " - " + second_num.ToString();
-                            label1.Text = optr_answer.ToString();
-                            break;
-                        case 'x':
-                            optr_answer = first_num * second_num;
-                            label2.Text = first_num.ToString() + " x " + second_num.ToString();
-                            label1.Text = optr_answer.ToString();
-                            break;
-                        case '÷':
-                            optr_answer = first_num / second_num;
-                            label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
-                            label1.Text = optr_answer.ToString();
-                            break;
-                    }
                     equal_clicked = true;
-                    num_clicked = false;
-                }
-                catch
-                {
-                    label2.Text = label1.Text;
-                }
+                    num_clicked = false; // to not increment if operator is clicked after equals button is clicked again
+
+                    //test display
+                    test_label.Text =  first_num.ToString();
+                    test_label2.Text = second_num.ToString();
+                }       
             }
+            catch
+            {
+                label2.Text = "";// label1.Text;
+                equal_clicked = true;
+            }
+            //button reset
+            symbols_clicked = false;
+            reciprocal_clicked = false;
+            percent_clicked = false;
+            char_symbols = 0;
+        } //running 
+
+        private double solve(double first, double second)
+        {
+            double the_solve = 0;
             
-        } //running (repetitive, need to replace with function/method)
+            optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1 , 1));
+
+            switch (optr_selected)
+            {
+                case '+':
+                    the_solve = first + second;
+                    label2.Text = first_num.ToString() + " + " + second_num.ToString();
+                    break;
+                case '-':
+                    the_solve = first - second;
+                    label2.Text = first_num.ToString() + " - " + second_num.ToString();
+                    break;
+                case 'x':
+                    the_solve = first * second;
+                    label2.Text = first_num.ToString() + " x " + second_num.ToString(); 
+                    break;
+                case '÷':
+                    the_solve = first / second;
+                    label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
+                    break;
+            }
+            return the_solve;
+       
+      
+        }//running
         private void test_2_Load(object sender, EventArgs e)
         {
         }
     }
 }
-
-
