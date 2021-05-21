@@ -56,7 +56,7 @@ namespace Calculator_Test_2
             optr_clicked = false;
             equal_clicked = false;
             num_clicked = false;
-            //reciprocal_clicked = false;
+            reciprocal_clicked = false;
             symbols_clicked = false;
             char_symbols = 0;
 
