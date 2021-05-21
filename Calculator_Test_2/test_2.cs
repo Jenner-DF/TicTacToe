@@ -12,7 +12,7 @@ namespace Calculator_Test_2
 {
     public partial class Form1 : Form
     {
-        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, reciprocal_clicked, percent_clicked = false; //can merge reciprocal and symbol
+        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked = false; //can merge reciprocal and symbol
         double first_num, second_num, symbol_base;
         byte char_symbols = 0;
         char optr_selected;
@@ -56,7 +56,6 @@ namespace Calculator_Test_2
             optr_clicked = false;
             equal_clicked = false;
             num_clicked = false;
-            //reciprocal_clicked = false;
             symbols_clicked = false;
             char_symbols = 0;
 
@@ -77,10 +76,36 @@ namespace Calculator_Test_2
 
         private void _reciprocal_Click(object sender, EventArgs e)
         {
-            var reciprocal_char = "1/(";
+            var reciprocal_char = "1/( ";
+
+            if (symbols_clicked)
+            {
+                //to display 
+                test_label2.Text = label2.Text.Length.ToString();
+
+                var minus_symbol = symbol_base.ToString().Length + (char_symbols);
+                label2.Text = label2.Text.Insert(label2.Text.Length - minus_symbol, reciprocal_char);
+                label2.Text = label2.Text.Insert(label2.Text.Length, " )");
+
+                //to display 
+                test_label.Text = (minus_symbol).ToString();
+            }
+            else
+            {
+                symbol_base = Convert.ToDouble(label1.Text);
+                var reciprocal_name = reciprocal_char + symbol_base.ToString() + " )";
+                label2.Text = label2.Text.Insert(label2.Text.Length, reciprocal_name);
+
+                //to display
+                test_label.Text = label2.Text;
+                test_label2.Text = label2.Text.Length.ToString();
+                symbols_clicked = true;  // when clicked
+            }
+
+            char_symbols += 6;
             var reciprocal = 1 / Convert.ToDouble(label1.Text);
             label1.Text = reciprocal.ToString();
-            reciprocal_clicked = true;
+
         }//running
 
         private void _sqr_Click(object sender, EventArgs e)
@@ -170,7 +195,7 @@ namespace Calculator_Test_2
                 num_clicked = true;
 
             }
-            else if (equal_clicked || symbols_clicked || reciprocal_clicked || percent_clicked)
+            else if (equal_clicked || symbols_clicked || percent_clicked)
             {
                 label2.Text = "";
                 label1.Text = nums.Text;
@@ -189,7 +214,6 @@ namespace Calculator_Test_2
 
             }
             symbols_clicked = false;
-            reciprocal_clicked = false;
             percent_clicked = false;
             char_symbols = 0;
             
@@ -199,7 +223,7 @@ namespace Calculator_Test_2
         {
             Button optr = (Button)sender;
 
-            if (optr_check.Any(label2.Text.Contains) && num_clicked || symbols_clicked || percent_clicked)
+            if (optr_check.Any(label2.Text.Contains) && num_clicked )//|| symbols_clicked || percent_clicked) 
             {
                 second_num = Convert.ToDouble(label1.Text);
 
@@ -227,7 +251,6 @@ namespace Calculator_Test_2
 
             //button reset
             symbols_clicked = false;
-            reciprocal_clicked = false;
             percent_clicked = false;
             char_symbols = 0;
             equal_clicked = false; //need to put if clicking equals without clicking a number (operator clicked only)
@@ -249,6 +272,11 @@ namespace Calculator_Test_2
                     //test display
                     test_label.Text = optr_selected.ToString();
                 }
+                else if (!optr_check.Any(label2.Text.Contains))
+                {
+                    label2.Text = label1.Text + " =";
+                    
+                }
                 else  //if equals button clicked for first time
                 {
                     //constant
@@ -258,7 +286,7 @@ namespace Calculator_Test_2
                     label1.Text = ans.ToString();
                     label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
-                    equal_clicked = true;
+                    //equal_clicked = true;
                     num_clicked = false; // to not increment if operator is clicked after equals button is clicked again
 
                     //test display
@@ -272,8 +300,8 @@ namespace Calculator_Test_2
                 equal_clicked = true;
             }
             //button reset
+            equal_clicked = true;
             symbols_clicked = false;
-            reciprocal_clicked = false;
             percent_clicked = false;
             char_symbols = 0;
         } //running 
