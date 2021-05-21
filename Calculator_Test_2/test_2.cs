@@ -12,7 +12,7 @@ namespace Calculator_Test_2
 {
     public partial class Form1 : Form
     {
-        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked = false; //can merge reciprocal and symbol
+        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked = false; 
         double first_num, second_num, symbol_base;
         byte char_symbols = 0;
         char optr_selected;
