@@ -77,6 +77,7 @@ namespace Calculator_Test_2
 
         private void _reciprocal_Click(object sender, EventArgs e)
         {
+            var reciprocal_char = "1/(";
             var reciprocal = 1 / Convert.ToDouble(label1.Text);
             label1.Text = reciprocal.ToString();
             reciprocal_clicked = true;
