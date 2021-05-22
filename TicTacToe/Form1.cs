@@ -20,7 +20,7 @@ namespace TicTacToe
         private void Button_Click(object sender, EventArgs e)
         {
             Button Click = sender as Button;
-            Click.Enabled = false;
+           Click.Enabled = false;
             if (player)
             {
                 Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
@@ -40,7 +40,11 @@ namespace TicTacToe
             if (count >= 5)
             {
                 label1.Text = "YOLO";
-               winner(Click.Text);
+                winner();
+                if (label1.Text == "WINNER")
+                {
+                    Panel.Enabled = false;
+                }
             }
 
             //label1.Text = Click.Text;// test*/
@@ -49,21 +53,41 @@ namespace TicTacToe
 
         }
 
-        private void winner(string last_click)
+        private void winner()
         {
-            if (last_click == button2.Text && last_click == button3.Text) //|| last_click == button4.Image || last_click == button5.Image)
+            if (button5.Text == button9.Text && button5.Text == button1.Text)//diagonal from left
             {
                 label1.Text = "WINNER";
             }
-            else if (last_click == button5.Text && last_click == button9.Text)
+            else if (button5.Text == button3.Text && button5.Text == button7.Text)//diagonal from right
             {
                 label1.Text = "WINNER";
             }
-            else if(last_click == button4.Text && last_click == button7.Text)
+            else if (button5.Text == button4.Text && button5.Text == button6.Text)// horizontal mid
             {
                 label1.Text = "WINNER";
             }
-            
+            else if (button5.Text == button2.Text && button5.Text == button8.Text)// vertical mid
+            {
+                label1.Text = "WINNER";
+            }
+            else if (button1.Text == button2.Text && button1.Text == button3.Text)//topleft to right
+            {
+                label1.Text = "WINNER";
+            }
+            else if (button1.Text == button4.Text && button1.Text == button7.Text)//topleft to bottom
+            {
+                label1.Text = "WINNER";
+            }
+            else if (button7.Text == button8.Text && button7.Text == button9.Text)//botleft to right
+            {
+                label1.Text = "WINNER";
+            }
+            else if (button9.Text == button6.Text && button9.Text == button3.Text)//botright to top
+            {
+                label1.Text = "WINNER";
+            }
+
         }
         private void colorchange()
         {
