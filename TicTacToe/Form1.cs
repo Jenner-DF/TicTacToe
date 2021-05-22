@@ -36,10 +36,13 @@ namespace TicTacToe
                 player = true;
             }
 
-            
-            label1.Text = Click.Text;
+            label1.Text = Click.Text;// test
 
-           
+            //create function to check if there is a winner
+
+
+
+
 
 
         }
