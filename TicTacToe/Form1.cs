@@ -19,8 +19,9 @@ namespace TicTacToe
         }
         private void Button_Click(object sender, EventArgs e)
         {
-            Button Click = sender as Button;
-           Click.Enabled = false;
+           Button Click = sender as Button;
+           Click.Enabled = false; 
+
             if (player)
             {
                 Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
@@ -36,23 +37,18 @@ namespace TicTacToe
 
             count++;
             colorchange();
+            //test display
             label1.Text = count.ToString();
+
             if (count >= 5)
             {
-                label1.Text = "YOLO";
                 winner();
                 if (label1.Text == "WINNER")
                 {
                     Panel.Enabled = false;
                 }
             }
-
-            //label1.Text = Click.Text;// test*/
-            
-            //create function to check if there is a winner
-
-        }
-
+        } // improve design, change Click.enabled to something to preserve color
         private void winner()
         {
             if (button5.Text == button9.Text && button5.Text == button1.Text)//diagonal from left
@@ -88,7 +84,7 @@ namespace TicTacToe
                 label1.Text = "WINNER";
             }
 
-        }
+        }//running
         private void colorchange()
         {
             foreach (Button c in Panel.Controls)

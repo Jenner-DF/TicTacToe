@@ -177,7 +177,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Desktop;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(11, 12);
             this.button1.Name = "button1";
@@ -202,6 +202,7 @@
             this.Panel.Controls.Add(this.button3);
             this.Panel.Controls.Add(this.button2);
             this.Panel.Controls.Add(this.button1);
+            this.Panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Panel.Location = new System.Drawing.Point(27, 0);
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(340, 337);
