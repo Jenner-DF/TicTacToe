@@ -25,29 +25,45 @@ namespace TicTacToe
             {
                 Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
                 player = false;
+                Click.Text = "X";
             }
             else
             {
                 Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_O.png");
                 player = true;
+                Click.Text = "O";
             }
 
-            
-            
-            
             count++;
             colorchange();
+            label1.Text = count.ToString();
+            if (count >= 5)
+            {
+                label1.Text = "YOLO";
+               winner(Click.Text);
+            }
 
-
-            /* if (count >= 5)
-             {
-                 var check = winner();
-             }
-
-             label1.Text = Click.Text;// test*/
-
+            //label1.Text = Click.Text;// test*/
+            
             //create function to check if there is a winner
 
+        }
+
+        private void winner(string last_click)
+        {
+            if (last_click == button2.Text && last_click == button3.Text) //|| last_click == button4.Image || last_click == button5.Image)
+            {
+                label1.Text = "WINNER";
+            }
+            else if (last_click == button5.Text && last_click == button9.Text)
+            {
+                label1.Text = "WINNER";
+            }
+            else if(last_click == button4.Text && last_click == button7.Text)
+            {
+                label1.Text = "WINNER";
+            }
+            
         }
         private void colorchange()
         {
@@ -61,18 +77,7 @@ namespace TicTacToe
                 {
                     c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.IndianRed);
                 }
-                
-
             }
-        }
-
-        /*private string winner()
-{
-string champion;
-Console.WriteLine("Hello");
-
-return champion;
-
-}*/
+        }//running
     }
 }
