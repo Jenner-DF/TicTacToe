@@ -12,7 +12,6 @@ namespace TicTacToe
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -39,7 +38,6 @@ namespace TicTacToe
             //test display
             label1.Text = count.ToString();
 
-
             if (count >= 5 && count < 9)
             {
                 winner();
@@ -62,10 +60,7 @@ namespace TicTacToe
                 panel_newgame.Enabled = true;
                 score_tie.Text = (Convert.ToInt32(score_tie.Text) + 1).ToString();
             }
-
-
-            
-        } // improve design, change Click.enabled to something to preserve color
+        } 
         private void winner()
         {
             if (button5.Text == button9.Text && button5.Text == button1.Text)//diagonal from left
@@ -103,48 +98,41 @@ namespace TicTacToe
             }
 
         }//running
-
         private void colorchange()
         {
-            //use try catch if adding picture box
             try
             {
-                foreach (Button c in Panel.Controls)
+                foreach (Button button in Panel.Controls)
                 {
                     if (count % 2 == 0)
                     {
-                        c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.DodgerBlue);
+                        button.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.DodgerBlue);
                     }
                     else
                     {
-                        c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.IndianRed);
+                        button.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.IndianRed);
                     }
                 }
             }
             catch
             {
-
             }
             
         }//running
-
-        private void click_image(string btn_name) //substring last letter of button name (number) then combine that number to picturebox name 
-        { //I can change this in color change same pattern
-            var a = btn_name.Substring(btn_name.Length-1);
-            var b = "pictureBox" + a;
-            
+        private void click_image(string btn_name) 
+        { 
+            var last = btn_name.Substring(btn_name.Length-1);
+            var picturebox_name = "pictureBox" + last;
 
             if (count % 2 == 0)
             {
-                Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_O.png");
+                Controls.Find(picturebox_name, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_O.png");
             }
             else
             {
-                Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
-            }
-            
+                Controls.Find(picturebox_name, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
+            } 
         }
-
         private void score_reset_Click(object sender, EventArgs e)
         {
             score_blue.Text = "0";
@@ -152,19 +140,16 @@ namespace TicTacToe
             score_tie.Text = "0";
             Panel_clicked(null,null);
         }
-
         private void Panel_clicked(object sender, EventArgs e)
         {
             Panel.Enabled = true;
 
-           
              for (int button_count = 1; button_count <= 9; button_count++)
              {
                  var reset_text = "button" + button_count;
                  Controls.Find(reset_text, true)[0].Text = button_count.ToString();
                  Controls.Find(reset_text, true)[0].Enabled = true;
                  Controls.Find(reset_text, true)[0].BringToFront();
-
                 try
                 {
                     foreach (Button c in Panel.Controls)
@@ -174,9 +159,8 @@ namespace TicTacToe
                 }
                 catch { }
             }
-
             count = 0;
             panel_newgame.Enabled = false;
         }
     }
-}//no reset, scoreboard, display winner, 
+}//no display winner, 
