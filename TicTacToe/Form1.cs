@@ -39,30 +39,32 @@ namespace TicTacToe
             //test display
             label1.Text = count.ToString();
 
-            if (count == 9)
+
+            if (count >= 5 && count < 9)
+            {
+                winner();
+                if (count % 2 == 0 && label1.Text == "WINNER")
+                {
+                    Panel.Enabled = false;
+                    panel_newgame.Enabled = true;
+                    score_red.Text = (Convert.ToInt32(score_red.Text) + 1).ToString();
+                }
+                else if (count % 2 == 1 && label1.Text == "WINNER")
+                {
+                    Panel.Enabled = false;
+                    panel_newgame.Enabled = true;
+                    score_blue.Text = (Convert.ToInt32(score_blue.Text) + 1).ToString();
+                }
+            }
+            else if (count == 9)
             {
                 Panel.Enabled = false;
                 panel_newgame.Enabled = true;
                 score_tie.Text = (Convert.ToInt32(score_tie.Text) + 1).ToString();
             }
 
-            else if (count >= 5)
-            {
-                winner();
-                if (count % 2 == 0 && label1.Text == "WINNER")
-                {
-                    Panel.Enabled = false ;
-                    panel_newgame.Enabled = true;
-                    score_red.Text = (Convert.ToInt32(score_red.Text) + 1).ToString();
-                }
-                else if(count % 2 == 1 && label1.Text == "WINNER")
-                {
-                    Panel.Enabled = false;
-                    panel_newgame.Enabled = true;
-                    score_blue.Text = (Convert.ToInt32(score_blue.Text) + 1).ToString();
-                }
 
-            }
+            
         } // improve design, change Click.enabled to something to preserve color
         private void winner()
         {
