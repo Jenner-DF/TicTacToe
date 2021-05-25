@@ -89,6 +89,7 @@ namespace TicTacToe
             }
 
         }//running
+
         private void colorchange()
         {
             //use try catch if adding picture box
@@ -113,12 +114,22 @@ namespace TicTacToe
             
         }//running
 
+
+
         private void click_image(string btn_name) //substring last letter of button name (number) then combine that number to picturebox name 
         { //I can change this in color change same pattern
             var a = btn_name.Substring(btn_name.Length-1);
             var b = "pictureBox" + a;
-            
-            Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
+
+            if (count % 2 == 0)
+            {
+                Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_O.png");
+            }
+            else
+            {
+                Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
+            }
+           
             
         }
     }
