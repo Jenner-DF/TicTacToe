@@ -20,13 +20,14 @@ namespace TicTacToe
         private void Button_Click(object sender, EventArgs e)
         {
            Button Click = sender as Button;
-           Click.Enabled = false; 
-
+           Click.Enabled = false;
+           Click.Visible = false;
             if (player)
             {
                 Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
                 player = false;
                 Click.Text = "X";
+                
             }
             else
             {
@@ -35,10 +36,13 @@ namespace TicTacToe
                 Click.Text = "O";
             }
 
+            //click_image(Click.Name);
             count++;
             colorchange();
+            
+            click_image(Click.Name);
             //test display
-            label1.Text = count.ToString();
+            //label1.Text = count.ToString();
 
             if (count >= 5)
             {
@@ -87,17 +91,35 @@ namespace TicTacToe
         }//running
         private void colorchange()
         {
-            foreach (Button c in Panel.Controls)
+            //use try catch if adding picture box
+            try
             {
-                if (count % 2 == 0)
+                foreach (Button c in Panel.Controls)
                 {
-                    c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.DodgerBlue);
-                }
-                else
-                {
-                    c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.IndianRed);
+                    if (count % 2 == 0)
+                    {
+                        c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.DodgerBlue);
+                    }
+                    else
+                    {
+                        c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.IndianRed);
+                    }
                 }
             }
+            catch
+            {
+
+            }
+            
         }//running
+
+        private void click_image(string btn_name) //substring last letter of button name (number) then combine that number to picturebox name 
+        { //I can change this in color change same pattern
+            var a = btn_name.Substring(btn_name.Length-1);
+            var b = "pictureBox" + a;
+            
+            Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
+            
+        }
     }
-}
+}//no reset, scoreboard, display winner, 
