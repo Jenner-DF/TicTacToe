@@ -39,17 +39,26 @@ namespace TicTacToe
             //test display
             label1.Text = count.ToString();
 
-            if (count >= 5)
+            if (count == 9)
+            {
+                Panel.Enabled = false;
+                panel_newgame.Enabled = true;
+                score_tie.Text = (Convert.ToInt32(score_tie.Text) + 1).ToString();
+            }
+
+            else if (count >= 5)
             {
                 winner();
                 if (count % 2 == 0 && label1.Text == "WINNER")
                 {
                     Panel.Enabled = false ;
+                    panel_newgame.Enabled = true;
                     score_red.Text = (Convert.ToInt32(score_red.Text) + 1).ToString();
                 }
                 else if(count % 2 == 1 && label1.Text == "WINNER")
                 {
                     Panel.Enabled = false;
+                    panel_newgame.Enabled = true;
                     score_blue.Text = (Convert.ToInt32(score_blue.Text) + 1).ToString();
                 }
 
@@ -76,7 +85,7 @@ namespace TicTacToe
             else if (button1.Text == button2.Text && button1.Text == button3.Text)//topleft to right
             {
                 label1.Text = "WINNER";
-                label2.Text = "XD";
+                
             }
             else if (button1.Text == button4.Text && button1.Text == button7.Text)//topleft to bottom
             {
@@ -138,37 +147,34 @@ namespace TicTacToe
         {
             score_blue.Text = "0";
             score_red.Text = "0";
-        }
-
-        private void new_game_Click(object sender, EventArgs e)
-        {
-            Panel.Enabled = true;
-          
-            for (int button_count = 1; button_count <= 9; button_count++)
-            {
-                var reset_text = "button" + button_count;
-                Controls.Find(reset_text, true)[0].Text = button_count.ToString();
-                Controls.Find(reset_text, true)[0].Enabled = true;
-                Controls.Find(reset_text, true)[0].BringToFront();
-
-            }
-           
+            score_tie.Text = "0";
+            Panel_clicked(null,null);
         }
 
         private void Panel_clicked(object sender, EventArgs e)
         {
-            if (!Panel.Enabled)
-            {
-                Panel.Enabled = true;
+            Panel.Enabled = true;
 
-                for (int button_count = 1; button_count <= 9; button_count++)
+           
+             for (int button_count = 1; button_count <= 9; button_count++)
+             {
+                 var reset_text = "button" + button_count;
+                 Controls.Find(reset_text, true)[0].Text = button_count.ToString();
+                 Controls.Find(reset_text, true)[0].Enabled = true;
+                 Controls.Find(reset_text, true)[0].BringToFront();
+
+                try
                 {
-                    var reset_text = "button" + button_count;
-                    Controls.Find(reset_text, true)[0].Text = button_count.ToString();
-                    Controls.Find(reset_text, true)[0].Enabled = true;
-                    Controls.Find(reset_text, true)[0].BringToFront();
+                    foreach (Button c in Panel.Controls)
+                    {
+                        c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.DodgerBlue);
+                    }
                 }
+                catch { }
             }
+
+            count = 0;
+            panel_newgame.Enabled = false;
         }
     }
 }//no reset, scoreboard, display winner, 
