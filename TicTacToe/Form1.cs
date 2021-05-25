@@ -21,7 +21,7 @@ namespace TicTacToe
         {
            Button Click = sender as Button;
            Click.Enabled = false;
-           Click.Visible = false;
+           Click.SendToBack();
             if (player)
             {
                 Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
@@ -39,17 +39,16 @@ namespace TicTacToe
             //click_image(Click.Name);
             count++;
             colorchange();
-            
             click_image(Click.Name);
             //test display
-            //label1.Text = count.ToString();
+            label1.Text = count.ToString();
 
             if (count >= 5)
             {
                 winner();
                 if (label1.Text == "WINNER")
                 {
-                    Panel.Enabled = false;
+                    Panel.Enabled = false ;
                 }
             }
         } // improve design, change Click.enabled to something to preserve color
@@ -58,6 +57,7 @@ namespace TicTacToe
             if (button5.Text == button9.Text && button5.Text == button1.Text)//diagonal from left
             {
                 label1.Text = "WINNER";
+                label2.Text = "ASASASASA";
             }
             else if (button5.Text == button3.Text && button5.Text == button7.Text)//diagonal from right
             {
@@ -70,10 +70,12 @@ namespace TicTacToe
             else if (button5.Text == button2.Text && button5.Text == button8.Text)// vertical mid
             {
                 label1.Text = "WINNER";
+                label2.Text = "LUL";
             }
             else if (button1.Text == button2.Text && button1.Text == button3.Text)//topleft to right
             {
                 label1.Text = "WINNER";
+                label2.Text = "XD";
             }
             else if (button1.Text == button4.Text && button1.Text == button7.Text)//topleft to bottom
             {
@@ -82,6 +84,7 @@ namespace TicTacToe
             else if (button7.Text == button8.Text && button7.Text == button9.Text)//botleft to right
             {
                 label1.Text = "WINNER";
+                label2.Text = "ZAHAH";
             }
             else if (button9.Text == button6.Text && button9.Text == button3.Text)//botright to top
             {
@@ -115,11 +118,11 @@ namespace TicTacToe
         }//running
 
 
-
         private void click_image(string btn_name) //substring last letter of button name (number) then combine that number to picturebox name 
         { //I can change this in color change same pattern
             var a = btn_name.Substring(btn_name.Length-1);
             var b = "pictureBox" + a;
+            
 
             if (count % 2 == 0)
             {
@@ -129,7 +132,6 @@ namespace TicTacToe
             {
                 Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
             }
-           
             
         }
     }
