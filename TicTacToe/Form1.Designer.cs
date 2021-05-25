@@ -51,6 +51,12 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.score_reset = new System.Windows.Forms.Button();
+            this.new_game = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.score_blue = new System.Windows.Forms.Label();
+            this.score_red = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -67,9 +73,9 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Location = new System.Drawing.Point(253, 583);
+            this.label1.Location = new System.Drawing.Point(64, 583);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 31);
+            this.label1.Size = new System.Drawing.Size(233, 31);
             this.label1.TabIndex = 20;
             this.label1.Text = "label1";
             // 
@@ -116,8 +122,9 @@
             this.Panel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Panel.Location = new System.Drawing.Point(28, 26);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(585, 554);
+            this.Panel.Size = new System.Drawing.Size(563, 544);
             this.Panel.TabIndex = 36;
+            this.Panel.Click += new System.EventHandler(this.Panel_clicked);
             // 
             // pictureBox7
             // 
@@ -352,11 +359,75 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(651, 36);
+            this.label2.Location = new System.Drawing.Point(360, 592);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 37;
             this.label2.Text = "label2asd";
+            // 
+            // score_reset
+            // 
+            this.score_reset.Location = new System.Drawing.Point(660, 83);
+            this.score_reset.Name = "score_reset";
+            this.score_reset.Size = new System.Drawing.Size(80, 24);
+            this.score_reset.TabIndex = 38;
+            this.score_reset.Text = "Reset Score";
+            this.score_reset.UseVisualStyleBackColor = true;
+            this.score_reset.Click += new System.EventHandler(this.score_reset_Click);
+            // 
+            // new_game
+            // 
+            this.new_game.Location = new System.Drawing.Point(629, 159);
+            this.new_game.Name = "new_game";
+            this.new_game.Size = new System.Drawing.Size(122, 64);
+            this.new_game.TabIndex = 39;
+            this.new_game.Text = "New Game";
+            this.new_game.UseVisualStyleBackColor = true;
+            this.new_game.Click += new System.EventHandler(this.new_game_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
+            this.label3.Location = new System.Drawing.Point(699, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 25);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "| RED";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label4.Location = new System.Drawing.Point(624, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 25);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "BLUE |";
+            // 
+            // score_blue
+            // 
+            this.score_blue.AutoSize = true;
+            this.score_blue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score_blue.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.score_blue.Location = new System.Drawing.Point(646, 51);
+            this.score_blue.Name = "score_blue";
+            this.score_blue.Size = new System.Drawing.Size(24, 25);
+            this.score_blue.TabIndex = 42;
+            this.score_blue.Text = "0";
+            // 
+            // score_red
+            // 
+            this.score_red.AutoSize = true;
+            this.score_red.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score_red.ForeColor = System.Drawing.Color.DarkRed;
+            this.score_red.Location = new System.Drawing.Point(722, 51);
+            this.score_red.Name = "score_red";
+            this.score_red.Size = new System.Drawing.Size(24, 25);
+            this.score_red.TabIndex = 43;
+            this.score_red.Text = "0";
             // 
             // Form1
             // 
@@ -364,6 +435,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(877, 640);
+            this.Controls.Add(this.score_red);
+            this.Controls.Add(this.score_blue);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.new_game);
+            this.Controls.Add(this.score_reset);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.label1);
@@ -411,6 +488,12 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button score_reset;
+        private System.Windows.Forms.Button new_game;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label score_blue;
+        private System.Windows.Forms.Label score_red;
     }
 }
 

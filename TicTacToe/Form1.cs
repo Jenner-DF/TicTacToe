@@ -24,19 +24,15 @@ namespace TicTacToe
            Click.SendToBack();
             if (player)
             {
-                Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
                 player = false;
                 Click.Text = "X";
-                
             }
             else
             {
-                Click.Image = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_O.png");
                 player = true;
                 Click.Text = "O";
             }
 
-            //click_image(Click.Name);
             count++;
             colorchange();
             click_image(Click.Name);
@@ -46,10 +42,17 @@ namespace TicTacToe
             if (count >= 5)
             {
                 winner();
-                if (label1.Text == "WINNER")
+                if (count % 2 == 0 && label1.Text == "WINNER")
                 {
                     Panel.Enabled = false ;
+                    score_red.Text = (Convert.ToInt32(score_red.Text) + 1).ToString();
                 }
+                else if(count % 2 == 1 && label1.Text == "WINNER")
+                {
+                    Panel.Enabled = false;
+                    score_blue.Text = (Convert.ToInt32(score_blue.Text) + 1).ToString();
+                }
+
             }
         } // improve design, change Click.enabled to something to preserve color
         private void winner()
@@ -57,7 +60,6 @@ namespace TicTacToe
             if (button5.Text == button9.Text && button5.Text == button1.Text)//diagonal from left
             {
                 label1.Text = "WINNER";
-                label2.Text = "ASASASASA";
             }
             else if (button5.Text == button3.Text && button5.Text == button7.Text)//diagonal from right
             {
@@ -70,7 +72,6 @@ namespace TicTacToe
             else if (button5.Text == button2.Text && button5.Text == button8.Text)// vertical mid
             {
                 label1.Text = "WINNER";
-                label2.Text = "LUL";
             }
             else if (button1.Text == button2.Text && button1.Text == button3.Text)//topleft to right
             {
@@ -84,7 +85,6 @@ namespace TicTacToe
             else if (button7.Text == button8.Text && button7.Text == button9.Text)//botleft to right
             {
                 label1.Text = "WINNER";
-                label2.Text = "ZAHAH";
             }
             else if (button9.Text == button6.Text && button9.Text == button3.Text)//botright to top
             {
@@ -117,7 +117,6 @@ namespace TicTacToe
             
         }//running
 
-
         private void click_image(string btn_name) //substring last letter of button name (number) then combine that number to picturebox name 
         { //I can change this in color change same pattern
             var a = btn_name.Substring(btn_name.Length-1);
@@ -133,6 +132,43 @@ namespace TicTacToe
                 Controls.Find(b, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
             }
             
+        }
+
+        private void score_reset_Click(object sender, EventArgs e)
+        {
+            score_blue.Text = "0";
+            score_red.Text = "0";
+        }
+
+        private void new_game_Click(object sender, EventArgs e)
+        {
+            Panel.Enabled = true;
+          
+            for (int button_count = 1; button_count <= 9; button_count++)
+            {
+                var reset_text = "button" + button_count;
+                Controls.Find(reset_text, true)[0].Text = button_count.ToString();
+                Controls.Find(reset_text, true)[0].Enabled = true;
+                Controls.Find(reset_text, true)[0].BringToFront();
+
+            }
+           
+        }
+
+        private void Panel_clicked(object sender, EventArgs e)
+        {
+            if (!Panel.Enabled)
+            {
+                Panel.Enabled = true;
+
+                for (int button_count = 1; button_count <= 9; button_count++)
+                {
+                    var reset_text = "button" + button_count;
+                    Controls.Find(reset_text, true)[0].Text = button_count.ToString();
+                    Controls.Find(reset_text, true)[0].Enabled = true;
+                    Controls.Find(reset_text, true)[0].BringToFront();
+                }
+            }
         }
     }
 }//no reset, scoreboard, display winner, 
