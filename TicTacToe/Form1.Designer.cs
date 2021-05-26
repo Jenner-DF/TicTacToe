@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_checkwin = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.Panel = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -50,7 +50,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.score_reset = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,6 +58,10 @@
             this.panel_newgame = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.score_tie = new System.Windows.Forms.Label();
+            this.new_game = new System.Windows.Forms.Button();
+            this.label_whowill = new System.Windows.Forms.Label();
+            this.label_qmark = new System.Windows.Forms.Label();
+            this.label_win = new System.Windows.Forms.Label();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -72,14 +75,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // label_checkwin
             // 
-            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Location = new System.Drawing.Point(64, 583);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(233, 31);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "label1";
+            this.label_checkwin.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label_checkwin.Location = new System.Drawing.Point(636, 430);
+            this.label_checkwin.Name = "label_checkwin";
+            this.label_checkwin.Size = new System.Drawing.Size(147, 31);
+            this.label_checkwin.TabIndex = 20;
+            this.label_checkwin.Text = "label1";
             // 
             // button3
             // 
@@ -126,7 +129,6 @@
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(565, 545);
             this.Panel.TabIndex = 36;
-            this.Panel.Click += new System.EventHandler(this.Panel_clicked);
             // 
             // button9
             // 
@@ -357,22 +359,18 @@
             this.pictureBox10.TabIndex = 45;
             this.pictureBox10.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(360, 592);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "label2asd";
-            // 
             // score_reset
             // 
-            this.score_reset.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score_reset.Location = new System.Drawing.Point(658, 72);
+            this.score_reset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.score_reset.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.score_reset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Olive;
+            this.score_reset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkKhaki;
+            this.score_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.score_reset.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score_reset.ForeColor = System.Drawing.Color.Khaki;
+            this.score_reset.Location = new System.Drawing.Point(625, 71);
             this.score_reset.Name = "score_reset";
-            this.score_reset.Size = new System.Drawing.Size(80, 24);
+            this.score_reset.Size = new System.Drawing.Size(143, 34);
             this.score_reset.TabIndex = 38;
             this.score_reset.Text = "Reset";
             this.score_reset.UseVisualStyleBackColor = true;
@@ -405,6 +403,7 @@
             // score_blue
             // 
             this.score_blue.AutoSize = true;
+            this.score_blue.BackColor = System.Drawing.Color.Transparent;
             this.score_blue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score_blue.ForeColor = System.Drawing.Color.RoyalBlue;
             this.score_blue.Location = new System.Drawing.Point(620, 69);
@@ -439,7 +438,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Info;
-            this.label5.Location = new System.Drawing.Point(675, 12);
+            this.label5.Location = new System.Drawing.Point(675, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 28);
             this.label5.TabIndex = 46;
@@ -450,29 +449,88 @@
             this.score_tie.AutoSize = true;
             this.score_tie.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score_tie.ForeColor = System.Drawing.SystemColors.Info;
-            this.score_tie.Location = new System.Drawing.Point(683, 43);
+            this.score_tie.Location = new System.Drawing.Point(683, 41);
             this.score_tie.Name = "score_tie";
             this.score_tie.Size = new System.Drawing.Size(24, 25);
             this.score_tie.TabIndex = 47;
             this.score_tie.Text = "0";
+            // 
+            // new_game
+            // 
+            this.new_game.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.new_game.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.new_game.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Olive;
+            this.new_game.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkKhaki;
+            this.new_game.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.new_game.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_game.ForeColor = System.Drawing.Color.Khaki;
+            this.new_game.Location = new System.Drawing.Point(635, 104);
+            this.new_game.Name = "new_game";
+            this.new_game.Size = new System.Drawing.Size(122, 34);
+            this.new_game.TabIndex = 48;
+            this.new_game.Text = "New Game";
+            this.new_game.UseVisualStyleBackColor = true;
+            this.new_game.Click += new System.EventHandler(this.Panel_clicked);
+            // 
+            // label_whowill
+            // 
+            this.label_whowill.AutoSize = true;
+            this.label_whowill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label_whowill.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_whowill.ForeColor = System.Drawing.Color.SpringGreen;
+            this.label_whowill.Location = new System.Drawing.Point(646, 219);
+            this.label_whowill.Name = "label_whowill";
+            this.label_whowill.Size = new System.Drawing.Size(84, 19);
+            this.label_whowill.TabIndex = 50;
+            this.label_whowill.Text = "WHO WILL";
+            this.label_whowill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_qmark
+            // 
+            this.label_qmark.AutoEllipsis = true;
+            this.label_qmark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label_qmark.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_qmark.ForeColor = System.Drawing.Color.SpringGreen;
+            this.label_qmark.Location = new System.Drawing.Point(610, 224);
+            this.label_qmark.Name = "label_qmark";
+            this.label_qmark.Size = new System.Drawing.Size(158, 103);
+            this.label_qmark.TabIndex = 52;
+            this.label_qmark.Text = "?";
+            this.label_qmark.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_win
+            // 
+            this.label_win.AutoSize = true;
+            this.label_win.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label_win.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_win.ForeColor = System.Drawing.Color.SpringGreen;
+            this.label_win.Location = new System.Drawing.Point(662, 322);
+            this.label_win.Name = "label_win";
+            this.label_win.Size = new System.Drawing.Size(41, 19);
+            this.label_win.TabIndex = 53;
+            this.label_win.Text = "WIN";
+            this.label_win.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(784, 640);
+            this.ClientSize = new System.Drawing.Size(784, 571);
+            this.Controls.Add(this.label_whowill);
+            this.Controls.Add(this.label_win);
+            this.Controls.Add(this.label_qmark);
             this.Controls.Add(this.score_tie);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.score_red);
             this.Controls.Add(this.score_blue);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.score_reset);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.Panel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_checkwin);
             this.Controls.Add(this.panel_newgame);
+            this.Controls.Add(this.score_reset);
+            this.Controls.Add(this.new_game);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
@@ -495,7 +553,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_checkwin;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -516,7 +574,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button score_reset;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -525,6 +582,10 @@
         private System.Windows.Forms.Panel panel_newgame;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label score_tie;
+        private System.Windows.Forms.Button new_game;
+        private System.Windows.Forms.Label label_whowill;
+        private System.Windows.Forms.Label label_qmark;
+        private System.Windows.Forms.Label label_win;
     }
 }
 

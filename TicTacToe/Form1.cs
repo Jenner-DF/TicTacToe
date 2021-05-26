@@ -8,19 +8,20 @@ namespace TicTacToe
     {
         bool player = true;
         byte count = 0;
+       
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
         private void Button_Click(object sender, EventArgs e)
         {
            Button Click = sender as Button;
            Click.Enabled = false;
            Click.SendToBack();
+
             if (player)
             {
                 player = false;
@@ -36,65 +37,80 @@ namespace TicTacToe
             colorchange();
             click_image(Click.Name);
             //test display
-            label1.Text = count.ToString();
+            label_checkwin.Text = count.ToString();
 
-            if (count >= 5 && count < 9)
+            if (count >= 5 && count <= 9)
             {
                 winner();
-                if (count % 2 == 0 && label1.Text == "WINNER")
+                if (count % 2 == 0 && label_checkwin.Text == "WINNER")
                 {
                     Panel.Enabled = false;
                     panel_newgame.Enabled = true;
                     score_red.Text = (Convert.ToInt32(score_red.Text) + 1).ToString();
+
+                    label_qmark.Text = "RED";
+                    label_win.Text = "WINS";
+                    label_whowill.Text = "";
+                    label_qmark.ForeColor = Color.FromKnownColor(KnownColor.IndianRed);
                 }
-                else if (count % 2 == 1 && label1.Text == "WINNER")
+                else if (count % 2 == 1 && label_checkwin.Text == "WINNER")
                 {
                     Panel.Enabled = false;
                     panel_newgame.Enabled = true;
                     score_blue.Text = (Convert.ToInt32(score_blue.Text) + 1).ToString();
+
+                    label_qmark.Text = "BLUE";
+                    label_win.Text = "WINS";
+                    label_whowill.Text = "";
+                    label_qmark.ForeColor = Color.FromKnownColor(KnownColor.DodgerBlue);
+                    
                 }
             }
-            else if (count == 9)
+            if (count == 9 && label_qmark.Text == "?")
             {
                 Panel.Enabled = false;
                 panel_newgame.Enabled = true;
                 score_tie.Text = (Convert.ToInt32(score_tie.Text) + 1).ToString();
+                label_whowill.Text = "IT'S A";
+                label_qmark.Text = "TIE ";
+                label_win.Text = "";
+                label_qmark.ForeColor = Color.FromKnownColor(KnownColor.Khaki);
             }
         } 
         private void winner()
         {
             if (button5.Text == button9.Text && button5.Text == button1.Text)//diagonal from left
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
             }
             else if (button5.Text == button3.Text && button5.Text == button7.Text)//diagonal from right
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
             }
             else if (button5.Text == button4.Text && button5.Text == button6.Text)// horizontal mid
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
             }
             else if (button5.Text == button2.Text && button5.Text == button8.Text)// vertical mid
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
             }
             else if (button1.Text == button2.Text && button1.Text == button3.Text)//topleft to right
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
                 
             }
             else if (button1.Text == button4.Text && button1.Text == button7.Text)//topleft to bottom
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
             }
             else if (button7.Text == button8.Text && button7.Text == button9.Text)//botleft to right
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
             }
             else if (button9.Text == button6.Text && button9.Text == button3.Text)//botright to top
             {
-                label1.Text = "WINNER";
+                label_checkwin.Text = "WINNER";
             }
 
         }//running
@@ -150,6 +166,11 @@ namespace TicTacToe
                  Controls.Find(reset_text, true)[0].Text = button_count.ToString();
                  Controls.Find(reset_text, true)[0].Enabled = true;
                  Controls.Find(reset_text, true)[0].BringToFront();
+                 
+                 label_qmark.Text = "?";
+                 label_win.Text = "WIN";
+                 label_whowill.Text = "WHO WILL";
+                label_qmark.ForeColor = Color.FromKnownColor(KnownColor.SpringGreen);
                 try
                 {
                     foreach (Button c in Panel.Controls)
