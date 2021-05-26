@@ -82,7 +82,8 @@
             this.label_checkwin.Name = "label_checkwin";
             this.label_checkwin.Size = new System.Drawing.Size(147, 31);
             this.label_checkwin.TabIndex = 20;
-            this.label_checkwin.Text = "label1";
+            this.label_checkwin.Text = "_donotremove";
+            this.label_checkwin.Visible = false;
             // 
             // button3
             // 
