@@ -76,7 +76,7 @@ namespace TicTacToe
                 label_win.Text = "";
                 label_qmark.ForeColor = Color.FromKnownColor(KnownColor.Khaki);
             }
-        } 
+        } //running
         private void winner()
         {
             if (button5.Text == button9.Text && button5.Text == button1.Text)//diagonal from left
@@ -148,14 +148,14 @@ namespace TicTacToe
             {
                 Controls.Find(picturebox_name, true)[0].BackgroundImage = Image.FromFile("D:\\File s\\Github Projects\\Csharp_Calculator\\TicTacToe\\tictactoe_X.png");
             } 
-        }
+        }//running
         private void score_reset_Click(object sender, EventArgs e)
         {
             score_blue.Text = "0";
             score_red.Text = "0";
             score_tie.Text = "0";
             Panel_clicked(null,null);
-        }
+        }//running
         private void Panel_clicked(object sender, EventArgs e)
         {
             Panel.Enabled = true;
@@ -182,6 +182,6 @@ namespace TicTacToe
             }
             count = 0;
             panel_newgame.Enabled = false;
-        }
+        }//running
     }
-}//no display winner, 
+}//all buttons running
