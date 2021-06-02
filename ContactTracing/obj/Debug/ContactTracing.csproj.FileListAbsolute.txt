@@ -1,0 +1,10 @@
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\bin\Debug\ContactTracing.exe.config
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\bin\Debug\ContactTracing.exe
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\bin\Debug\ContactTracing.pdb
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.csprojAssemblyReference.cache
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.Form1.resources
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.Properties.Resources.resources
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.csproj.GenerateResource.cache
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.csproj.CoreCompileInputs.cache
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.exe
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.pdb
