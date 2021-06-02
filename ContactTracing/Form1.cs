@@ -17,9 +17,21 @@ namespace ContactTracing
             InitializeComponent();
         }
 
-        private void Test(object sender, EventArgs e)
+        private void Checking(object sender, EventArgs e)
         {
-            
+            TextBox box = sender as TextBox;
+
+            var comb = "label" + box.Name.ToString().Substring(4);
+            //int.TryParse(box.Text, out int result
+            //string[] num = { "1", "2","3","4","5","6","7","8","9","0",".", "#",};
+            if (!box.Text.All(char.IsLetter) || box.Text == "")
+            {
+                Controls.Find(comb, true)[0].Text = "•Invalid input";
+            }
+            else
+            {
+                Controls.Find(comb, true)[0].Text = "Corek";
+            }
         }
     }
 
