@@ -33,6 +33,14 @@ namespace ContactTracing
                 Controls.Find(comb, true)[0].Text = "Corek";
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (cobx_brgy.SelectedIndex > -1 && cobx_Cstatus.SelectedIndex > -1)
+            {
+
+            }
+        }
     }
 
 

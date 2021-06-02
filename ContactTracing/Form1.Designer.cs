@@ -393,22 +393,22 @@
             this.cobx_brgy.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cobx_brgy.FormattingEnabled = true;
             this.cobx_brgy.Items.AddRange(new object[] {
-            "Calawis",
-            "Cupang",
-            "Dela Paz (Pob.)",
-            "Mayamot",
-            "San Isidro (Pob.)",
-            "San Jose (Pob.)",
-            "San Roque (Pob.)",
-            "Mambugan",
             "Bagong Nayon",
             "Beverly Hills",
+            "Calawis",
+            "Cupang",
             "Dalig",
+            "Dela Paz (Pob.)",
             "Inarawan",
+            "Mambugan",
+            "Mayamot",
+            "Muntingdilaw",
+            "San Isidro (Pob.)",
+            "San Jose (Pob.)",
             "San Juan",
             "San Luis",
-            "Santa Cruz",
-            "Muntingdilaw"});
+            "San Roque (Pob.)",
+            "Santa Cruz"});
             this.cobx_brgy.Location = new System.Drawing.Point(100, 270);
             this.cobx_brgy.Name = "cobx_brgy";
             this.cobx_brgy.Size = new System.Drawing.Size(145, 24);
@@ -469,6 +469,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
