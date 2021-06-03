@@ -122,14 +122,15 @@ namespace ContactTracing
 
                     string[] data = {text_Fname.Text, text_Mname.Text, text_Lname.Text, cobx_Cstatus.Text, 
                                     Getrad(), date_birth.Text, cobx_brgy.Text, txt_city.Text, text_addr.Text, "+63"+text_mobnum.Text};
-                    StreamWriter outputFile;
-                    outputFile = File.CreateText(@"Contact List.txt");
+
+                   
+                   
+                    StreamWriter outputFile = new StreamWriter(@"Contact List.txt", true);
                     foreach (var i in data)
                     {
                         outputFile.WriteLine(i);
-                        label1.Text = label1.Text + i + "\n";
                     }
-                   
+                    //text_data.Text = text_data.Text + i + Environment.NewLine;
                     outputFile.Close();
                 }
               
@@ -232,6 +233,20 @@ namespace ContactTracing
             {
                 label_birth.Text = "Corek";
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (File.Exists(@"Contact List.txt"))
+            {
+                but_read.Enabled = true;
+                StreamReader read = new StreamReader(@"Contact List.txt");
+                while (!read.EndOfStream)
+                {
+                    text_data.Text = text_data.Text + read.ReadLine() + Environment.NewLine;
+                }
+            }
+
         }
     }
 }

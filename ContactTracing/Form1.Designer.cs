@@ -64,15 +64,18 @@
             this.label_addr = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.text_data = new System.Windows.Forms.TextBox();
+            this.but_read = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // but_submit
             // 
             this.but_submit.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.but_submit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.but_submit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.but_submit.FlatAppearance.BorderSize = 0;
-            this.but_submit.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.but_submit.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HotTrack;
             this.but_submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_submit.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_submit.ForeColor = System.Drawing.SystemColors.InactiveBorder;
@@ -87,9 +90,10 @@
             // but_cancel
             // 
             this.but_cancel.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.but_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.but_cancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.but_cancel.FlatAppearance.BorderSize = 0;
-            this.but_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.but_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HighlightText;
             this.but_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_cancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_cancel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
@@ -500,10 +504,37 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(491, 60);
+            this.label1.Location = new System.Drawing.Point(491, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 372);
             this.label1.TabIndex = 70;
+            // 
+            // text_data
+            // 
+            this.text_data.Location = new System.Drawing.Point(493, 53);
+            this.text_data.Multiline = true;
+            this.text_data.Name = "text_data";
+            this.text_data.ReadOnly = true;
+            this.text_data.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.text_data.Size = new System.Drawing.Size(184, 372);
+            this.text_data.TabIndex = 71;
+            // 
+            // but_read
+            // 
+            this.but_read.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.but_read.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.but_read.Enabled = false;
+            this.but_read.FlatAppearance.BorderSize = 0;
+            this.but_read.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HotTrack;
+            this.but_read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_read.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_read.ForeColor = System.Drawing.SystemColors.Info;
+            this.but_read.Location = new System.Drawing.Point(548, 427);
+            this.but_read.Name = "but_read";
+            this.but_read.Size = new System.Drawing.Size(77, 22);
+            this.but_read.TabIndex = 72;
+            this.but_read.Text = "Open data";
+            this.but_read.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -511,6 +542,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(682, 516);
+            this.Controls.Add(this.but_read);
+            this.Controls.Add(this.text_data);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelmobnum);
             this.Controls.Add(this.panel1);
@@ -528,6 +561,7 @@
             this.Controls.Add(this.but_submit);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -572,6 +606,8 @@
         private System.Windows.Forms.Label label_addr;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox text_data;
+        private System.Windows.Forms.Button but_read;
     }
 }
 
