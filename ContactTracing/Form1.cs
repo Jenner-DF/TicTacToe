@@ -117,10 +117,20 @@ namespace ContactTracing
                     label1.Text = label1.Text + "Birth date: " + date_birth.Text + "\n";
                     label1.Text = label1.Text + "Barangay: " + cobx_brgy.Text + "\n";
                     label1.Text = label1.Text + "City: " + txt_city.Text + "\n";
-                    label1.Text = label1.Text + "Address" + text_addr.Text + "\n";
+                    label1.Text = label1.Text + "Address: " + text_addr.Text + "\n";
                     label1.Text = label1.Text + "Mobile Number: " + text_mobnum.Text + "\n";
 
-                    
+                    string[] data = {text_Fname.Text, text_Mname.Text, text_Lname.Text, cobx_Cstatus.Text, 
+                                    Getrad(), date_birth.Text, cobx_brgy.Text, txt_city.Text, text_addr.Text, "+63"+text_mobnum.Text};
+                    StreamWriter outputFile;
+                    outputFile = File.CreateText(@"Contact List.txt");
+                    foreach (var i in data)
+                    {
+                        outputFile.WriteLine(i);
+                        label1.Text = label1.Text + i + "\n";
+                    }
+                   
+                    outputFile.Close();
                 }
               
             }
