@@ -50,7 +50,7 @@
             this.cobx_brgy = new System.Windows.Forms.ComboBox();
             this.date_birth = new System.Windows.Forms.DateTimePicker();
             this.text_addr = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_city = new System.Windows.Forms.TextBox();
             this.labelsex = new System.Windows.Forms.Label();
             this.labelmobnum = new System.Windows.Forms.Label();
             this.labeladdr = new System.Windows.Forms.Label();
@@ -227,6 +227,7 @@
             this.text_Lname.Name = "text_Lname";
             this.text_Lname.Size = new System.Drawing.Size(145, 21);
             this.text_Lname.TabIndex = 56;
+            this.text_Lname.Text = "De Fiesta";
             this.text_Lname.Leave += new System.EventHandler(this.Checking);
             // 
             // text_Mname
@@ -237,6 +238,7 @@
             this.text_Mname.Name = "text_Mname";
             this.text_Mname.Size = new System.Drawing.Size(145, 21);
             this.text_Mname.TabIndex = 55;
+            this.text_Mname.Text = "Napo";
             this.text_Mname.Leave += new System.EventHandler(this.Checking);
             // 
             // text_Fname
@@ -248,6 +250,7 @@
             this.text_Fname.Name = "text_Fname";
             this.text_Fname.Size = new System.Drawing.Size(145, 21);
             this.text_Fname.TabIndex = 54;
+            this.text_Fname.Text = "Jenner";
             this.text_Fname.Leave += new System.EventHandler(this.Checking);
             // 
             // cobx_Cstatus
@@ -345,16 +348,16 @@
             this.text_addr.Text = "blk. 113 lot. 10 robinsons homes, brgy. jose, antipolo city, rizal";
             this.text_addr.Leave += new System.EventHandler(this.Checking);
             // 
-            // textBox1
+            // txt_city
             // 
-            this.textBox1.AcceptsReturn = true;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(5, 254);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(127, 21);
-            this.textBox1.TabIndex = 47;
-            this.textBox1.Text = "City of Antipolo";
+            this.txt_city.AcceptsReturn = true;
+            this.txt_city.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_city.Location = new System.Drawing.Point(5, 254);
+            this.txt_city.Name = "txt_city";
+            this.txt_city.ReadOnly = true;
+            this.txt_city.Size = new System.Drawing.Size(127, 21);
+            this.txt_city.TabIndex = 47;
+            this.txt_city.Text = "City of Antipolo";
             // 
             // labelsex
             // 
@@ -488,7 +491,7 @@
             this.panel1.Controls.Add(this.cobx_brgy);
             this.panel1.Controls.Add(this.date_birth);
             this.panel1.Controls.Add(this.text_addr);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_city);
             this.panel1.Controls.Add(this.label_addr);
             this.panel1.Location = new System.Drawing.Point(107, 54);
             this.panel1.Name = "panel1";
@@ -501,7 +504,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 372);
             this.label1.TabIndex = 70;
-            this.label1.Text = "label1";
             // 
             // Form1
             // 
@@ -556,7 +558,7 @@
         private System.Windows.Forms.ComboBox cobx_brgy;
         private System.Windows.Forms.DateTimePicker date_birth;
         private System.Windows.Forms.TextBox text_addr;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_city;
         private System.Windows.Forms.Label labelsex;
         private System.Windows.Forms.Label labelmobnum;
         private System.Windows.Forms.Label labeladdr;

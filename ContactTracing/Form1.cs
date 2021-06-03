@@ -12,7 +12,7 @@ namespace ContactTracing
 {
     public partial class Form1 : Form
     {
-       
+        bool check_all = false;
         public Form1()
         {
             InitializeComponent();
@@ -20,10 +20,10 @@ namespace ContactTracing
 
         private void button1_Click(object sender, EventArgs e)
         {
+            check_all = true;
             foreach (Control box in panel1.Controls)
             {
                 var comb = "label" + box.Name.ToString().Substring(4);
-                string h = box.Name;
                 //text check
                 if (box.Name.Substring(0, 5) == "text_")
                 {
@@ -32,10 +32,12 @@ namespace ContactTracing
                         if (!box.Text.All(char.IsDigit) || box.Text == "")
                         {
                             Controls.Find(comb, true)[0].Text = "•Invalid input";
+                            check_all = false;
                         }
                         else
                         {
                             Controls.Find(comb, true)[0].Text = "Corek";
+                            
                         }
                     }
                     else if (box.Name == "text_addr")
@@ -43,15 +45,17 @@ namespace ContactTracing
                         if (box.Text == "")
                         {
                             Controls.Find(comb, true)[0].Text = "•Invalid input";
+                            check_all = false;
                         }
                         else
                         {
                             Controls.Find(comb, true)[0].Text = "Corek";
                         }
                     }
-                    else if (!box.Text.All(char.IsLetter) || box.Text == "")
+                    else if (box.Text.All(char.IsDigit) || box.Text == "")
                     {
                         Controls.Find(comb, true)[0].Text = "•Invalid input";
+                        check_all = false;
                     }
                     else
                     {
@@ -64,7 +68,8 @@ namespace ContactTracing
                     ComboBox box2 = box as ComboBox;
                     if (box2.SelectedIndex < 0)
                     {
-                        Controls.Find(comb, true)[0].Text = "•Invalid inasdput";
+                        Controls.Find(comb, true)[0].Text = "•Invalid input";
+                        check_all = false;
                     }
                     else
                     {
@@ -77,6 +82,7 @@ namespace ContactTracing
                     if (!(rdio_female.Checked || rdio_male.Checked))
                     {
                         label_sex.Text = "Invalid input";
+                        check_all = false;
                     }
                     else
                     {
@@ -90,15 +96,47 @@ namespace ContactTracing
                     if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
                     {
                         label_birth.Text = "Invalid Input";
+                        check_all = false;
                     }
                     else
                     {
                         label_birth.Text = "Corek";
                     }
                 }
-        
+            }
+            if (check_all)
+            {
+                if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    label1.Text = label1.Text + text_Fname.Text + "\n";
+                    label1.Text = label1.Text + text_Mname.Text + "\n";
+                    label1.Text = label1.Text + text_Lname.Text + "\n";
+                    label1.Text = label1.Text + cobx_Cstatus.Text + "\n";
+                    label1.Text = label1.Text + Getrad() + "\n";
+                    label1.Text = label1.Text + date_birth.Text + "\n";
+                    label1.Text = label1.Text + cobx_brgy.Text + "\n";
+                    label1.Text = label1.Text + txt_city.Text + "\n";
+                    label1.Text = label1.Text + text_addr.Text + "\n";
+                    label1.Text = label1.Text + text_mobnum.Text + "\n";
+                }
+              
+            }
+            else
+            {
+                MessageBox.Show("Invalid input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }//submit button
+        private string Getrad()
+        {  
+            if (rdio_male.Checked)
+            {
+                return rdio_male.Text;
+            }
+            else
+            {
+                return rdio_female.Text;
+            }
+        }//get radio buttion value
         private void Checking(object sender, EventArgs e)
         {
             TextBox box = sender as TextBox;
