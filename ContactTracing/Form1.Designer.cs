@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.but_submit = new System.Windows.Forms.Button();
+            this.but_cancel = new System.Windows.Forms.Button();
             this.label_Mname = new System.Windows.Forms.Label();
             this.label_mobnum = new System.Windows.Forms.Label();
             this.label_brgy = new System.Windows.Forms.Label();
@@ -67,38 +67,38 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // but_submit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.button1.Location = new System.Drawing.Point(309, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 47);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.but_submit.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.but_submit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.but_submit.FlatAppearance.BorderSize = 0;
+            this.but_submit.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.but_submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_submit.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_submit.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.but_submit.Location = new System.Drawing.Point(309, 427);
+            this.but_submit.Name = "but_submit";
+            this.but_submit.Size = new System.Drawing.Size(114, 47);
+            this.but_submit.TabIndex = 1;
+            this.but_submit.Text = "Submit";
+            this.but_submit.UseVisualStyleBackColor = false;
+            this.but_submit.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // but_cancel
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Location = new System.Drawing.Point(57, 427);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 47);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = false;
+            this.but_cancel.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.but_cancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.but_cancel.FlatAppearance.BorderSize = 0;
+            this.but_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.but_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_cancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_cancel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.but_cancel.Location = new System.Drawing.Point(57, 427);
+            this.but_cancel.Name = "but_cancel";
+            this.but_cancel.Size = new System.Drawing.Size(114, 47);
+            this.but_cancel.TabIndex = 2;
+            this.but_cancel.Text = "Cancel";
+            this.but_cancel.UseVisualStyleBackColor = false;
             // 
             // label_Mname
             // 
@@ -522,8 +522,8 @@
             this.Controls.Add(this.labellname);
             this.Controls.Add(this.labelmname);
             this.Controls.Add(this.labelfname);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.but_cancel);
+            this.Controls.Add(this.but_submit);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -534,8 +534,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button but_submit;
+        private System.Windows.Forms.Button but_cancel;
         private System.Windows.Forms.Label label_Mname;
         private System.Windows.Forms.Label label_mobnum;
         private System.Windows.Forms.Label label_brgy;

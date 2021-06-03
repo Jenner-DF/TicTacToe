@@ -12,7 +12,7 @@ namespace ContactTracing
 {
     public partial class Form1 : Form
     {
-        DateTime limit = new DateTime(1899, 12, 31);
+       
         public Form1()
         {
             InitializeComponent();
@@ -23,8 +23,10 @@ namespace ContactTracing
             foreach (Control box in panel1.Controls)
             {
                 var comb = "label" + box.Name.ToString().Substring(4);
+                string h = box.Name;
+                //text check
                 if (box.Name.Substring(0, 5) == "text_")
-                {   //text check
+                {
                     if (box.Name == "text_mobnum")
                     {
                         if (!box.Text.All(char.IsDigit) || box.Text == "")
@@ -55,49 +57,48 @@ namespace ContactTracing
                     {
                         Controls.Find(comb, true)[0].Text = "Corek";
                     }
-                    //combobox check
-                    if (box.Name.Substring(0, 5) == "cobx_")
-                    {
-                        ComboBox box2 = box as ComboBox;
-                        if (box2.SelectedIndex < 0)
-                        {
-                            Controls.Find(comb, true)[0].Text = "•Invalid input";
-                        }
-                        else
-                        {
-                            Controls.Find(comb, true)[0].Text = "Corek";
-                        }
-                    }
-                    //radiobutton check
-                    if (box.Name.Substring(0, 5) == "rdio_")
-                    {
-                        if (!(rdio_female.Checked || rdio_male.Checked))
-                        {
-                            label_sex.Text = "Invalid input";
-                        }
-                        else
-                        {
-                            label_sex.Text = "corek";
-                        }
-                    }
-                    //datetime check
-                    if (box.Name.Substring(0,5) == "date_")
-                    {
-
-                        if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
-                        {
-                            label_birth.Text = "Invalid Input";
-                        }
-                        else
-                        {
-                            label_birth.Text = "Corek";
-                        }
-                    }
-
                 }
+                //combobox check
+                if (box.Name.Substring(0, 5) == "cobx_")
+                {
+                    ComboBox box2 = box as ComboBox;
+                    if (box2.SelectedIndex < 0)
+                    {
+                        Controls.Find(comb, true)[0].Text = "•Invalid inasdput";
+                    }
+                    else
+                    {
+                        Controls.Find(comb, true)[0].Text = "Corek";
+                    }
+                }
+                //radiobutton check
+                if (box.Name.Substring(0, 5) == "rdio_")
+                {
+                    if (!(rdio_female.Checked || rdio_male.Checked))
+                    {
+                        label_sex.Text = "Invalid input";
+                    }
+                    else
+                    {
+                        label_sex.Text = "corek";
+                    }
+                }
+                //datetime check
+                if (box.Name.Substring(0, 5) == "date_")
+                {
+                    DateTime limit = new DateTime(1899, 12, 31);
+                    if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
+                    {
+                        label_birth.Text = "Invalid Input";
+                    }
+                    else
+                    {
+                        label_birth.Text = "Corek";
+                    }
+                }
+        
             }
-
-        }
+        }//submit button
         private void Checking(object sender, EventArgs e)
         {
             TextBox box = sender as TextBox;
@@ -171,6 +172,7 @@ namespace ContactTracing
         }
         private void Checking4(object sender, EventArgs e)//datetime check
         {
+            DateTime limit = new DateTime(1899, 12, 31);
             if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
             {
                 label_birth.Text = "Invalid Input";
