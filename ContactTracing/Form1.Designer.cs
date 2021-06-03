@@ -332,6 +332,7 @@
             this.date_birth.Name = "date_birth";
             this.date_birth.Size = new System.Drawing.Size(185, 21);
             this.date_birth.TabIndex = 49;
+            this.date_birth.Leave += new System.EventHandler(this.Checking4);
             // 
             // text_addr
             // 

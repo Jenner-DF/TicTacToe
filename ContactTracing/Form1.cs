@@ -84,7 +84,16 @@ namespace ContactTracing
                     }
                     if (box.Name.Substring(0,5) == "date_")
                     {
-                       
+                        DateTime limit = new DateTime(1899, 12, 31);
+
+                        if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
+                        {
+                            label_birth.Text = "Invalid Input";
+                        }
+                        else
+                        {
+                            label_birth.Text = "Corek";
+                        }
                     }
 
                 }
@@ -162,6 +171,21 @@ namespace ContactTracing
                     label_sex.Text = "corek";
                 }
             }
+        }
+
+        private void Checking4(object sender, EventArgs e)
+        {
+            DateTime limit = new DateTime(1899, 12, 31);
+
+            if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
+            {
+                label_birth.Text = "Invalid Input";
+            }
+            else
+            {
+                label_birth.Text = "Corek";
+            }
+            
         }
     }
 }
