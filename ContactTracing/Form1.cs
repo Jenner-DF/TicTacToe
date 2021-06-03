@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,16 +109,18 @@ namespace ContactTracing
             {
                 if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
-                    label1.Text = label1.Text + text_Fname.Text + "\n";
-                    label1.Text = label1.Text + text_Mname.Text + "\n";
-                    label1.Text = label1.Text + text_Lname.Text + "\n";
-                    label1.Text = label1.Text + cobx_Cstatus.Text + "\n";
-                    label1.Text = label1.Text + Getrad() + "\n";
-                    label1.Text = label1.Text + date_birth.Text + "\n";
-                    label1.Text = label1.Text + cobx_brgy.Text + "\n";
-                    label1.Text = label1.Text + txt_city.Text + "\n";
-                    label1.Text = label1.Text + text_addr.Text + "\n";
-                    label1.Text = label1.Text + text_mobnum.Text + "\n";
+                    label1.Text = label1.Text + "First Name: " + text_Fname.Text + "\n";
+                    label1.Text = label1.Text + "Middle Name: " + text_Mname.Text + "\n";
+                    label1.Text = label1.Text + "Last Name: " + text_Lname.Text + "\n";
+                    label1.Text = label1.Text + "Civil Status: " + cobx_Cstatus.Text + "\n";
+                    label1.Text = label1.Text + "Sex: " + Getrad() + "\n";
+                    label1.Text = label1.Text + "Birth date: " + date_birth.Text + "\n";
+                    label1.Text = label1.Text + "Barangay: " + cobx_brgy.Text + "\n";
+                    label1.Text = label1.Text + "City: " + txt_city.Text + "\n";
+                    label1.Text = label1.Text + "Address" + text_addr.Text + "\n";
+                    label1.Text = label1.Text + "Mobile Number: " + text_mobnum.Text + "\n";
+
+                    
                 }
               
             }
