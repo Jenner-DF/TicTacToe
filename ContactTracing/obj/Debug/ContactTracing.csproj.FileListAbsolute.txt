@@ -8,3 +8,4 @@ D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTrac
 D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.csproj.CoreCompileInputs.cache
 D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.exe
 D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.pdb
+D:\File s\Github Projects\Csharp_Calculator\ContactTracing\obj\Debug\ContactTracing.Form2.resources

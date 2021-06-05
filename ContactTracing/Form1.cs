@@ -14,6 +14,10 @@ namespace ContactTracing
     public partial class Form1 : Form
     {
         bool check_all = false;
+        int person_count = 0;
+        string[] data = new string [11];
+        Image pic_check = Image.FromFile(@"D:\File s\Github Projects\Csharp_Calculator\ContactTracing\green_circle6.png");
+        Image pic_wrong = Image.FromFile(@"D:\File s\Github Projects\Csharp_Calculator\ContactTracing\red_x2.png");
         public Form1()
         {
             InitializeComponent();
@@ -32,35 +36,22 @@ namespace ContactTracing
                     {
                         if (!box.Text.All(char.IsDigit) || box.Text == "")
                         {
-                            Controls.Find(comb, true)[0].Text = "•Invalid input";
+                           Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
                             check_all = false;
                         }
                         else
                         {
-                            Controls.Find(comb, true)[0].Text = "Corek";
-                            
+                            Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                         }
                     }
-                    else if (box.Name == "text_addr")
+                    else if (box.Text == "")
                     {
-                        if (box.Text == "")
-                        {
-                            Controls.Find(comb, true)[0].Text = "•Invalid input";
-                            check_all = false;
-                        }
-                        else
-                        {
-                            Controls.Find(comb, true)[0].Text = "Corek";
-                        }
-                    }
-                    else if (box.Text.All(char.IsDigit) || box.Text == "")
-                    {
-                        Controls.Find(comb, true)[0].Text = "•Invalid input";
+                       Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
                         check_all = false;
                     }
                     else
                     {
-                        Controls.Find(comb, true)[0].Text = "Corek";
+                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                     }
                 }
                 //combobox check
@@ -69,25 +60,26 @@ namespace ContactTracing
                     ComboBox box2 = box as ComboBox;
                     if (box2.SelectedIndex < 0)
                     {
-                        Controls.Find(comb, true)[0].Text = "•Invalid input";
+                       Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
                         check_all = false;
                     }
                     else
                     {
-                        Controls.Find(comb, true)[0].Text = "Corek";
+                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                     }
                 }
                 //radiobutton check
                 if (box.Name.Substring(0, 5) == "rdio_")
                 {
+                    var comb2 = label_sex.Name;
                     if (!(rdio_female.Checked || rdio_male.Checked))
                     {
-                        label_sex.Text = "Invalid input";
+                        Controls.Find(comb2, true)[0].BackgroundImage = pic_wrong;
                         check_all = false;
                     }
                     else
                     {
-                        label_sex.Text = "corek";
+                        Controls.Find(comb2, true)[0].BackgroundImage = pic_check;
                     }
                 }
                 //datetime check
@@ -96,12 +88,12 @@ namespace ContactTracing
                     DateTime limit = new DateTime(1899, 12, 31);
                     if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
                     {
-                        label_birth.Text = "Invalid Input";
+                        Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
                         check_all = false;
                     }
                     else
                     {
-                        label_birth.Text = "Corek";
+                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                     }
                 }
             }
@@ -109,37 +101,49 @@ namespace ContactTracing
             {
                 if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
-                    label1.Text = label1.Text + "First Name: " + text_Fname.Text + "\n";
-                    label1.Text = label1.Text + "Middle Name: " + text_Mname.Text + "\n";
-                    label1.Text = label1.Text + "Last Name: " + text_Lname.Text + "\n";
-                    label1.Text = label1.Text + "Civil Status: " + cobx_Cstatus.Text + "\n";
-                    label1.Text = label1.Text + "Sex: " + Getrad() + "\n";
-                    label1.Text = label1.Text + "Birth date: " + date_birth.Text + "\n";
-                    label1.Text = label1.Text + "Barangay: " + cobx_brgy.Text + "\n";
-                    label1.Text = label1.Text + "City: " + txt_city.Text + "\n";
-                    label1.Text = label1.Text + "Address: " + text_addr.Text + "\n";
-                    label1.Text = label1.Text + "Mobile Number: " + text_mobnum.Text + "\n";
-
-                    string[] data = {text_Fname.Text, text_Mname.Text, text_Lname.Text, cobx_Cstatus.Text, 
+                   
+                    //add person count, to increment
+                    
+                    person_count++;
+                    data = new string[11]{"Person " + person_count.ToString(),text_Fname.Text, text_Mname.Text, text_Lname.Text, cobx_Cstatus.Text, 
                                     Getrad(), date_birth.Text, cobx_brgy.Text, txt_city.Text, text_addr.Text, "+63"+text_mobnum.Text};
-
-                   
-                   
                     StreamWriter outputFile = new StreamWriter(@"Contact List.txt", true);
                     foreach (var i in data)
                     {
                         outputFile.WriteLine(i);
                     }
-                    //text_data.Text = text_data.Text + i + Environment.NewLine;
+                    //whitespace at end
+                    outputFile.WriteLine();
                     outputFile.Close();
+                    But_cancel_Click(null, null);
                 }
-              
             }
             else
             {
                 MessageBox.Show("Invalid input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }//submit button
+        private void But_read_Click(object sender, EventArgs e)
+        {
+            //File.ReadAllLines -- get length of txt then minus to get person line and add number, if null, then count = 1 else - 10, substring to get count person
+           if (text_data.Visible)
+            {
+                Text_data_Leave(null, null);
+            }
+            else
+            {
+                Form1.ActiveForm.Width = 698;
+                text_data.Visible = true;
+                but_cleardata.Visible = true;
+                StreamReader read = new StreamReader(@"Contact List.txt");
+                text_data.Clear();
+                while (!read.EndOfStream)
+                {
+                    text_data.Text = text_data.Text + read.ReadLine() + Environment.NewLine;
+                }
+                read.Close();
+            }
+        }
         private string Getrad()
         {  
             if (rdio_male.Checked)
@@ -160,31 +164,21 @@ namespace ContactTracing
             {
                 if (!box.Text.All(char.IsDigit) || box.Text == "")
                 {
-                    Controls.Find(comb, true)[0].Text = "•Invalid input";
+                   Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
                 }
                 else
                 {
-                    Controls.Find(comb, true)[0].Text = "Corek";
+                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                 }
             }
-            else if (box.Name == "text_addr")
+            else if (box.Text == "")
             {
-                if (box.Text == "")
-                {
-                    Controls.Find(comb, true)[0].Text = "•Invalid input";
-                }
-                else
-                {
-                    Controls.Find(comb, true)[0].Text = "Corek";
-                }
-            }
-            else if (!box.Text.All(char.IsLetter) || box.Text == "")
-            {
-                Controls.Find(comb, true)[0].Text = "•Invalid input";
+                Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
             }
             else
             {
-                Controls.Find(comb, true)[0].Text = "Corek";
+                Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+                //box.BackColor = Color.FromKnownColor(KnownColor.LawnGreen);
             }
         }//text check
         private void Checking2(object sender, EventArgs e)
@@ -197,56 +191,103 @@ namespace ContactTracing
                 ComboBox box2 = box as ComboBox;
                 if (box2.SelectedIndex < 0)
                 {
-                    Controls.Find(comb, true)[0].Text = "•Invalid input";
+                   Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
                 }
                 else
                 {
-                    Controls.Find(comb, true)[0].Text = "Corek";
+                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                 }
             }
         }//combobox check
-        private void checking3(object sender, EventArgs e)//radiobutton check
+        private void Checking3(object sender, EventArgs e)//radiobutton check
         {
             RadioButton box = sender as RadioButton;
 
-            var comb = "label" + box.Name.ToString().Substring(4);
+            var comb = label_sex.Name;
             if (box.Name.Substring(0, 5) == "rdio_")
             {
                 if (!(rdio_female.Checked || rdio_male.Checked))
                 {
-                    label_sex.Text = "Invalid input";
+                    Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
                 }
                 else
                 {
-                    label_sex.Text = "corek";
+                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                 }
             }
         }
         private void Checking4(object sender, EventArgs e)//datetime check
         {
             DateTime limit = new DateTime(1899, 12, 31);
+            var comb = "label" + "_birth";
             if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
             {
-                label_birth.Text = "Invalid Input";
+                Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
             }
             else
             {
-                label_birth.Text = "Corek";
+                Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var readall = File.ReadAllLines("Contact List.txt").Count();
+            var get_pcount = readall / (data.Length + 1);
+            person_count = get_pcount;
+        }
+        private void But_cancel_Click(object sender, EventArgs e)
+        {
+            foreach (Control box in panel1.Controls)
+            {
+                if (box is TextBox)
+                {
+                    if (box.Name != txt_city.Name)
+                    {
+                        box.Text = "";
+                    }
+                }
+                else if (box is ComboBox)
+                {
+                    box.Text = "--N/A--";
+                }
+                else if (box is RadioButton)
+                {
+                    var radio = box as RadioButton;
+                    radio.Checked = false;
+                }
+                else if (box is Label)
+                {
+                    box.BackgroundImage = null;
+                }
+                
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        //AESTHETICS
+        private void But_cancel_MouseHover(object sender, EventArgs e)
         {
-            if (File.Exists(@"Contact List.txt"))
-            {
-                but_read.Enabled = true;
-                StreamReader read = new StreamReader(@"Contact List.txt");
-                while (!read.EndOfStream)
-                {
-                    text_data.Text = text_data.Text + read.ReadLine() + Environment.NewLine;
-                }
-            }
+            but_cancel.ForeColor = Color.FromKnownColor(KnownColor.MenuBar);
+            but_cancel.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.MenuHighlight);
+        }
+        private void But_cancel_MouseLeave(object sender, EventArgs e)
+        {
+            but_cancel.ForeColor = Color.FromKnownColor(KnownColor.MenuHighlight);
+            but_cancel.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.MenuBar);
+        }
+        private void Text_data_Leave(object sender, EventArgs e)
+        {
+            Form1.ActiveForm.Width = 510;
+            text_data.Visible = false;
+            but_cleardata.Visible = false;
+        }
 
+        private void but_cleardata_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                File.Create(@"Contact List.txt").Close();
+                text_data.Clear();
+            }
         }
     }
 }

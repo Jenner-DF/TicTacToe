@@ -30,14 +30,12 @@
         {
             this.but_submit = new System.Windows.Forms.Button();
             this.but_cancel = new System.Windows.Forms.Button();
-            this.label_Mname = new System.Windows.Forms.Label();
             this.label_mobnum = new System.Windows.Forms.Label();
             this.label_brgy = new System.Windows.Forms.Label();
             this.label_birth = new System.Windows.Forms.Label();
             this.label_Cstatus = new System.Windows.Forms.Label();
             this.label_sex = new System.Windows.Forms.Label();
             this.label_Lname = new System.Windows.Forms.Label();
-            this.label_Fname = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
             this.text_mobnum = new System.Windows.Forms.TextBox();
             this.labelmobnum63 = new System.Windows.Forms.Label();
@@ -63,9 +61,11 @@
             this.labelfname = new System.Windows.Forms.Label();
             this.label_addr = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.text_data = new System.Windows.Forms.TextBox();
             this.but_read = new System.Windows.Forms.Button();
+            this.label_Fname = new System.Windows.Forms.Label();
+            this.label_Mname = new System.Windows.Forms.Label();
+            this.but_cleardata = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             this.but_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.but_cancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.but_cancel.FlatAppearance.BorderSize = 0;
-            this.but_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HighlightText;
+            this.but_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.HotTrack;
             this.but_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_cancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_cancel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
@@ -103,94 +103,69 @@
             this.but_cancel.TabIndex = 2;
             this.but_cancel.Text = "Cancel";
             this.but_cancel.UseVisualStyleBackColor = false;
-            // 
-            // label_Mname
-            // 
-            this.label_Mname.AutoSize = true;
-            this.label_Mname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Mname.ForeColor = System.Drawing.Color.Red;
-            this.label_Mname.Location = new System.Drawing.Point(156, 41);
-            this.label_Mname.Name = "label_Mname";
-            this.label_Mname.Size = new System.Drawing.Size(148, 16);
-            this.label_Mname.TabIndex = 68;
-            this.label_Mname.Text = "•Middle Name is Required!";
+            this.but_cancel.Click += new System.EventHandler(this.But_cancel_Click);
+            this.but_cancel.MouseLeave += new System.EventHandler(this.But_cancel_MouseLeave);
+            this.but_cancel.MouseHover += new System.EventHandler(this.But_cancel_MouseHover);
             // 
             // label_mobnum
             // 
-            this.label_mobnum.AutoSize = true;
             this.label_mobnum.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_mobnum.ForeColor = System.Drawing.Color.Red;
-            this.label_mobnum.Location = new System.Drawing.Point(125, 336);
+            this.label_mobnum.Location = new System.Drawing.Point(137, 323);
+            this.label_mobnum.MaximumSize = new System.Drawing.Size(15, 15);
             this.label_mobnum.Name = "label_mobnum";
-            this.label_mobnum.Size = new System.Drawing.Size(160, 16);
+            this.label_mobnum.Size = new System.Drawing.Size(15, 15);
             this.label_mobnum.TabIndex = 67;
-            this.label_mobnum.Text = "•Mobile Number is Required!";
             // 
             // label_brgy
             // 
-            this.label_brgy.AutoSize = true;
             this.label_brgy.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_brgy.ForeColor = System.Drawing.Color.Red;
-            this.label_brgy.Location = new System.Drawing.Point(167, 226);
+            this.label_brgy.Location = new System.Drawing.Point(156, 227);
+            this.label_brgy.MaximumSize = new System.Drawing.Size(15, 15);
             this.label_brgy.Name = "label_brgy";
-            this.label_brgy.Size = new System.Drawing.Size(126, 16);
+            this.label_brgy.Size = new System.Drawing.Size(15, 15);
             this.label_brgy.TabIndex = 65;
-            this.label_brgy.Text = "•Barangay is Required!";
             // 
             // label_birth
             // 
-            this.label_birth.AutoSize = true;
             this.label_birth.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_birth.ForeColor = System.Drawing.Color.Red;
             this.label_birth.Location = new System.Drawing.Point(201, 181);
+            this.label_birth.MaximumSize = new System.Drawing.Size(15, 15);
             this.label_birth.Name = "label_birth";
-            this.label_birth.Size = new System.Drawing.Size(129, 16);
+            this.label_birth.Size = new System.Drawing.Size(15, 15);
             this.label_birth.TabIndex = 64;
-            this.label_birth.Text = "•Birth Date is Required!";
             // 
             // label_Cstatus
             // 
-            this.label_Cstatus.AutoSize = true;
             this.label_Cstatus.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Cstatus.ForeColor = System.Drawing.Color.Red;
             this.label_Cstatus.Location = new System.Drawing.Point(156, 105);
+            this.label_Cstatus.MaximumSize = new System.Drawing.Size(15, 15);
             this.label_Cstatus.Name = "label_Cstatus";
-            this.label_Cstatus.Size = new System.Drawing.Size(134, 16);
+            this.label_Cstatus.Size = new System.Drawing.Size(15, 15);
             this.label_Cstatus.TabIndex = 63;
-            this.label_Cstatus.Text = "•Civil Status is Required!";
             // 
             // label_sex
             // 
-            this.label_sex.AutoSize = true;
             this.label_sex.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_sex.ForeColor = System.Drawing.Color.Red;
-            this.label_sex.Location = new System.Drawing.Point(156, 145);
+            this.label_sex.Location = new System.Drawing.Point(156, 149);
+            this.label_sex.MaximumSize = new System.Drawing.Size(15, 15);
             this.label_sex.Name = "label_sex";
-            this.label_sex.Size = new System.Drawing.Size(79, 16);
+            this.label_sex.Size = new System.Drawing.Size(15, 15);
             this.label_sex.TabIndex = 62;
-            this.label_sex.Text = "•Invalid input";
             // 
             // label_Lname
             // 
-            this.label_Lname.AutoSize = true;
             this.label_Lname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Lname.ForeColor = System.Drawing.Color.Red;
             this.label_Lname.Location = new System.Drawing.Point(156, 75);
+            this.label_Lname.MaximumSize = new System.Drawing.Size(15, 15);
             this.label_Lname.Name = "label_Lname";
-            this.label_Lname.Size = new System.Drawing.Size(132, 16);
+            this.label_Lname.Size = new System.Drawing.Size(15, 15);
             this.label_Lname.TabIndex = 61;
-            this.label_Lname.Text = "•Last Name is Required!";
-            // 
-            // label_Fname
-            // 
-            this.label_Fname.AutoSize = true;
-            this.label_Fname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Fname.ForeColor = System.Drawing.Color.Red;
-            this.label_Fname.Location = new System.Drawing.Point(156, 9);
-            this.label_Fname.Name = "label_Fname";
-            this.label_Fname.Size = new System.Drawing.Size(133, 16);
-            this.label_Fname.TabIndex = 60;
-            this.label_Fname.Text = "•First Name is Required!";
             // 
             // Title
             // 
@@ -206,7 +181,7 @@
             // 
             this.text_mobnum.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.text_mobnum.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.text_mobnum.Location = new System.Drawing.Point(53, 333);
+            this.text_mobnum.Location = new System.Drawing.Point(65, 320);
             this.text_mobnum.MaxLength = 10;
             this.text_mobnum.Name = "text_mobnum";
             this.text_mobnum.Size = new System.Drawing.Size(67, 21);
@@ -217,7 +192,7 @@
             // 
             this.labelmobnum63.AutoSize = true;
             this.labelmobnum63.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelmobnum63.Location = new System.Drawing.Point(29, 336);
+            this.labelmobnum63.Location = new System.Drawing.Point(41, 323);
             this.labelmobnum63.Name = "labelmobnum63";
             this.labelmobnum63.Size = new System.Drawing.Size(28, 16);
             this.labelmobnum63.TabIndex = 57;
@@ -231,7 +206,6 @@
             this.text_Lname.Name = "text_Lname";
             this.text_Lname.Size = new System.Drawing.Size(145, 21);
             this.text_Lname.TabIndex = 56;
-            this.text_Lname.Text = "De Fiesta";
             this.text_Lname.Leave += new System.EventHandler(this.Checking);
             // 
             // text_Mname
@@ -242,7 +216,6 @@
             this.text_Mname.Name = "text_Mname";
             this.text_Mname.Size = new System.Drawing.Size(145, 21);
             this.text_Mname.TabIndex = 55;
-            this.text_Mname.Text = "Napo";
             this.text_Mname.Leave += new System.EventHandler(this.Checking);
             // 
             // text_Fname
@@ -254,7 +227,6 @@
             this.text_Fname.Name = "text_Fname";
             this.text_Fname.Size = new System.Drawing.Size(145, 21);
             this.text_Fname.TabIndex = 54;
-            this.text_Fname.Text = "Jenner";
             this.text_Fname.Leave += new System.EventHandler(this.Checking);
             // 
             // cobx_Cstatus
@@ -289,7 +261,7 @@
             this.rdio_female.TabStop = true;
             this.rdio_female.Text = "Female";
             this.rdio_female.UseVisualStyleBackColor = true;
-            this.rdio_female.Leave += new System.EventHandler(this.checking3);
+            this.rdio_female.Leave += new System.EventHandler(this.Checking3);
             // 
             // rdio_male
             // 
@@ -302,7 +274,7 @@
             this.rdio_male.TabStop = true;
             this.rdio_male.Text = "Male";
             this.rdio_male.UseVisualStyleBackColor = true;
-            this.rdio_male.Leave += new System.EventHandler(this.checking3);
+            this.rdio_male.Leave += new System.EventHandler(this.Checking3);
             // 
             // cobx_brgy
             // 
@@ -329,7 +301,7 @@
             this.cobx_brgy.Name = "cobx_brgy";
             this.cobx_brgy.Size = new System.Drawing.Size(145, 24);
             this.cobx_brgy.TabIndex = 50;
-            this.cobx_brgy.Text = "-- select barangay --";
+            this.cobx_brgy.Text = "-- N/A --";
             this.cobx_brgy.Leave += new System.EventHandler(this.Checking2);
             // 
             // date_birth
@@ -349,7 +321,6 @@
             this.text_addr.Name = "text_addr";
             this.text_addr.Size = new System.Drawing.Size(357, 21);
             this.text_addr.TabIndex = 48;
-            this.text_addr.Text = "blk. 113 lot. 10 robinsons homes, brgy. jose, antipolo city, rizal";
             this.text_addr.Leave += new System.EventHandler(this.Checking);
             // 
             // txt_city
@@ -377,7 +348,7 @@
             // 
             this.labelmobnum.AutoSize = true;
             this.labelmobnum.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelmobnum.Location = new System.Drawing.Point(30, 390);
+            this.labelmobnum.Location = new System.Drawing.Point(30, 377);
             this.labelmobnum.Name = "labelmobnum";
             this.labelmobnum.Size = new System.Drawing.Size(94, 16);
             this.labelmobnum.TabIndex = 45;
@@ -465,14 +436,13 @@
             // 
             // label_addr
             // 
-            this.label_addr.AutoSize = true;
             this.label_addr.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_addr.ForeColor = System.Drawing.Color.Red;
-            this.label_addr.Location = new System.Drawing.Point(2, 306);
+            this.label_addr.Location = new System.Drawing.Point(367, 289);
+            this.label_addr.MaximumSize = new System.Drawing.Size(15, 15);
             this.label_addr.Name = "label_addr";
-            this.label_addr.Size = new System.Drawing.Size(119, 16);
+            this.label_addr.Size = new System.Drawing.Size(15, 15);
             this.label_addr.TabIndex = 66;
-            this.label_addr.Text = "•Address is Required!";
             // 
             // panel1
             // 
@@ -499,15 +469,8 @@
             this.panel1.Controls.Add(this.label_addr);
             this.panel1.Location = new System.Drawing.Point(107, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 373);
+            this.panel1.Size = new System.Drawing.Size(393, 373);
             this.panel1.TabIndex = 69;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(491, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 372);
-            this.label1.TabIndex = 70;
             // 
             // text_data
             // 
@@ -518,33 +481,74 @@
             this.text_data.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.text_data.Size = new System.Drawing.Size(184, 372);
             this.text_data.TabIndex = 71;
+            this.text_data.Visible = false;
+            this.text_data.Leave += new System.EventHandler(this.Text_data_Leave);
             // 
             // but_read
             // 
             this.but_read.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.but_read.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.but_read.Enabled = false;
             this.but_read.FlatAppearance.BorderSize = 0;
             this.but_read.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HotTrack;
             this.but_read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_read.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_read.ForeColor = System.Drawing.SystemColors.Info;
-            this.but_read.Location = new System.Drawing.Point(548, 427);
+            this.but_read.Location = new System.Drawing.Point(202, 441);
             this.but_read.Name = "but_read";
             this.but_read.Size = new System.Drawing.Size(77, 22);
             this.but_read.TabIndex = 72;
             this.but_read.Text = "Open data";
             this.but_read.UseVisualStyleBackColor = false;
+            this.but_read.Click += new System.EventHandler(this.But_read_Click);
+            // 
+            // label_Fname
+            // 
+            this.label_Fname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label_Fname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Fname.ForeColor = System.Drawing.Color.Red;
+            this.label_Fname.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Fname.Location = new System.Drawing.Point(156, 9);
+            this.label_Fname.Name = "label_Fname";
+            this.label_Fname.Size = new System.Drawing.Size(15, 15);
+            this.label_Fname.TabIndex = 60;
+            // 
+            // label_Mname
+            // 
+            this.label_Mname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Mname.ForeColor = System.Drawing.Color.Red;
+            this.label_Mname.Location = new System.Drawing.Point(156, 41);
+            this.label_Mname.MaximumSize = new System.Drawing.Size(15, 15);
+            this.label_Mname.Name = "label_Mname";
+            this.label_Mname.Size = new System.Drawing.Size(15, 15);
+            this.label_Mname.TabIndex = 68;
+            // 
+            // but_cleardata
+            // 
+            this.but_cleardata.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.but_cleardata.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.but_cleardata.FlatAppearance.BorderSize = 0;
+            this.but_cleardata.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HotTrack;
+            this.but_cleardata.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_cleardata.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_cleardata.ForeColor = System.Drawing.SystemColors.Info;
+            this.but_cleardata.Location = new System.Drawing.Point(530, 427);
+            this.but_cleardata.Name = "but_cleardata";
+            this.but_cleardata.Size = new System.Drawing.Size(112, 22);
+            this.but_cleardata.TabIndex = 73;
+            this.but_cleardata.Text = "CLEAR DATA";
+            this.but_cleardata.UseVisualStyleBackColor = false;
+            this.but_cleardata.Visible = false;
+            this.but_cleardata.Click += new System.EventHandler(this.but_cleardata_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(682, 516);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(494, 516);
+            this.Controls.Add(this.but_cleardata);
             this.Controls.Add(this.but_read);
             this.Controls.Add(this.text_data);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelmobnum);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Title);
@@ -560,7 +564,7 @@
             this.Controls.Add(this.but_cancel);
             this.Controls.Add(this.but_submit);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Contact Tracing Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -572,14 +576,12 @@
         #endregion
         private System.Windows.Forms.Button but_submit;
         private System.Windows.Forms.Button but_cancel;
-        private System.Windows.Forms.Label label_Mname;
         private System.Windows.Forms.Label label_mobnum;
         private System.Windows.Forms.Label label_brgy;
         private System.Windows.Forms.Label label_birth;
         private System.Windows.Forms.Label label_Cstatus;
         private System.Windows.Forms.Label label_sex;
         private System.Windows.Forms.Label label_Lname;
-        private System.Windows.Forms.Label label_Fname;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.TextBox text_mobnum;
         private System.Windows.Forms.Label labelmobnum63;
@@ -605,9 +607,11 @@
         private System.Windows.Forms.Label labelfname;
         private System.Windows.Forms.Label label_addr;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox text_data;
         private System.Windows.Forms.Button but_read;
+        private System.Windows.Forms.Label label_Mname;
+        private System.Windows.Forms.Label label_Fname;
+        private System.Windows.Forms.Button but_cleardata;
     }
 }
 
