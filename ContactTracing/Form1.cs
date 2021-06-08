@@ -262,6 +262,14 @@ namespace ContactTracing
                 
             }
         }
+        private void but_cleardata_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                File.Create(@"Contact List.txt").Close();
+                text_data.Clear();
+            }
+        }
 
         //AESTHETICS
         private void But_cancel_MouseHover(object sender, EventArgs e)
@@ -281,13 +289,6 @@ namespace ContactTracing
             but_cleardata.Visible = false;
         }
 
-        private void but_cleardata_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                File.Create(@"Contact List.txt").Close();
-                text_data.Clear();
-            }
-        }
+      
     }
 }
