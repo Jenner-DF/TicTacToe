@@ -58,7 +58,6 @@
             this.test_label = new System.Windows.Forms.Label();
             this.test_label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -418,20 +417,12 @@
             this.label4.TabIndex = 56;
             this.label4.Text = "Standard";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(204, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(85, 20);
-            this.textBox1.TabIndex = 57;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(304, 477);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.test_label2);
             this.Controls.Add(this.test_label);
@@ -500,7 +491,6 @@
         private System.Windows.Forms.Label test_label;
         private System.Windows.Forms.Label test_label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

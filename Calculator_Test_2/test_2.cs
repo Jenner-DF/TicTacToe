@@ -12,7 +12,7 @@ namespace Calculator_Test_2
 {
     public partial class Form1 : Form
     {
-        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked = false; //can merge reciprocal and symbol
+        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked, error_clicked = false; //can merge reciprocal and symbol
         double first_num, second_num, symbol_base;
         byte char_symbols = 0;
         char optr_selected;
@@ -78,6 +78,7 @@ namespace Calculator_Test_2
         {
             var reciprocal_char = "1/( ";
 
+            //adding characters to label 2
             if (symbols_clicked)
             {
                 //to display 
@@ -103,15 +104,8 @@ namespace Calculator_Test_2
             }
 
             char_symbols += 6;
-            var reciprocal = 1 / Convert.ToDouble(label1.Text);
-            if (Double.IsInfinity(reciprocal))
-            {
-                label1.Text = "Cannot divide by zero";
-            }
-            else
-            {
-                label1.Text = reciprocal.ToString();
-            }
+            //solving
+            label1.Text = per_rec_sqr_rt('/');
            
 
         }//running
@@ -147,7 +141,7 @@ namespace Calculator_Test_2
             char_symbols += 7;
             var sqr = Math.Pow(Convert.ToDouble(label1.Text), 2);
             label1.Text = sqr.ToString();
-            //(symbol_base.Length + (7 * sqr_name_clicked)
+            
 
 
         }//running
@@ -180,10 +174,10 @@ namespace Calculator_Test_2
         {
             if (optr_check.Any(label2.Text.Contains))
             {
-                var percent = first_num * (Convert.ToDouble(label1.Text) / 100);
-                label1.Text = percent.ToString();
+                var percent = per_rec_sqr_rt('%');
+                label1.Text = percent;
                 optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1, 1));
-                label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + percent.ToString();
+                label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + percent;
             }
             else
             {
@@ -191,6 +185,26 @@ namespace Calculator_Test_2
             }
             percent_clicked = true; 
         }//running
+
+        private string per_rec_sqr_rt(char select)
+        {
+            double get = 0;
+            switch (select)
+            {
+                case '%':
+                    get = first_num * (Convert.ToDouble(label1.Text) / 100);
+                    break;
+                case '/':
+                    get = 1 / Convert.ToDouble(label1.Text);
+                    break;
+                case '^':
+
+                    break;
+                case 'v':
+                    break;
+            }
+            return error_return(get);
+        }
 
         private void num_click(object sender, EventArgs e)
         {
@@ -269,14 +283,25 @@ namespace Calculator_Test_2
         {
             try
             {
-                if (equal_clicked && optr_check.Any(label2.Text.Contains)) // if equals button clicked once // if num clicked: else will run
+                if (!optr_check.Any(label2.Text.Contains))
+                {
+                    if (label1.Text == "Invalid input")
+                    {
+                        label1.Text = "0";
+                    }
+                    else
+                    {
+                        label2.Text = label1.Text + " =";
+                    }
+                }
+                else if (equal_clicked && optr_check.Any(label2.Text.Contains)) // if equals button clicked once // if num clicked: else will run
                 {
                     first_num = Convert.ToDouble(label1.Text);
                     label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
                     if (label1.Text == "Invalid input")
                     {
-                        label1.Text = "0";  
+                        label1.Text = "0";
                     }
                     else
                     {
@@ -286,17 +311,6 @@ namespace Calculator_Test_2
 
                     //test display
                     test_label.Text = optr_selected.ToString();
-                }
-                else if (!optr_check.Any(label2.Text.Contains))
-                {
-                    if (label1.Text == "Invalid input")
-                    {
-                        label1.Text = "0";
-                    }
-                    else
-                    {
-                        label2.Text = label1.Text + " =";
-                    } 
                 }
                 else  //if equals button clicked for first time
                 {
@@ -318,7 +332,7 @@ namespace Calculator_Test_2
             }
             catch
             {
-                label2.Text = "";// label1.Text;
+                label2.Text = "";
                 equal_clicked = true;
             }
             //button reset
@@ -351,17 +365,13 @@ namespace Calculator_Test_2
                 case '÷':
                     the_solve = first / second;
                     label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
-                    if (error_return(the_solve) == "Invalid input") //divide by zero, ...
-                    {
-                        return error_return(the_solve);
-                    }
                     break;
             }
-           
-            return the_solve.ToString();
+            return error_return(the_solve);
        
       
         }//running
+
         private string error_return(double error)
         {
             if (double.IsNaN(error) || double.IsInfinity(error))
@@ -369,7 +379,7 @@ namespace Calculator_Test_2
                 string error_1 = "Invalid input";
                 return error_1;
             }
-            else {return null;}
+            else { return error.ToString(); }
         }
 
         private void test_2_Load(object sender, EventArgs e)
