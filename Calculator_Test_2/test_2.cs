@@ -157,6 +157,8 @@ namespace Calculator_Test_2
             }
             else
             {
+                if (equal_clicked) { label2.Text = ""; }
+
                 symbol_base = Convert.ToDouble(label1.Text);
                 var sqr_name = sqr_char + symbol_base.ToString() + " )";
                 label2.Text = label2.Text.Insert(label2.Text.Length, sqr_name);
@@ -181,6 +183,8 @@ namespace Calculator_Test_2
             }
             else
             {
+                if (equal_clicked) { label2.Text = ""; }
+
                 symbol_base = Convert.ToDouble(label1.Text);
                 var sqr_name = sqr_root + symbol_base.ToString() + " )"; //added space for proper format (ex. 10 +sqr => 10 + sqr) 
                 label2.Text = label2.Text.Insert(label2.Text.Length, sqr_name);
