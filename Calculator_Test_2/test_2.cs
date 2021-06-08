@@ -104,7 +104,15 @@ namespace Calculator_Test_2
 
             char_symbols += 6;
             var reciprocal = 1 / Convert.ToDouble(label1.Text);
-            label1.Text = reciprocal.ToString();
+            if (Double.IsInfinity(reciprocal))
+            {
+                label1.Text = "Cannot divide by zero";
+            }
+            else
+            {
+                label1.Text = reciprocal.ToString();
+            }
+           
 
         }//running
 
@@ -233,8 +241,8 @@ namespace Calculator_Test_2
 
                 //solving using function/method
                 var ans = solve(first_num, second_num);
-                label1.Text = ans.ToString();
-                label2.Text = ans.ToString() + " " + optr.Text;
+                label1.Text = ans;
+                label2.Text = ans + " " + optr.Text;
 
                 num_clicked = false; // to not increment by itself
 
@@ -267,7 +275,7 @@ namespace Calculator_Test_2
                     label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
                     var ans = solve(first_num, second_num);
-                    label1.Text = ans.ToString();
+                    label1.Text = ans;
 
                     //test display
                     test_label.Text = optr_selected.ToString();
@@ -283,7 +291,7 @@ namespace Calculator_Test_2
                     second_num = Convert.ToDouble(label1.Text);
 
                     var ans = solve(first_num, second_num);
-                    label1.Text = ans.ToString();
+                    label1.Text = ans;
                     label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
                     //equal_clicked = true;
@@ -306,11 +314,11 @@ namespace Calculator_Test_2
             char_symbols = 0;
         } //running 
 
-        private double solve(double first, double second)
+        private string solve(double first, double second)
         {
             double the_solve = 0;
-            
-            optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1 , 1));
+
+            optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1, 1));
 
             switch (optr_selected)
             {
@@ -324,17 +332,35 @@ namespace Calculator_Test_2
                     break;
                 case 'x':
                     the_solve = first * second;
-                    label2.Text = first_num.ToString() + " x " + second_num.ToString(); 
+                    label2.Text = first_num.ToString() + " x " + second_num.ToString();
                     break;
                 case '÷':
                     the_solve = first / second;
-                    label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
+                    if (error_return(the_solve) == null)
+                    {
+                        label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
+                    }
+                    else
+                    {
+                        return null;
+                    }
                     break;
             }
-            return the_solve;
+           
+            return the_solve.ToString();
        
       
         }//running
+        private string error_return(double error)
+        {
+            if (double.IsNaN(error) || double.IsInfinity(error))
+            {
+                string error_1 = "Invalid input";
+                return error_1 ;
+            }
+            else {return null;}
+        }
+
         private void test_2_Load(object sender, EventArgs e)
         {
         }
