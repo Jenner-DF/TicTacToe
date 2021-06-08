@@ -274,22 +274,36 @@ namespace Calculator_Test_2
                     first_num = Convert.ToDouble(label1.Text);
                     label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
-                    var ans = solve(first_num, second_num);
-                    label1.Text = ans;
+                    if (label1.Text == "Invalid input")
+                    {
+                        label1.Text = "0";  
+                    }
+                    else
+                    {
+                        var ans = solve(first_num, second_num);
+                        label1.Text = ans;
+                    }
 
                     //test display
                     test_label.Text = optr_selected.ToString();
                 }
                 else if (!optr_check.Any(label2.Text.Contains))
                 {
-                    label2.Text = label1.Text + " =";
-                    
+                    if (label1.Text == "Invalid input")
+                    {
+                        label1.Text = "0";
+                    }
+                    else
+                    {
+                        label2.Text = label1.Text + " =";
+                    } 
                 }
                 else  //if equals button clicked for first time
                 {
                     //constant
                     second_num = Convert.ToDouble(label1.Text);
 
+                    //error check
                     var ans = solve(first_num, second_num);
                     label1.Text = ans;
                     label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
@@ -298,7 +312,7 @@ namespace Calculator_Test_2
                     num_clicked = false; // to not increment if operator is clicked after equals button is clicked again
 
                     //test display
-                    test_label.Text =  first_num.ToString();
+                    test_label.Text = first_num.ToString();
                     test_label2.Text = second_num.ToString();
                 }       
             }
@@ -336,13 +350,10 @@ namespace Calculator_Test_2
                     break;
                 case '÷':
                     the_solve = first / second;
-                    if (error_return(the_solve) == null)
+                    label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
+                    if (error_return(the_solve) == "Invalid input") //divide by zero, ...
                     {
-                        label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
-                    }
-                    else
-                    {
-                        return null;
+                        return error_return(the_solve);
                     }
                     break;
             }
@@ -356,7 +367,7 @@ namespace Calculator_Test_2
             if (double.IsNaN(error) || double.IsInfinity(error))
             {
                 string error_1 = "Invalid input";
-                return error_1 ;
+                return error_1;
             }
             else {return null;}
         }
