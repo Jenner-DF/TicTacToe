@@ -123,6 +123,8 @@ namespace Calculator_Test_2
             }
             else
             {
+                if (equal_clicked) { label2.Text = ""; }
+
                 symbol_base = Convert.ToDouble(label1.Text);
                 var reciprocal_name = reciprocal_char + symbol_base.ToString() + " )";
                 label2.Text = label2.Text.Insert(label2.Text.Length, reciprocal_name);
