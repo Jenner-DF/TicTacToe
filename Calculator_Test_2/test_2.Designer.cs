@@ -59,12 +59,12 @@
             this.test_label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.but_group1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this._mc = new System.Windows.Forms.Button();
+            this._mr = new System.Windows.Forms.Button();
+            this._mminus = new System.Windows.Forms.Button();
+            this._mplus = new System.Windows.Forms.Button();
+            this._mlist = new System.Windows.Forms.Button();
+            this._mstore = new System.Windows.Forms.Button();
             this.but_group1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -476,104 +476,104 @@
             this.but_group1.Controls.Add(this.num_5);
             this.but_group1.Controls.Add(this._add);
             this.but_group1.Controls.Add(this.equals);
-            this.but_group1.Controls.Add(this.button5);
-            this.but_group1.Controls.Add(this.button6);
-            this.but_group1.Controls.Add(this.button3);
-            this.but_group1.Controls.Add(this.button4);
-            this.but_group1.Controls.Add(this.button2);
-            this.but_group1.Controls.Add(this.button1);
+            this.but_group1.Controls.Add(this._mlist);
+            this.but_group1.Controls.Add(this._mstore);
+            this.but_group1.Controls.Add(this._mminus);
+            this.but_group1.Controls.Add(this._mplus);
+            this.but_group1.Controls.Add(this._mr);
+            this.but_group1.Controls.Add(this._mc);
             this.but_group1.Location = new System.Drawing.Point(3, 136);
             this.but_group1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.but_group1.Name = "but_group1";
             this.but_group1.Size = new System.Drawing.Size(316, 413);
             this.but_group1.TabIndex = 57;
             // 
-            // button1
+            // _mc
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(-1, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 34);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "MC";
-            this.button1.UseVisualStyleBackColor = true;
+            this._mc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mc.Enabled = false;
+            this._mc.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this._mc.FlatAppearance.BorderSize = 0;
+            this._mc.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mc.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mc.Location = new System.Drawing.Point(-1, 15);
+            this._mc.Name = "_mc";
+            this._mc.Size = new System.Drawing.Size(54, 34);
+            this._mc.TabIndex = 52;
+            this._mc.Text = "MC";
+            this._mc.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // _mr
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(52, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 34);
-            this.button2.TabIndex = 53;
-            this.button2.Text = "MR";
-            this.button2.UseVisualStyleBackColor = true;
+            this._mr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mr.Enabled = false;
+            this._mr.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mr.FlatAppearance.BorderSize = 0;
+            this._mr.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mr.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mr.Location = new System.Drawing.Point(52, 15);
+            this._mr.Name = "_mr";
+            this._mr.Size = new System.Drawing.Size(50, 34);
+            this._mr.TabIndex = 53;
+            this._mr.Text = "MR";
+            this._mr.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // _mminus
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(150, 15);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 34);
-            this.button3.TabIndex = 55;
-            this.button3.Text = "M-";
-            this.button3.UseVisualStyleBackColor = true;
+            this._mminus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mminus.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mminus.FlatAppearance.BorderSize = 0;
+            this._mminus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mminus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mminus.Location = new System.Drawing.Point(150, 15);
+            this._mminus.Name = "_mminus";
+            this._mminus.Size = new System.Drawing.Size(50, 34);
+            this._mminus.TabIndex = 55;
+            this._mminus.Text = "M-";
+            this._mminus.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // _mplus
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(101, 15);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 34);
-            this.button4.TabIndex = 54;
-            this.button4.Text = "M+";
-            this.button4.UseVisualStyleBackColor = true;
+            this._mplus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mplus.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mplus.FlatAppearance.BorderSize = 0;
+            this._mplus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mplus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mplus.Location = new System.Drawing.Point(101, 15);
+            this._mplus.Name = "_mplus";
+            this._mplus.Size = new System.Drawing.Size(50, 34);
+            this._mplus.TabIndex = 54;
+            this._mplus.Text = "M+";
+            this._mplus.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // _mlist
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button5.Enabled = false;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button5.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this.button5.Location = new System.Drawing.Point(248, 15);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(56, 34);
-            this.button5.TabIndex = 59;
-            this.button5.Text = "M";
-            this.button5.UseVisualStyleBackColor = true;
+            this._mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mlist.Enabled = false;
+            this._mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mlist.FlatAppearance.BorderSize = 0;
+            this._mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mlist.Location = new System.Drawing.Point(248, 15);
+            this._mlist.Name = "_mlist";
+            this._mlist.Size = new System.Drawing.Size(56, 34);
+            this._mlist.TabIndex = 59;
+            this._mlist.Text = "M";
+            this._mlist.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // _mstore
             // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button6.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this.button6.Location = new System.Drawing.Point(199, 15);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(50, 34);
-            this.button6.TabIndex = 58;
-            this.button6.Text = "MS";
-            this.button6.UseVisualStyleBackColor = true;
+            this._mstore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mstore.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mstore.FlatAppearance.BorderSize = 0;
+            this._mstore.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mstore.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mstore.Location = new System.Drawing.Point(199, 15);
+            this._mstore.Name = "_mstore";
+            this._mstore.Size = new System.Drawing.Size(50, 34);
+            this._mstore.TabIndex = 58;
+            this._mstore.Text = "MS";
+            this._mstore.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -630,12 +630,12 @@
         private System.Windows.Forms.Label test_label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel but_group1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button _mc;
+        private System.Windows.Forms.Button _mlist;
+        private System.Windows.Forms.Button _mstore;
+        private System.Windows.Forms.Button _mminus;
+        private System.Windows.Forms.Button _mplus;
+        private System.Windows.Forms.Button _mr;
     }
 }
 
