@@ -61,10 +61,10 @@
             this.labelfname = new System.Windows.Forms.Label();
             this.label_addr = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_Mname = new System.Windows.Forms.Label();
+            this.label_Fname = new System.Windows.Forms.Label();
             this.text_data = new System.Windows.Forms.TextBox();
             this.but_read = new System.Windows.Forms.Button();
-            this.label_Fname = new System.Windows.Forms.Label();
-            this.label_Mname = new System.Windows.Forms.Label();
             this.but_cleardata = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +85,7 @@
             this.but_submit.TabIndex = 1;
             this.but_submit.Text = "Submit";
             this.but_submit.UseVisualStyleBackColor = false;
-            this.but_submit.Click += new System.EventHandler(this.button1_Click);
+            this.but_submit.Click += new System.EventHandler(this.Submit_Click);
             // 
             // but_cancel
             // 
@@ -186,7 +186,7 @@
             this.text_mobnum.Name = "text_mobnum";
             this.text_mobnum.Size = new System.Drawing.Size(67, 21);
             this.text_mobnum.TabIndex = 58;
-            this.text_mobnum.Leave += new System.EventHandler(this.Checking);
+            this.text_mobnum.Leave += new System.EventHandler(this.Check_text);
             // 
             // labelmobnum63
             // 
@@ -206,7 +206,7 @@
             this.text_Lname.Name = "text_Lname";
             this.text_Lname.Size = new System.Drawing.Size(145, 21);
             this.text_Lname.TabIndex = 56;
-            this.text_Lname.Leave += new System.EventHandler(this.Checking);
+            this.text_Lname.Leave += new System.EventHandler(this.Check_text);
             // 
             // text_Mname
             // 
@@ -216,7 +216,7 @@
             this.text_Mname.Name = "text_Mname";
             this.text_Mname.Size = new System.Drawing.Size(145, 21);
             this.text_Mname.TabIndex = 55;
-            this.text_Mname.Leave += new System.EventHandler(this.Checking);
+            this.text_Mname.Leave += new System.EventHandler(this.Check_text);
             // 
             // text_Fname
             // 
@@ -227,7 +227,7 @@
             this.text_Fname.Name = "text_Fname";
             this.text_Fname.Size = new System.Drawing.Size(145, 21);
             this.text_Fname.TabIndex = 54;
-            this.text_Fname.Leave += new System.EventHandler(this.Checking);
+            this.text_Fname.Leave += new System.EventHandler(this.Check_text);
             // 
             // cobx_Cstatus
             // 
@@ -248,7 +248,7 @@
             this.cobx_Cstatus.Size = new System.Drawing.Size(145, 24);
             this.cobx_Cstatus.TabIndex = 53;
             this.cobx_Cstatus.Text = "-- N/A --";
-            this.cobx_Cstatus.Leave += new System.EventHandler(this.Checking2);
+            this.cobx_Cstatus.Leave += new System.EventHandler(this.Check_combox);
             // 
             // rdio_female
             // 
@@ -261,7 +261,7 @@
             this.rdio_female.TabStop = true;
             this.rdio_female.Text = "Female";
             this.rdio_female.UseVisualStyleBackColor = true;
-            this.rdio_female.Leave += new System.EventHandler(this.Checking3);
+            this.rdio_female.Leave += new System.EventHandler(this.Check_radio);
             // 
             // rdio_male
             // 
@@ -274,7 +274,7 @@
             this.rdio_male.TabStop = true;
             this.rdio_male.Text = "Male";
             this.rdio_male.UseVisualStyleBackColor = true;
-            this.rdio_male.Leave += new System.EventHandler(this.Checking3);
+            this.rdio_male.Leave += new System.EventHandler(this.Check_radio);
             // 
             // cobx_brgy
             // 
@@ -302,7 +302,7 @@
             this.cobx_brgy.Size = new System.Drawing.Size(145, 24);
             this.cobx_brgy.TabIndex = 50;
             this.cobx_brgy.Text = "-- N/A --";
-            this.cobx_brgy.Leave += new System.EventHandler(this.Checking2);
+            this.cobx_brgy.Leave += new System.EventHandler(this.Check_combox);
             // 
             // date_birth
             // 
@@ -311,7 +311,7 @@
             this.date_birth.Name = "date_birth";
             this.date_birth.Size = new System.Drawing.Size(185, 21);
             this.date_birth.TabIndex = 49;
-            this.date_birth.Leave += new System.EventHandler(this.Checking4);
+            this.date_birth.Leave += new System.EventHandler(this.Check_datetime);
             // 
             // text_addr
             // 
@@ -321,7 +321,7 @@
             this.text_addr.Name = "text_addr";
             this.text_addr.Size = new System.Drawing.Size(357, 21);
             this.text_addr.TabIndex = 48;
-            this.text_addr.Leave += new System.EventHandler(this.Checking);
+            this.text_addr.Leave += new System.EventHandler(this.Check_text);
             // 
             // txt_city
             // 
@@ -472,6 +472,27 @@
             this.panel1.Size = new System.Drawing.Size(393, 373);
             this.panel1.TabIndex = 69;
             // 
+            // label_Mname
+            // 
+            this.label_Mname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Mname.ForeColor = System.Drawing.Color.Red;
+            this.label_Mname.Location = new System.Drawing.Point(156, 41);
+            this.label_Mname.MaximumSize = new System.Drawing.Size(15, 15);
+            this.label_Mname.Name = "label_Mname";
+            this.label_Mname.Size = new System.Drawing.Size(15, 15);
+            this.label_Mname.TabIndex = 68;
+            // 
+            // label_Fname
+            // 
+            this.label_Fname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label_Fname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Fname.ForeColor = System.Drawing.Color.Red;
+            this.label_Fname.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Fname.Location = new System.Drawing.Point(156, 9);
+            this.label_Fname.Name = "label_Fname";
+            this.label_Fname.Size = new System.Drawing.Size(15, 15);
+            this.label_Fname.TabIndex = 60;
+            // 
             // text_data
             // 
             this.text_data.Location = new System.Drawing.Point(493, 53);
@@ -501,27 +522,6 @@
             this.but_read.UseVisualStyleBackColor = false;
             this.but_read.Click += new System.EventHandler(this.But_read_Click);
             // 
-            // label_Fname
-            // 
-            this.label_Fname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label_Fname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Fname.ForeColor = System.Drawing.Color.Red;
-            this.label_Fname.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label_Fname.Location = new System.Drawing.Point(156, 9);
-            this.label_Fname.Name = "label_Fname";
-            this.label_Fname.Size = new System.Drawing.Size(15, 15);
-            this.label_Fname.TabIndex = 60;
-            // 
-            // label_Mname
-            // 
-            this.label_Mname.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Mname.ForeColor = System.Drawing.Color.Red;
-            this.label_Mname.Location = new System.Drawing.Point(156, 41);
-            this.label_Mname.MaximumSize = new System.Drawing.Size(15, 15);
-            this.label_Mname.Name = "label_Mname";
-            this.label_Mname.Size = new System.Drawing.Size(15, 15);
-            this.label_Mname.TabIndex = 68;
-            // 
             // but_cleardata
             // 
             this.but_cleardata.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -538,7 +538,7 @@
             this.but_cleardata.Text = "CLEAR DATA";
             this.but_cleardata.UseVisualStyleBackColor = false;
             this.but_cleardata.Visible = false;
-            this.but_cleardata.Click += new System.EventHandler(this.but_cleardata_Click);
+            this.but_cleardata.Click += new System.EventHandler(this.But_cleardata_Click);
             // 
             // Form1
             // 
