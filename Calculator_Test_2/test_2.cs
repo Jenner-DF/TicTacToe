@@ -44,20 +44,20 @@ namespace Calculator_Test_2
         } //running
         private void _decimal_Click(object sender, EventArgs e)
         {
-            if (!label1.Text.Contains("."))
+            if (!display_1.Text.Contains("."))
             {
-                label1.Text = label1.Text.Insert(label1.Text.Length, ".");
+                display_1.Text = display_1.Text.Insert(display_1.Text.Length, ".");
             }
         } //running
         private void _Sign_Click(object sender, EventArgs e)
         {
-            if (label1.Text.Contains("-"))
+            if (display_1.Text.Contains("-"))
             {
-                label1.Text = label1.Text.Trim('-');
+                display_1.Text = display_1.Text.Trim('-');
             }
             else
             {
-                label1.Text = label1.Text.Insert(0, "-");
+                display_1.Text = display_1.Text.Insert(0, "-");
             }
         } //running
         private void _clearEntry_Click(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace Calculator_Test_2
             {
                 error_enable_but();
             }
-            label1.Text = "0";
+            display_1.Text = "0";
         } //running
 
         private void _clearAll_Click(object sender, EventArgs e)
@@ -75,8 +75,8 @@ namespace Calculator_Test_2
             {
                 error_enable_but();
             }
-            label2.Text = "";
-            label1.Text = "0";
+            display_2.Text = "";
+            display_1.Text = "0";
             test_label.Text = "";
             test_label2.Text = "";
             optr_clicked = false;
@@ -93,13 +93,13 @@ namespace Calculator_Test_2
             {
                 error_enable_but();
             }
-            if (label1.Text.Length == 1)
+            if (display_1.Text.Length == 1)
             {
-                label1.Text = "0";
+                display_1.Text = "0";
             }
             else
             {
-                label1.Text = label1.Text.Remove(label1.Text.Length - 1);
+                display_1.Text = display_1.Text.Remove(display_1.Text.Length - 1);
             }
 
         } //running
@@ -112,32 +112,32 @@ namespace Calculator_Test_2
             if (symbols_clicked)
             {
                 //to display 
-                test_label2.Text = label2.Text.Length.ToString();
+                test_label2.Text = display_2.Text.Length.ToString();
 
                 var minus_symbol = symbol_base.ToString().Length + (char_symbols);
-                label2.Text = label2.Text.Insert(label2.Text.Length - minus_symbol, reciprocal_char);
-                label2.Text = label2.Text.Insert(label2.Text.Length, " )");
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length - minus_symbol, reciprocal_char);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, " )");
 
                 //to display 
                 test_label.Text = (minus_symbol).ToString();
             }
             else
             {
-                if (equal_clicked) { label2.Text = ""; }
+                if (equal_clicked) { display_2.Text = ""; }
 
-                symbol_base = Convert.ToDouble(label1.Text);
+                symbol_base = Convert.ToDouble(display_1.Text);
                 var reciprocal_name = reciprocal_char + symbol_base.ToString() + " )";
-                label2.Text = label2.Text.Insert(label2.Text.Length, reciprocal_name);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, reciprocal_name);
 
                 //to display
-                test_label.Text = label2.Text;
-                test_label2.Text = label2.Text.Length.ToString();
+                test_label.Text = display_2.Text;
+                test_label2.Text = display_2.Text.Length.ToString();
                 symbols_clicked = true;  // when clicked
             }
 
             char_symbols += 6;
             //solving
-            label1.Text = per_rec_sqr_rt('/');
+            display_1.Text = per_rec_sqr_rt('/');
 
         }//running
 
@@ -148,30 +148,30 @@ namespace Calculator_Test_2
             if (symbols_clicked)
             {
                 //to display 
-                test_label2.Text = label2.Text.Length.ToString();
+                test_label2.Text = display_2.Text.Length.ToString();
 
                 var minus_symbol = symbol_base.ToString().Length + (char_symbols);
-                label2.Text = label2.Text.Insert(label2.Text.Length - minus_symbol, sqr_char);
-                label2.Text = label2.Text.Insert(label2.Text.Length, " )");
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length - minus_symbol, sqr_char);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, " )");
 
                 //to display 
                 test_label.Text = (minus_symbol).ToString();
             }
             else
             {
-                if (equal_clicked) { label2.Text = ""; }
+                if (equal_clicked) { display_2.Text = ""; }
 
-                symbol_base = Convert.ToDouble(label1.Text);
+                symbol_base = Convert.ToDouble(display_1.Text);
                 var sqr_name = sqr_char + symbol_base.ToString() + " )";
-                label2.Text = label2.Text.Insert(label2.Text.Length, sqr_name);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, sqr_name);
 
                 //to display
-                test_label.Text = label2.Text;
-                test_label2.Text = label2.Text.Length.ToString();
+                test_label.Text = display_2.Text;
+                test_label2.Text = display_2.Text.Length.ToString();
                 symbols_clicked = true;  // when clicked
             }
             char_symbols += 7;
-            label1.Text = per_rec_sqr_rt('^');
+            display_1.Text = per_rec_sqr_rt('^');
         }//running
         private void _sqrroot_Click(object sender, EventArgs e)
         {
@@ -180,44 +180,43 @@ namespace Calculator_Test_2
             if (symbols_clicked)
             {
                 var minus_symbol = symbol_base.ToString().Length + (char_symbols);
-                label2.Text = label2.Text.Insert(label2.Text.Length - minus_symbol, sqr_root);
-                label2.Text = label2.Text.Insert(label2.Text.Length, " )");
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length - minus_symbol, sqr_root);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, " )");
             }
             else
             {
-                if (equal_clicked) { label2.Text = ""; }
+                if (equal_clicked) { display_2.Text = ""; }
 
-                symbol_base = Convert.ToDouble(label1.Text);
+                symbol_base = Convert.ToDouble(display_1.Text);
                 var sqr_name = sqr_root + symbol_base.ToString() + " )"; //added space for proper format (ex. 10 +sqr => 10 + sqr) 
-                label2.Text = label2.Text.Insert(label2.Text.Length, sqr_name);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, sqr_name);
                 symbols_clicked = true;  // when clicked
 
                 //to display
-                test_label.Text = label2.Text;
-                test_label2.Text = label2.Text.Length.ToString();
+                test_label.Text = display_2.Text;
+                test_label2.Text = display_2.Text.Length.ToString();
             }
             char_symbols += 5;
-            label1.Text = per_rec_sqr_rt('v');
+            display_1.Text = per_rec_sqr_rt('v');
         } //running
         private void _percent_Click(object sender, EventArgs e)
         {
-            if (optr_check.Any(label2.Text.Contains))
+            if (optr_check.Any(display_2.Text.Contains))
             {
-                label1.Text = per_rec_sqr_rt('%');
-                optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1, 1));
-                label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + label1.Text;
+                display_1.Text = per_rec_sqr_rt('%');
+                optr_selected = Convert.ToChar(display_2.Text.Substring(first_num.ToString().Length + 1, 1));
+                display_2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + display_1.Text;
             }
             else
             {
-                label1.Text = "0";
+                display_1.Text = "0";
             }
             percent_clicked = true;
         }//running
-
         private string per_rec_sqr_rt(char select)
         {
             double get = 0;
-            var base_num = label1.Text;
+            var base_num = display_1.Text;
             switch (select)
             {
                 case '%':
@@ -230,7 +229,7 @@ namespace Calculator_Test_2
                     get = Math.Pow(Convert.ToDouble(base_num), 2);
                     break;
                 case 'v':
-                    get = Math.Sqrt(Convert.ToDouble(label1.Text));
+                    get = Math.Sqrt(Convert.ToDouble(display_1.Text));
                     break;
             }
             return error_return(get);
@@ -246,7 +245,7 @@ namespace Calculator_Test_2
 
             if (optr_clicked) //I separate it, will not work if i put it here both as optr needs to be click to run  
             {
-                label1.Text = nums.Text;
+                display_1.Text = nums.Text;
                 optr_clicked = false;
                 equal_clicked = false;
                 num_clicked = true;
@@ -254,20 +253,20 @@ namespace Calculator_Test_2
             }
             else if (equal_clicked || symbols_clicked || percent_clicked)
             {
-                label2.Text = "";
-                label1.Text = nums.Text;
+                display_2.Text = "";
+                display_1.Text = nums.Text;
                 optr_clicked = false;
                 equal_clicked = false;
                 num_clicked = true;
             }
-            else if (label1.Text == "0" || label1.Text == "-0")
+            else if (display_1.Text == "0" || display_1.Text == "-0")
             {
-                label1.Text = nums.Text;
-                test_label.Text = label2.Text.Substring(0, label2.Text.Length);
+                display_1.Text = nums.Text;
+                test_label.Text = display_2.Text.Substring(0, display_2.Text.Length);
             }
             else
             {
-                label1.Text = label1.Text + nums.Text;
+                display_1.Text = display_1.Text + nums.Text;
 
             }
             symbols_clicked = false;
@@ -280,30 +279,30 @@ namespace Calculator_Test_2
         {
             Button optr = (Button)sender;
 
-            if (optr_check.Any(label2.Text.Contains) && num_clicked )//|| symbols_clicked || percent_clicked) 
+            if (optr_check.Any(display_2.Text.Contains) && num_clicked )//|| symbols_clicked || percent_clicked) 
             {
-                second_num = Convert.ToDouble(label1.Text);
+                second_num = Convert.ToDouble(display_1.Text);
 
                 //test diplay
                 test_label.Text = first_num.ToString();
-                test_label2.Text = label1.Text;
+                test_label2.Text = display_1.Text;
 
                 //solving using function/method
                 var ans = solve(first_num, second_num);
-                label1.Text = ans;
-                label2.Text = ans + " " + optr.Text;
+                display_1.Text = ans;
+                display_2.Text = ans + " " + optr.Text;
 
                 num_clicked = false; // to not increment by itself
 
-                first_num = Convert.ToDouble(label1.Text);
+                first_num = Convert.ToDouble(display_1.Text);
             }
             else
             {
-                label2.Text = Convert.ToDouble(label1.Text) + " " + optr.Text;
-                first_num = Convert.ToDouble(label1.Text);
+                display_2.Text = Convert.ToDouble(display_1.Text) + " " + optr.Text;
+                first_num = Convert.ToDouble(display_1.Text);
                 
                 //test display
-                test_label.Text = label2.Text;
+                test_label.Text = display_2.Text;
             }
 
             //button reset
@@ -322,30 +321,30 @@ namespace Calculator_Test_2
             }
             try
             {
-                if (!optr_check.Any(label2.Text.Contains))
+                if (!optr_check.Any(display_2.Text.Contains))
                 {
-                    if (label1.Text == "Invalid input")
+                    if (display_1.Text == "Invalid input")
                     {
-                        label1.Text = "0";
+                        display_1.Text = "0";
                     }
                     else
                     {
-                        label2.Text = label1.Text + " =";
+                        display_2.Text = display_1.Text + " =";
                     }
                 }
-                else if (equal_clicked && optr_check.Any(label2.Text.Contains)) // if equals button clicked once // if num clicked: else will run
+                else if (equal_clicked && optr_check.Any(display_2.Text.Contains)) // if equals button clicked once // if num clicked: else will run
                 {
-                    first_num = Convert.ToDouble(label1.Text);
-                    label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
+                    first_num = Convert.ToDouble(display_1.Text);
+                    display_2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
-                    if (label1.Text == "Invalid input")
+                    if (display_1.Text == "Invalid input")
                     {
-                        label1.Text = "0";
+                        display_1.Text = "0";
                     }
                     else
                     {
                         var ans = solve(first_num, second_num);
-                        label1.Text = ans;
+                        display_1.Text = ans;
                     }
 
                     //test display
@@ -354,12 +353,12 @@ namespace Calculator_Test_2
                 else  //if equals button clicked for first time
                 {
                     //constant
-                    second_num = Convert.ToDouble(label1.Text);
+                    second_num = Convert.ToDouble(display_1.Text);
 
                     //error check
                     var ans = solve(first_num, second_num);
-                    label1.Text = ans;
-                    label2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
+                    display_1.Text = ans;
+                    display_2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
                     //equal_clicked = true;
                     num_clicked = false; // to not increment if operator is clicked after equals button is clicked again
@@ -371,7 +370,7 @@ namespace Calculator_Test_2
             }
             catch
             {
-                label2.Text = "";
+                display_2.Text = "";
                 equal_clicked = true;
             }
             //button reset
@@ -384,25 +383,25 @@ namespace Calculator_Test_2
         {
             double the_solve = 0;
 
-            optr_selected = Convert.ToChar(label2.Text.Substring(first_num.ToString().Length + 1, 1));
+            optr_selected = Convert.ToChar(display_2.Text.Substring(first_num.ToString().Length + 1, 1));
 
             switch (optr_selected)
             {
                 case '+':
                     the_solve = first + second;
-                    label2.Text = first_num.ToString() + " + " + second_num.ToString();
+                    display_2.Text = first_num.ToString() + " + " + second_num.ToString();
                     break;
                 case '-':
                     the_solve = first - second;
-                    label2.Text = first_num.ToString() + " - " + second_num.ToString();
+                    display_2.Text = first_num.ToString() + " - " + second_num.ToString();
                     break;
                 case 'x':
                     the_solve = first * second;
-                    label2.Text = first_num.ToString() + " x " + second_num.ToString();
+                    display_2.Text = first_num.ToString() + " x " + second_num.ToString();
                     break;
                 case '÷':
                     the_solve = first / second;
-                    label2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
+                    display_2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
                     break;
             }
             return error_return(the_solve);
@@ -425,6 +424,37 @@ namespace Calculator_Test_2
             }
             else { return error.ToString(); }
         }//running
+
+        private void _mc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _mr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _mplus_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void _mminus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _mstore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _mlist_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void test_2_Load(object sender, EventArgs e)
         {
         }

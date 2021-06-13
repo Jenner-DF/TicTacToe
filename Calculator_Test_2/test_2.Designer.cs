@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
+            this.display_1 = new System.Windows.Forms.Label();
             this.backspace = new System.Windows.Forms.Button();
             this.clearAll = new System.Windows.Forms.Button();
             this.clearEntry = new System.Windows.Forms.Button();
@@ -54,30 +54,30 @@
             this._decimal = new System.Windows.Forms.Button();
             this.num_0 = new System.Windows.Forms.Button();
             this._Sign = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.display_2 = new System.Windows.Forms.Label();
             this.test_label = new System.Windows.Forms.Label();
             this.test_label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.but_group1 = new System.Windows.Forms.Panel();
-            this._mc = new System.Windows.Forms.Button();
-            this._mr = new System.Windows.Forms.Button();
-            this._mminus = new System.Windows.Forms.Button();
-            this._mplus = new System.Windows.Forms.Button();
             this._mlist = new System.Windows.Forms.Button();
             this._mstore = new System.Windows.Forms.Button();
+            this._mminus = new System.Windows.Forms.Button();
+            this._mplus = new System.Windows.Forms.Button();
+            this._mr = new System.Windows.Forms.Button();
+            this._mc = new System.Windows.Forms.Button();
             this.but_group1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // display_1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 55);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.display_1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.display_1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.display_1.Location = new System.Drawing.Point(3, 83);
+            this.display_1.Name = "display_1";
+            this.display_1.Size = new System.Drawing.Size(301, 55);
+            this.display_1.TabIndex = 52;
+            this.display_1.Text = "0";
+            this.display_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // backspace
             // 
@@ -410,16 +410,16 @@
             this._Sign.UseVisualStyleBackColor = false;
             this._Sign.Click += new System.EventHandler(this._Sign_Click);
             // 
-            // label2
+            // display_2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(-1, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(291, 37);
-            this.label2.TabIndex = 53;
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.display_2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.display_2.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.display_2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.display_2.Location = new System.Drawing.Point(-1, 61);
+            this.display_2.Name = "display_2";
+            this.display_2.Size = new System.Drawing.Size(291, 37);
+            this.display_2.TabIndex = 53;
+            this.display_2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // test_label
             // 
@@ -488,20 +488,66 @@
             this.but_group1.Size = new System.Drawing.Size(316, 413);
             this.but_group1.TabIndex = 57;
             // 
-            // _mc
+            // _mlist
             // 
-            this._mc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._mc.Enabled = false;
-            this._mc.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this._mc.FlatAppearance.BorderSize = 0;
-            this._mc.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this._mc.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this._mc.Location = new System.Drawing.Point(-1, 15);
-            this._mc.Name = "_mc";
-            this._mc.Size = new System.Drawing.Size(54, 34);
-            this._mc.TabIndex = 52;
-            this._mc.Text = "MC";
-            this._mc.UseVisualStyleBackColor = true;
+            this._mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mlist.Enabled = false;
+            this._mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mlist.FlatAppearance.BorderSize = 0;
+            this._mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mlist.Location = new System.Drawing.Point(248, 15);
+            this._mlist.Name = "_mlist";
+            this._mlist.Size = new System.Drawing.Size(56, 34);
+            this._mlist.TabIndex = 59;
+            this._mlist.Text = "M";
+            this._mlist.UseVisualStyleBackColor = true;
+            this._mlist.Click += new System.EventHandler(this._mlist_Click);
+            // 
+            // _mstore
+            // 
+            this._mstore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mstore.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mstore.FlatAppearance.BorderSize = 0;
+            this._mstore.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mstore.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mstore.Location = new System.Drawing.Point(199, 15);
+            this._mstore.Name = "_mstore";
+            this._mstore.Size = new System.Drawing.Size(50, 34);
+            this._mstore.TabIndex = 58;
+            this._mstore.Text = "MS";
+            this._mstore.UseVisualStyleBackColor = true;
+            this._mstore.Click += new System.EventHandler(this._mstore_Click);
+            // 
+            // _mminus
+            // 
+            this._mminus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mminus.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mminus.FlatAppearance.BorderSize = 0;
+            this._mminus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mminus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mminus.Location = new System.Drawing.Point(150, 15);
+            this._mminus.Name = "_mminus";
+            this._mminus.Size = new System.Drawing.Size(50, 34);
+            this._mminus.TabIndex = 55;
+            this._mminus.Text = "M-";
+            this._mminus.UseVisualStyleBackColor = true;
+            this._mminus.Click += new System.EventHandler(this._mminus_Click);
+            // 
+            // _mplus
+            // 
+            this._mplus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mplus.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mplus.FlatAppearance.BorderSize = 0;
+            this._mplus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mplus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mplus.Location = new System.Drawing.Point(101, 15);
+            this._mplus.Name = "_mplus";
+            this._mplus.Size = new System.Drawing.Size(50, 34);
+            this._mplus.TabIndex = 54;
+            this._mplus.Text = "M+";
+            this._mplus.UseVisualStyleBackColor = true;
+            this._mplus.Click += new System.EventHandler(this._mplus_Click);
             // 
             // _mr
             // 
@@ -517,63 +563,23 @@
             this._mr.TabIndex = 53;
             this._mr.Text = "MR";
             this._mr.UseVisualStyleBackColor = true;
+            this._mr.Click += new System.EventHandler(this._mr_Click);
             // 
-            // _mminus
+            // _mc
             // 
-            this._mminus.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._mminus.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this._mminus.FlatAppearance.BorderSize = 0;
-            this._mminus.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this._mminus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this._mminus.Location = new System.Drawing.Point(150, 15);
-            this._mminus.Name = "_mminus";
-            this._mminus.Size = new System.Drawing.Size(50, 34);
-            this._mminus.TabIndex = 55;
-            this._mminus.Text = "M-";
-            this._mminus.UseVisualStyleBackColor = true;
-            // 
-            // _mplus
-            // 
-            this._mplus.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._mplus.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this._mplus.FlatAppearance.BorderSize = 0;
-            this._mplus.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this._mplus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this._mplus.Location = new System.Drawing.Point(101, 15);
-            this._mplus.Name = "_mplus";
-            this._mplus.Size = new System.Drawing.Size(50, 34);
-            this._mplus.TabIndex = 54;
-            this._mplus.Text = "M+";
-            this._mplus.UseVisualStyleBackColor = true;
-            // 
-            // _mlist
-            // 
-            this._mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._mlist.Enabled = false;
-            this._mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this._mlist.FlatAppearance.BorderSize = 0;
-            this._mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this._mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this._mlist.Location = new System.Drawing.Point(248, 15);
-            this._mlist.Name = "_mlist";
-            this._mlist.Size = new System.Drawing.Size(56, 34);
-            this._mlist.TabIndex = 59;
-            this._mlist.Text = "M";
-            this._mlist.UseVisualStyleBackColor = true;
-            // 
-            // _mstore
-            // 
-            this._mstore.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._mstore.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this._mstore.FlatAppearance.BorderSize = 0;
-            this._mstore.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this._mstore.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this._mstore.Location = new System.Drawing.Point(199, 15);
-            this._mstore.Name = "_mstore";
-            this._mstore.Size = new System.Drawing.Size(50, 34);
-            this._mstore.TabIndex = 58;
-            this._mstore.Text = "MS";
-            this._mstore.UseVisualStyleBackColor = true;
+            this._mc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mc.Enabled = false;
+            this._mc.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this._mc.FlatAppearance.BorderSize = 0;
+            this._mc.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mc.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mc.Location = new System.Drawing.Point(-1, 15);
+            this._mc.Name = "_mc";
+            this._mc.Size = new System.Drawing.Size(54, 34);
+            this._mc.TabIndex = 52;
+            this._mc.Text = "MC";
+            this._mc.UseVisualStyleBackColor = true;
+            this._mc.Click += new System.EventHandler(this._mc_Click);
             // 
             // Form1
             // 
@@ -581,9 +587,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(304, 507);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.display_1);
             this.Controls.Add(this.but_group1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.display_2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.test_label2);
             this.Controls.Add(this.test_label);
@@ -600,7 +606,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label display_1;
         private System.Windows.Forms.Button backspace;
         private System.Windows.Forms.Button clearAll;
         private System.Windows.Forms.Button clearEntry;
@@ -625,7 +631,7 @@
         private System.Windows.Forms.Button _decimal;
         private System.Windows.Forms.Button num_0;
         private System.Windows.Forms.Button _Sign;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label display_2;
         private System.Windows.Forms.Label test_label;
         private System.Windows.Forms.Label test_label2;
         private System.Windows.Forms.Label label4;
