@@ -93,7 +93,7 @@ namespace ContactTracing
                     }
                     else
                     {
-                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+                        Controls.Find(comb, true)[0].BakgroundImage = pic_check;
                     }*/
                 }
             }
