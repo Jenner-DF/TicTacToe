@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label_checkwin = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.Panel = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -75,16 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
-            // label_checkwin
-            // 
-            this.label_checkwin.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label_checkwin.Location = new System.Drawing.Point(636, 430);
-            this.label_checkwin.Name = "label_checkwin";
-            this.label_checkwin.Size = new System.Drawing.Size(147, 31);
-            this.label_checkwin.TabIndex = 20;
-            this.label_checkwin.Text = "_donotremove";
-            this.label_checkwin.Visible = false;
-            // 
             // button3
             // 
             this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -93,6 +82,7 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Location = new System.Drawing.Point(397, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 125);
@@ -139,6 +129,7 @@
             this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button9.Location = new System.Drawing.Point(397, 395);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(139, 125);
@@ -156,6 +147,7 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button6.Location = new System.Drawing.Point(397, 204);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(139, 125);
@@ -173,6 +165,7 @@
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button8.Location = new System.Drawing.Point(166, 372);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(194, 137);
@@ -190,6 +183,7 @@
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button5.Location = new System.Drawing.Point(166, 198);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(194, 137);
@@ -208,6 +202,7 @@
             this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button7.Location = new System.Drawing.Point(17, 383);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(113, 137);
@@ -226,6 +221,7 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button4.Location = new System.Drawing.Point(17, 194);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 137);
@@ -244,6 +240,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(17, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 137);
@@ -261,6 +258,7 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(166, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(194, 137);
@@ -528,7 +526,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Panel);
-            this.Controls.Add(this.label_checkwin);
             this.Controls.Add(this.panel_newgame);
             this.Controls.Add(this.score_reset);
             this.Controls.Add(this.new_game);
@@ -536,7 +533,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "TicTacToe";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -554,7 +550,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label_checkwin;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.PictureBox pictureBox1;
