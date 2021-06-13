@@ -93,7 +93,7 @@ namespace ContactTracing
                     }
                     else
                     {
-                        Controls.Find(comb, true)[0].BakgroundImage = pic_check;
+                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                     }*/
                 }
             }
@@ -118,35 +118,9 @@ namespace ContactTracing
                 MessageBox.Show("Invalid input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }//running
-        private void But_read_Click(object sender, EventArgs e)
-        {
-            if (text_data.Visible) { Text_data_Leave(null, null); }
-            else
-            {
-                Form1.ActiveForm.Width = 698;
-                text_data.Visible = true;
-                but_cleardata.Visible = true;
-                StreamReader read = new StreamReader("Contact List.txt");
-                text_data.Clear();
-
-                while (!read.EndOfStream) { text_data.Text = text_data.Text + read.ReadLine() + Environment.NewLine; }
-                read.Close();
-            }
-        }//running
-        private string Getrad()
-        {
-            if (rdio_male.Checked)
-            {
-                return rdio_male.Text;
-            }
-            else
-            {
-                return rdio_female.Text;
-            }
-        }//get radio buttion value
         private void Check_text(object sender, EventArgs e)
         {
-            TextBox box = sender as TextBox;
+            Control box = sender as Control;
 
             var comb = "label" + box.Name.ToString().Substring(4);
             if (box.Name == "text_mobnum")
@@ -171,7 +145,7 @@ namespace ContactTracing
         }//textbox check
         private void Check_combox(object sender, EventArgs e)
         {
-            ComboBox box = sender as ComboBox;
+            Control box = sender as Control;
 
             var comb = "label" + box.Name.ToString().Substring(4);
             if (box.Name.Substring(0, 5) == "cobx_")
@@ -189,7 +163,7 @@ namespace ContactTracing
         }//combobox check
         private void Check_radio(object sender, EventArgs e)
         {
-            RadioButton box = sender as RadioButton;
+            Control box = sender as Control;
 
             var comb = label_sex.Name;
             if (box.Name.Substring(0, 5) == "rdio_")
@@ -217,6 +191,32 @@ namespace ContactTracing
                 Controls.Find(comb, true)[0].BackgroundImage = pic_check;
             }
         }//datetime check
+        private void But_read_Click(object sender, EventArgs e)
+        {
+            if (text_data.Visible) { Text_data_Leave(null, null); }
+            else
+            {
+                Form1.ActiveForm.Width = 698;
+                text_data.Visible = true;
+                but_cleardata.Visible = true;
+                StreamReader read = new StreamReader("Contact List.txt");
+                text_data.Clear();
+
+                while (!read.EndOfStream) { text_data.Text = text_data.Text + read.ReadLine() + Environment.NewLine; }
+                read.Close();
+            }
+        }//running
+        private string Getrad()
+        {
+            if (rdio_male.Checked)
+            {
+                return rdio_male.Text;
+            }
+            else
+            {
+                return rdio_female.Text;
+            }
+        }//get radio buttion value
         private void Form1_Load(object sender, EventArgs e)
         {
             var readall = File.ReadAllLines("Contact List.txt").Count();
