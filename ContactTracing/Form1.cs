@@ -31,70 +31,22 @@ namespace ContactTracing
                 //text check
                 if (box.Name.Substring(0, 5) == "text_")
                 {
-                    if (box.Name == "text_mobnum")
-                    {
-                        if (!box.Text.All(char.IsDigit) || box.Text == "")
-                        {
-                            Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                            check_all = false;
-                        }
-                        else
-                        {
-                            Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-                        }
-                    }
-                    else if (box.Text == "")
-                    {
-                        Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                        check_all = false;
-                    }
-                    else
-                    {
-                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-                    }
+                    Check_text2(null,box);
                 }
                 //combobox check
                 if (box.Name.Substring(0, 5) == "cobx_")
                 {
-                    ComboBox box2 = box as ComboBox;
-                    if (box2.SelectedIndex < 0)
-                    {
-                        Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                        check_all = false;
-                    }
-                    else
-                    {
-                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-                    }
+                    Check_combox(sender, null);
                 }
                 //radiobutton check
                 if (box.Name.Substring(0, 5) == "rdio_")
                 {
-                    var comb2 = label_sex.Name;
-                    if (!(rdio_female.Checked || rdio_male.Checked))
-                    {
-                        Controls.Find(comb2, true)[0].BackgroundImage = pic_wrong;
-                        check_all = false;
-                    }
-                    else
-                    {
-                        Controls.Find(comb2, true)[0].BackgroundImage = pic_check;
-                    }
+                    Check_radio(sender,null);
                 }
                 //datetime check
                 if (box.Name.Substring(0, 5) == "date_")
                 {
                     Check_datetime(null, null);
-                    /*DateTime limit = new DateTime(1899, 12, 31);
-                    if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
-                    {
-                        Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                        check_all = false;
-                    }
-                    else
-                    {
-                        Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-                    }*/
                 }
             }
             if (check_all)
@@ -121,27 +73,8 @@ namespace ContactTracing
         private void Check_text(object sender, EventArgs e)
         {
             Control box = sender as Control;
-
-            var comb = "label" + box.Name.ToString().Substring(4);
-            if (box.Name == "text_mobnum")
-            {
-                if (!box.Text.All(char.IsDigit) || box.Text == "")
-                {
-                    Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                }
-                else
-                {
-                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-                }
-            }
-            else if (box.Text == "")
-            {
-                Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-            }
-            else
-            {
-                Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-            }
+            Check_text2(box);
+          
         }//textbox check
         private void Check_combox(object sender, EventArgs e)
         {
@@ -191,6 +124,38 @@ namespace ContactTracing
                 Controls.Find(comb, true)[0].BackgroundImage = pic_check;
             }
         }//datetime check
+
+        private void Check_text2(Control box)
+        {
+            var comb = "label" + box.Name.ToString().Substring(4);
+            if (box.Name == "text_mobnum")
+            {
+                if (!box.Text.All(char.IsDigit) || box.Text == "")
+                {
+                    Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
+                }
+                else
+                {
+                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+                }
+            }
+            else if (box.Text == "")
+            {
+                Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
+            }
+            else
+            {
+                Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+            }
+           
+        }
+
+
+
+
+
+
+
         private void But_read_Click(object sender, EventArgs e)
         {
             if (text_data.Visible) { Text_data_Leave(null, null); }
