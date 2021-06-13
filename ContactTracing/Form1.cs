@@ -13,7 +13,7 @@ namespace ContactTracing
 {
     public partial class Form1 : Form
     {
-        bool check_all = false;
+        bool check_all, check_empty = false;
         int person_count = 0;
         string[] data = new string[11];
         readonly Image pic_check = Image.FromFile("green_circle.png");
@@ -27,26 +27,29 @@ namespace ContactTracing
             check_all = true;
             foreach (Control box in panel1.Controls)
             {
-                var comb = "label" + box.Name.ToString().Substring(4);
                 //text check
                 if (box.Name.Substring(0, 5) == "text_")
                 {
-                    Check_text2(null,box);
+                    Check_text(box);
+                    if (check_empty) { check_all = false; }
                 }
                 //combobox check
                 if (box.Name.Substring(0, 5) == "cobx_")
                 {
-                    Check_combox(sender, null);
+                    Check_combox(box);
+                    if (check_empty) { check_all = false; }
                 }
                 //radiobutton check
                 if (box.Name.Substring(0, 5) == "rdio_")
                 {
-                    Check_radio(sender,null);
+                    Check_radio();
+                    if (check_empty) { check_all = false; }
                 }
                 //datetime check
                 if (box.Name.Substring(0, 5) == "date_")
                 {
-                    Check_datetime(null, null);
+                    Check_datetime();
+                    if (check_empty) { check_all = false; }
                 }
             }
             if (check_all)
@@ -69,93 +72,114 @@ namespace ContactTracing
             {
                 MessageBox.Show("Invalid input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }//running
-        private void Check_text(object sender, EventArgs e)
+        }
+        private void Check_text(object sender, EventArgs e = null)
         {
             Control box = sender as Control;
-            Check_text2(box);
-          
-        }//textbox check
-        private void Check_combox(object sender, EventArgs e)
-        {
-            Control box = sender as Control;
-
-            var comb = "label" + box.Name.ToString().Substring(4);
-            if (box.Name.Substring(0, 5) == "cobx_")
-            {
-                ComboBox box2 = box as ComboBox;
-                if (box2.SelectedIndex < 0)
-                {
-                    Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                }
-                else
-                {
-                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-                }
-            }
-        }//combobox check
-        private void Check_radio(object sender, EventArgs e)
-        {
-            Control box = sender as Control;
-
-            var comb = label_sex.Name;
-            if (box.Name.Substring(0, 5) == "rdio_")
-            {
-                if (!(rdio_female.Checked || rdio_male.Checked))
-                {
-                    Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                }
-                else
-                {
-                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-                }
-            }
-        }//radiobutton check
-        private void Check_datetime(object sender, EventArgs e)
-        {
-            DateTime limit = new DateTime(1899, 12, 31);
-            var comb = "label" + "_birth";
-            if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
-            {
-                Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-            }
-            else
-            {
-                Controls.Find(comb, true)[0].BackgroundImage = pic_check;
-            }
-        }//datetime check
-
-        private void Check_text2(Control box)
-        {
             var comb = "label" + box.Name.ToString().Substring(4);
             if (box.Name == "text_mobnum")
             {
-                if (!box.Text.All(char.IsDigit) || box.Text == "")
+                if (box.Text.All(char.IsDigit) || box.Text == "")
                 {
+                    check_empty = true;
                     Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
-                }
-                else
-                {
-                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                 }
             }
             else if (box.Text == "")
             {
+                check_empty = true;
+                Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
+            } 
+            else
+            {
+                Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+            }
+
+            /* if (Check_text2(box))
+             {
+                 Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+             }
+             else
+             {
+                 Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
+             }*/
+
+        }//textbox check
+       /* private bool Check_text2(Control box)
+        {
+            bool check = true;
+            if (box.Name == "text_mobnum")
+            {
+                if (!box.Text.All(char.IsDigit) || box.Text == "")
+                {
+                    check = false;
+                }
+            }
+            else if (box.Text == "")
+            {
+                check = false;
+            }
+            return check;
+        }*/
+        private void Check_combox(object sender, EventArgs e = null)
+        {
+            ComboBox box = sender as ComboBox;
+            var comb = "label" + box.Name.ToString().Substring(4);
+            if (box.SelectedIndex < 0)
+            {
+                check_empty = true;
                 Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
             }
             else
             {
                 Controls.Find(comb, true)[0].BackgroundImage = pic_check;
             }
-           
-        }
+            /* if (Check_combox2(box))
+             {
+                 Controls.Find(comb, true)[0].BackgroundImage = pic_check;
+             }
+             else
+             {
+                 Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
+             }*/
+        }//combobox check
+        /*private bool Check_combox2(Control box)
+        {
+            bool check = true;
 
+            ComboBox box2 = box as ComboBox;
+            if (box2.SelectedIndex < 0)
+            {
+                check = false;
+            }
+            return check;
+        }*/
+        private void Check_radio(object sender=null, EventArgs e=null)
+        {
+            if (!(rdio_female.Checked || rdio_male.Checked))
+            {
+                label_sex.Image = pic_wrong;
+                check_empty = true;
+            }
+            else
+            {
+                label_sex.Image = pic_check;
+            }
 
-
-
-
-
-
+        }//radiobutton check
+        private void Check_datetime(object sender=null, EventArgs e=null)
+        {
+            DateTime limit = new DateTime(1899, 12, 31);
+            if (date_birth.Value > DateTime.Today || date_birth.Value <= limit)
+            {
+                label_birth.Image = pic_wrong;
+                check_empty = true;
+            }
+            else
+            {
+                label_birth.Image = pic_check;
+            }
+        }//datetime check
         private void But_read_Click(object sender, EventArgs e)
         {
             if (text_data.Visible) { Text_data_Leave(null, null); }
