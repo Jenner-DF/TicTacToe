@@ -25,6 +25,7 @@ namespace ContactTracing
         private void Submit_Click(object sender, EventArgs e)
         {
             check_all = true;
+            check_empty = false;
             foreach (Control box in panel1.Controls)
             {
                 //text check
@@ -79,10 +80,14 @@ namespace ContactTracing
             var comb = "label" + box.Name.ToString().Substring(4);
             if (box.Name == "text_mobnum")
             {
-                if (box.Text.All(char.IsDigit) || box.Text == "")
+                if (!box.Text.All(char.IsDigit) || box.Text.ToString().Length != 10 || box.Text == "" )
                 {
                     check_empty = true;
                     Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
+                }
+                else 
+                {
+                    Controls.Find(comb, true)[0].BackgroundImage = pic_check;
                 }
             }
             else if (box.Text == "")
@@ -265,6 +270,5 @@ namespace ContactTracing
             text_data.Visible = false;
             but_cleardata.Visible = false;
         }
-
     }
 }
