@@ -56,7 +56,7 @@
             this.but_group1 = new System.Windows.Forms.Panel();
             this.panel_M = new System.Windows.Forms.FlowLayoutPanel();
             this.display_1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Calculator_type = new System.Windows.Forms.Label();
             this._mlist = new System.Windows.Forms.Button();
             this.test_label = new System.Windows.Forms.Label();
             this.test_label2 = new System.Windows.Forms.Label();
@@ -408,7 +408,7 @@
             this.but_group1.Controls.Add(this.panel_M);
             this.but_group1.Controls.Add(this.equals);
             this.but_group1.Controls.Add(this.display_1);
-            this.but_group1.Controls.Add(this.label4);
+            this.but_group1.Controls.Add(this.Calculator_type);
             this.but_group1.Controls.Add(this._mlist);
             this.but_group1.Controls.Add(this.test_label);
             this.but_group1.Controls.Add(this.test_label2);
@@ -450,7 +450,7 @@
             // panel_M
             // 
             this.panel_M.AutoScroll = true;
-            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.panel_M.Location = new System.Drawing.Point(0, 181);
             this.panel_M.Name = "panel_M";
             this.panel_M.Size = new System.Drawing.Size(314, 329);
@@ -468,16 +468,16 @@
             this.display_1.Text = "0";
             this.display_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // Calculator_type
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(-1, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 26);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "Standard";
+            this.Calculator_type.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Calculator_type.AutoSize = true;
+            this.Calculator_type.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calculator_type.Location = new System.Drawing.Point(-1, 7);
+            this.Calculator_type.Name = "Calculator_type";
+            this.Calculator_type.Size = new System.Drawing.Size(99, 26);
+            this.Calculator_type.TabIndex = 62;
+            this.Calculator_type.Text = "Standard";
             // 
             // _mlist
             // 
@@ -596,12 +596,11 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(379, 187);
+            this.label1.Location = new System.Drawing.Point(340, 187);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(200, 25);
+            this.label1.Size = new System.Drawing.Size(239, 311);
             this.label1.TabIndex = 58;
-            this.label1.Text = "TEST_LABEL";
             // 
             // display_2
             // 
@@ -671,7 +670,7 @@
         private System.Windows.Forms.Button _mc;
         private System.Windows.Forms.Label display_1;
         private System.Windows.Forms.Label display_2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Calculator_type;
         private System.Windows.Forms.Label test_label2;
         private System.Windows.Forms.Label test_label;
     }
