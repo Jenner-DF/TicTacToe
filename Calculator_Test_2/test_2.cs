@@ -14,17 +14,17 @@ namespace Calculator_Test_2
     {
         bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked, error_clicked = false; //can merge reciprocal and symbol
         double first_num, second_num, symbol_base;
-        byte char_symbols = 0;
+        byte char_symbols, mc_count = 0;
         char optr_selected;
 
-        string[] optr_check = { "+", "-", "x", "÷" };
+        readonly string[] optr_check = { "+", "-", "x", "÷" };
 
         public Form1()
         {
             InitializeComponent();
         }
         private void error_enable_but()
-        {
+        {//disables button
             foreach (Button a in but_group1.Controls)
             {
                 if (a.Name.Substring(0, 1) == "_")
@@ -315,7 +315,7 @@ namespace Calculator_Test_2
 
         private void _equals_Click(object sender, EventArgs e)
         {
-            if (error_clicked)
+            if (error_clicked)//disables button
             {
                 error_enable_but();
             }
@@ -406,6 +406,7 @@ namespace Calculator_Test_2
             }
             return error_return(the_solve);
         }//running
+
         private string error_return(double error)
         {
             if (double.IsNaN(error) || double.IsInfinity(error))
@@ -425,6 +426,8 @@ namespace Calculator_Test_2
             else { return error.ToString(); }
         }//running
 
+
+        //////M BUTTONS//////
         private void _mc_Click(object sender, EventArgs e)
         {
 
@@ -437,7 +440,39 @@ namespace Calculator_Test_2
 
         private void _mplus_Click(object sender, EventArgs e)
         {
-            
+            mc_count++;
+            panel_M.FlowDirection = FlowDirection.RightToLeft;
+            Label display_M = new Label
+            {
+                Name = "display_M" + mc_count.ToString(),
+                TextAlign = ContentAlignment.MiddleRight,
+                Font = new Font("Microsoft YaHei", 12),
+                Text = "00129301293102931209301293102391209234680u-8634028634026234780-08-7",
+                AutoSize = true,
+                Size = new Size(262, 29),
+            };
+            panel_M.Controls.Add(display_M);
+
+            Button button_mc = new Button
+            {
+                Name = "but" + mc_count.ToString(),
+                Text = "MC" 
+            };
+            Button button_mc_add = new Button
+            {
+                Name = "but" + mc_count.ToString(),
+                Text = "M+"
+            };
+            Button button_mc_minus = new Button
+            {
+                Name = "but" + mc_count.ToString(),
+                Text = "M-"
+            };
+            Control[] butts = { button_mc_minus, button_mc_add ,button_mc };
+            panel_M.Controls.AddRange(butts);
+            //label1.Text = button_mc.Name + button_mc_add.Name + button_mc_minus.Name;
+            if (button_mc_minus.Name == "but1") { button_mc_minus.Text = "Ulol"; }
+                
         }
 
         private void _mminus_Click(object sender, EventArgs e)
@@ -452,7 +487,19 @@ namespace Calculator_Test_2
 
         private void _mlist_Click(object sender, EventArgs e)
         {
-
+            foreach (Control button in but_group1.Controls)
+            {        
+                if (button.Name == "panel_M") { button.Visible = true; }
+                else { button.Enabled = false; }
+            } 
+        }
+        private void panel_M_leave(object sender, MouseEventArgs e)
+        {
+            foreach (Control button in but_group1.Controls)
+            {
+                if (button.Name == "panel_M") { button.Visible = false; }
+                else { button.Enabled = true; }
+            }
         }
 
         private void test_2_Load(object sender, EventArgs e)
