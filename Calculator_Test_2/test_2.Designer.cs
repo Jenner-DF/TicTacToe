@@ -461,7 +461,6 @@
             // panel_M
             // 
             this.panel_M.AutoScroll = true;
-            this.panel_M.Enabled = false;
             this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.panel_M.Location = new System.Drawing.Point(0, 181);
             this.panel_M.Name = "panel_M";

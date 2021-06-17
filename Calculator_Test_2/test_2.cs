@@ -501,17 +501,21 @@ namespace Calculator_Test_2
                 Text = "M_minus"
             };
 
-            button_mc_add.Click += m_ADD;
-            button_mc_minus.Click += m_ADD;
+            button_mc_add.Click += M_operation;
+            button_mc_minus.Click += M_operation;
             Control[] butts = {display_M, button_mc_minus, button_mc_add, button_mc };
             return butts;
         }
-        private void m_ADD(object sender, EventArgs e)
+        private void M_operation(object sender, EventArgs e)
         {
-            label1.Text = sender.ToString();
-            var get_m_label = "display_M" + mc_count.ToString();
+            char sign;
+            Control but = sender as Control;
+            if (but.Text == "M_plus") { sign = '+'; }
+            else { sign = '-'; }
+
+            var get_m_label = "display_M" + but.Name.Substring(3);
             Control m_select = Controls.Find(get_m_label, true)[0];
-            m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), '-');
+            m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), sign);
         }
 
         private void _mminus_Click(object sender, EventArgs e)
@@ -542,7 +546,7 @@ namespace Calculator_Test_2
                     else { button.Enabled = true; }
                 }
             }  
-        }
+        }//running
         private void test_2_Load(object sender, EventArgs e)
         {
         }
