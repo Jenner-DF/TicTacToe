@@ -22,7 +22,7 @@ namespace Calculator_Test_2
         public Form1()
         {
             InitializeComponent();
-        }
+        }//can change bool to Leave Event (clicked)
         private void error_enable_but()
         {//enables disabled button
             foreach (Control a in but_group1.Controls)
@@ -468,17 +468,11 @@ namespace Calculator_Test_2
         private void _mplus_Click(object sender, EventArgs e)
         {
             //Control[] butts = { display_M, button_mc_minus, button_mc_add, button_mc }; FOR REFERENCE
-
             mc_count++;
-            //panel_M.FlowDirection = FlowDirection.RightToLeft;
-
-            //panel_M.Controls.Add(Create_M_button()[1]);
-            //panel_M.Controls.Add(display_M);
             panel_M.Controls.AddRange(Create_M_button());
 
             label1.Text = label1.Text + Create_M_button()[3] + "\n";
-            if (Create_M_button()[3].Name == "but1") { Create_M_button()[3].Text = "Ulol"; }
-           
+            if (Create_M_button()[3].Name == "but1") { Create_M_button()[3].Text = "lol"; }
         }
         private Control[] Create_M_button()
         {
@@ -512,7 +506,6 @@ namespace Calculator_Test_2
             Control[] butts = {display_M, button_mc_minus, button_mc_add, button_mc };
             return butts;
         }
-
         private void m_ADD(object sender, EventArgs e)
         {
             label1.Text = sender.ToString();
@@ -548,8 +541,7 @@ namespace Calculator_Test_2
                     if (button.Name == "panel_M") { button.Visible = false; }
                     else { button.Enabled = true; }
                 }
-            }
-            
+            }  
         }
         private void test_2_Load(object sender, EventArgs e)
         {
