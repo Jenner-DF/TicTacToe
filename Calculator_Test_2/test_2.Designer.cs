@@ -54,10 +54,11 @@
             this.num_0 = new System.Windows.Forms.Button();
             this._Sign = new System.Windows.Forms.Button();
             this.but_group1 = new System.Windows.Forms.Panel();
+            this.display_2 = new System.Windows.Forms.Label();
             this.panel_M = new System.Windows.Forms.FlowLayoutPanel();
             this.display_1 = new System.Windows.Forms.Label();
             this.Calculator_type = new System.Windows.Forms.Label();
-            this._mlist = new System.Windows.Forms.Button();
+            this.mlist = new System.Windows.Forms.Button();
             this.test_label = new System.Windows.Forms.Label();
             this.test_label2 = new System.Windows.Forms.Label();
             this._mstore = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this._mc = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.display_2 = new System.Windows.Forms.Label();
             this.but_group1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -404,12 +404,12 @@
             // 
             // but_group1
             // 
-            this.but_group1.Controls.Add(this.display_2);
             this.but_group1.Controls.Add(this.panel_M);
+            this.but_group1.Controls.Add(this.display_2);
             this.but_group1.Controls.Add(this.equals);
             this.but_group1.Controls.Add(this.display_1);
             this.but_group1.Controls.Add(this.Calculator_type);
-            this.but_group1.Controls.Add(this._mlist);
+            this.but_group1.Controls.Add(this.mlist);
             this.but_group1.Controls.Add(this.test_label);
             this.but_group1.Controls.Add(this.test_label2);
             this.but_group1.Controls.Add(this._mstore);
@@ -447,9 +447,21 @@
             this.but_group1.TabIndex = 57;
             this.but_group1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_M_leave);
             // 
+            // display_2
+            // 
+            this.display_2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.display_2.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.display_2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.display_2.Location = new System.Drawing.Point(8, 53);
+            this.display_2.Name = "display_2";
+            this.display_2.Size = new System.Drawing.Size(291, 37);
+            this.display_2.TabIndex = 59;
+            this.display_2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // panel_M
             // 
             this.panel_M.AutoScroll = true;
+            this.panel_M.Enabled = false;
             this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.panel_M.Location = new System.Drawing.Point(0, 181);
             this.panel_M.Name = "panel_M";
@@ -479,20 +491,20 @@
             this.Calculator_type.TabIndex = 62;
             this.Calculator_type.Text = "Standard";
             // 
-            // _mlist
+            // mlist
             // 
-            this._mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this._mlist.FlatAppearance.BorderSize = 0;
-            this._mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this._mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this._mlist.Location = new System.Drawing.Point(249, 148);
-            this._mlist.Name = "_mlist";
-            this._mlist.Size = new System.Drawing.Size(56, 34);
-            this._mlist.TabIndex = 71;
-            this._mlist.Text = "M";
-            this._mlist.UseVisualStyleBackColor = true;
-            this._mlist.Click += new System.EventHandler(this._mlist_Click);
+            this.mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.mlist.FlatAppearance.BorderSize = 0;
+            this.mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this.mlist.Location = new System.Drawing.Point(249, 148);
+            this.mlist.Name = "mlist";
+            this.mlist.Size = new System.Drawing.Size(56, 34);
+            this.mlist.TabIndex = 71;
+            this.mlist.Text = "M";
+            this.mlist.UseVisualStyleBackColor = true;
+            this.mlist.Click += new System.EventHandler(this._mlist_Click);
             // 
             // test_label
             // 
@@ -602,17 +614,6 @@
             this.label1.Size = new System.Drawing.Size(239, 311);
             this.label1.TabIndex = 58;
             // 
-            // display_2
-            // 
-            this.display_2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.display_2.Font = new System.Drawing.Font("Microsoft YaHei Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.display_2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.display_2.Location = new System.Drawing.Point(8, 53);
-            this.display_2.Name = "display_2";
-            this.display_2.Size = new System.Drawing.Size(291, 37);
-            this.display_2.TabIndex = 59;
-            this.display_2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,7 +663,7 @@
         private System.Windows.Forms.FlowLayoutPanel panel_M;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button _mlist;
+        private System.Windows.Forms.Button mlist;
         private System.Windows.Forms.Button _mstore;
         private System.Windows.Forms.Button _mminus;
         private System.Windows.Forms.Button _mplus;

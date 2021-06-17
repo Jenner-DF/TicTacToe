@@ -17,35 +17,29 @@ namespace Calculator_Test_2
         byte char_symbols, mc_count = 0;
         char optr_selected;
 
-        readonly char[] optr_check = { '+', '-', 'x', '÷' };
+        readonly char[] optr_check = { '+', '-', 'x', '÷', '%', '/', '^', 'v' };
 
         public Form1()
         {
             InitializeComponent();
         }
         private void error_enable_but()
-        {//disables button
-            try
-            {
-                foreach (Button a in but_group1.Controls)
+        {//enables disabled button
+            foreach (Control a in but_group1.Controls)
 
-                    if (a.Name.Substring(0, 1) == "_")
+                if (a.Name.StartsWith("_"))
+                {
+                    a.Enabled = true;
+                    if (a.Name == "_Sign" || a.Name == "_decimal")
                     {
-                        if (a.Name == "_Sign" || a.Name == "_decimal")
-                        {
-                            a.BackColor = Color.FromArgb(242, 242, 242);
-                        }
-                        else
-                        {
-                            a.BackColor = Color.FromArgb(229, 229, 229);
-                        }
-                        a.Enabled = true;
-                    }    
-            }
-            catch { }
-           
-
-        } //running
+                        a.BackColor = Color.FromArgb(242, 242, 242);
+                    }
+                    else
+                    {
+                        a.BackColor = Color.FromArgb(229, 229, 229);
+                    }
+                }    
+        } //running ( can change to event click)
         private void _decimal_Click(object sender, EventArgs e)
         {
             if (!display_1.Text.Contains("."))
@@ -141,7 +135,7 @@ namespace Calculator_Test_2
 
             char_symbols += 6;
             //solving
-            display_1.Text = per_rec_sqr_rt('/');
+            display_1.Text = solve(Convert.ToDouble(display_1.Text), optr_selected: '/');
 
         }//running
 
@@ -175,7 +169,7 @@ namespace Calculator_Test_2
                 symbols_clicked = true;  // when clicked
             }
             char_symbols += 7;
-            display_1.Text = per_rec_sqr_rt('^');
+            display_1.Text = solve(Convert.ToDouble(display_1.Text), optr_selected: '^');
         }//running
         private void _sqrroot_Click(object sender, EventArgs e)
         {
@@ -201,11 +195,23 @@ namespace Calculator_Test_2
                 test_label2.Text = display_2.Text.Length.ToString();
             }
             char_symbols += 5;
-            display_1.Text = per_rec_sqr_rt('v');
+            display_1.Text = solve(Convert.ToDouble(display_1.Text), optr_selected: 'v');
         } //running
         private void _percent_Click(object sender, EventArgs e)
         {
-            if (optr_check.Any(display_2.Text.Contains))
+            if (display_2.Text.Contains('+') || display_2.Text.Contains('-'))
+            {
+                
+            }
+            else if(display_2.Text.Contains('÷') || display_2.Text.Contains('x'))
+            {
+
+            }
+            else
+            {
+                display_1.Text = "0";
+            }
+         /*   if (optr_check.Any(display_2.Text.Contains))
             {
                 display_1.Text = per_rec_sqr_rt('%');
                 optr_selected = Convert.ToChar(display_2.Text.Substring(first_num.ToString().Length + 1, 1));
@@ -214,10 +220,10 @@ namespace Calculator_Test_2
             else
             {
                 display_1.Text = "0";
-            }
+            }*/
             percent_clicked = true;
-        }//running
-        private string per_rec_sqr_rt(char select)
+        }//DIFFERENT RESULT FOR (MULTIPLY,DIVIDE) AND (SUBTRACT, ADD)
+        /*private string per_rec_sqr_rt(char select)
         {
             double get = 0;
             var base_num = display_1.Text;
@@ -237,7 +243,7 @@ namespace Calculator_Test_2
                     break;
             }
             return error_return(get);
-        }
+        }*/
 
         private void num_click(object sender, EventArgs e)
         {
@@ -282,10 +288,9 @@ namespace Calculator_Test_2
         private void Operator(object sender, EventArgs e)
         {
             Button optr = (Button)sender;
-            //operator_get(optr.Text)
+            //getting value operator
             int pick_optr = Array.IndexOf(optr_check, char.Parse(optr.Text));
             optr_selected = optr_check[pick_optr];
-
 
             if (optr_check.Any(display_2.Text.Contains) && num_clicked )//|| symbols_clicked || percent_clicked) 
             {
@@ -296,7 +301,7 @@ namespace Calculator_Test_2
                 test_label2.Text = display_1.Text;
 
                 //solving using function/method
-                var ans = solve(first_num,second_num);
+                var ans = solve(first_num,second_num, optr_selected);
                 display_1.Text = ans;
                 display_2.Text = ans + " " + optr.Text;
 
@@ -353,7 +358,7 @@ namespace Calculator_Test_2
                     }
                     else
                     {
-                        var ans = solve(first_num, second_num);
+                        var ans = solve(first_num, second_num, optr_selected);
                         display_1.Text = ans;
                     }
 
@@ -366,7 +371,7 @@ namespace Calculator_Test_2
                     second_num = Convert.ToDouble(display_1.Text);
 
                     //error check
-                    var ans = solve(first_num, second_num);
+                    var ans = solve(first_num, second_num, optr_selected);
                     display_1.Text = ans;
                     display_2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
@@ -389,19 +394,10 @@ namespace Calculator_Test_2
             percent_clicked = false;
             char_symbols = 0;
         } //running 
-      /*  private void operator_selected(string optr_selected)
-        {
 
-            int a = Array.IndexOf(optr_check, optr_selected);
-            char b = optr_check[a];
-            
-              
-        }*/
-        private string solve(double first=0, double second=0)
+        private string solve(double first=0, double second=0, char optr_selected='+')
         {
             double the_solve = 0;
-            //operator_get(optr.Text)
-            //optr_selected = Convert.ToChar(display_2.Text.Substring(first_num.ToString().Length + 1, 1));
 
             switch (optr_selected)
             {
@@ -421,6 +417,19 @@ namespace Calculator_Test_2
                     the_solve = first / second;
                     display_2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
                     break;
+                //ADDING SYMBOLS
+                case '%':
+                    the_solve = first_num * (Convert.ToDouble(first) / 100);
+                    break;
+                case '/':
+                    the_solve = 1 / Convert.ToDouble(first);
+                    break;
+                case '^':
+                    the_solve = Math.Pow(first, 2);
+                    break;
+                case 'v':
+                    the_solve = Math.Sqrt(Convert.ToDouble(first));
+                    break;
             }
             return error_return(the_solve);
         }//running
@@ -429,21 +438,17 @@ namespace Calculator_Test_2
         {
             if (double.IsNaN(error) || double.IsInfinity(error))
             {
-                try
-                {//to not error when not button
-                    foreach (Button a in but_group1.Controls)
+                foreach (Control a in but_group1.Controls)
+                {
+                    if (a.Name.StartsWith("_"))
                     {
-                        if (a.Name.Substring(0, 1) == "_")
-                        {
-                            a.BackColor = Color.FromKnownColor(KnownColor.Silver);
-                            a.Enabled = false;
-                        }
-                    }
+                        a.BackColor = Color.FromKnownColor(KnownColor.Silver);
+                        a.Enabled = false;
+                    }     
                 }
-               catch {}
-            error_clicked = true;
-            string error_1 = "Invalid input";
-            return error_1; 
+                error_clicked = true;
+                string error_1 = "Invalid input";
+                return error_1; 
             }
             else { return error.ToString(); }
         }//running
@@ -513,8 +518,7 @@ namespace Calculator_Test_2
             label1.Text = sender.ToString();
             var get_m_label = "display_M" + mc_count.ToString();
             Control m_select = Controls.Find(get_m_label, true)[0];
-
-            m_select.Text = solve(Convert.ToDouble(m_select.Text) ,Convert.ToDouble(display_1.Text));
+            m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), '-');
         }
 
         private void _mminus_Click(object sender, EventArgs e)
@@ -537,11 +541,15 @@ namespace Calculator_Test_2
         }
         private void panel_M_leave(object sender, MouseEventArgs e)
         {
-            foreach (Control button in but_group1.Controls)
+            if (panel_M.Visible)
             {
-                if (button.Name == "panel_M") { button.Visible = false; }
-                else { button.Enabled = true; }
+                foreach (Control button in but_group1.Controls)
+                {
+                    if (button.Name == "panel_M") { button.Visible = false; }
+                    else { button.Enabled = true; }
+                }
             }
+            
         }
         private void test_2_Load(object sender, EventArgs e)
         {
