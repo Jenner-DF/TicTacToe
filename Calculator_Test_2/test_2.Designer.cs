@@ -625,7 +625,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Opacity = 0.99D;
-            this.Text = "Calc_v90621";
+            this.Text = "Calc_v180621";
             this.Load += new System.EventHandler(this.test_2_Load);
             this.but_group1.ResumeLayout(false);
             this.but_group1.PerformLayout();
