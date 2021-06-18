@@ -439,7 +439,6 @@ namespace Calculator_Test_2
             else { return error.ToString(); }
         }//running
 
-
         //////M-BUTTONS//////
         private void _mc_Click(object sender, EventArgs e)
         {
