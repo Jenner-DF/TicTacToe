@@ -109,15 +109,9 @@ namespace Calculator_Test_2
             //adding characters to label 2
             if (symbols_clicked)
             {
-                //to display 
-                test_label2.Text = display_2.Text.Length.ToString();
-
                 var minus_symbol = symbol_base.ToString().Length + (char_symbols);
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length - minus_symbol, reciprocal_char);
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length, " )");
-
-                //to display 
-                test_label.Text = (minus_symbol).ToString();
             }
             else
             {
@@ -126,10 +120,6 @@ namespace Calculator_Test_2
                 symbol_base = Convert.ToDouble(display_1.Text);
                 var reciprocal_name = reciprocal_char + symbol_base.ToString() + " )";
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length, reciprocal_name);
-
-                //to display
-                test_label.Text = display_2.Text;
-                test_label2.Text = display_2.Text.Length.ToString();
                 symbols_clicked = true;  // when clicked
             }
 
@@ -253,7 +243,7 @@ namespace Calculator_Test_2
                 error_enable_but();
             }
 
-            if (optr_clicked) //I separate it, will not work if i put it here both as optr needs to be click to run  
+            if (optr_clicked) //I separate it, will not work if i put it here both as optr needs to be click to run(nudaw?)  
             {
                 display_1.Text = nums.Text;
                 optr_clicked = false;
@@ -403,19 +393,15 @@ namespace Calculator_Test_2
             {
                 case '+':
                     the_solve = first + second;
-                    //display_2.Text = first.ToString() + " + " + second.ToString();
                     break;
                 case '-':
                     the_solve = first - second;
-                    //display_2.Text = first_num.ToString() + " - " + second_num.ToString();
                     break;
                 case 'x':
                     the_solve = first * second;
-                    //display_2.Text = first_num.ToString() + " x " + second_num.ToString();
                     break;
                 case '÷':
                     the_solve = first / second;
-                    //display_2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
                     break;
                 //ADDING SYMBOLS
                 case '%':
@@ -461,13 +447,13 @@ namespace Calculator_Test_2
             _mc.Enabled = false;
             _mr.Enabled = false;
             mlist.Enabled = false;
+            optr_clicked = true; //reset after plus/minus
         }//running
-
         private void _mr_Click(object sender, EventArgs e)
         {
-            display_1.Text = panel_M.Controls[0].Text; 
+            display_1.Text = panel_M.Controls[0].Text;
+            optr_clicked = true; //reset after plus/minus
         }//running
-
         private void m_plus_minus(object sender, EventArgs e)
         {
            Control control = sender as Control;
@@ -485,6 +471,7 @@ namespace Calculator_Test_2
                 Control first_label = panel_M.Controls[0];
                 first_label.Text = solve(Convert.ToDouble(first_label.Text), Convert.ToDouble(display_1.Text), sign);
             }
+            optr_clicked = true; //reset after plus/minus
         }//running
         private void _mstore_Click(object sender, EventArgs e)
         {
@@ -493,7 +480,6 @@ namespace Calculator_Test_2
             mlist.Enabled = true;
             Create_M_button();
         }//running
-
         private void Create_M_button()
         {
             M_count++;
@@ -539,7 +525,6 @@ namespace Calculator_Test_2
            
             
         }//running
-
         private void panel_m_clearbut(object sender, EventArgs e)
         {
             Control control = sender as Control;
@@ -548,22 +533,22 @@ namespace Calculator_Test_2
             panel_M.Controls.RemoveAt(x); //remove minus but
             panel_M.Controls.RemoveAt(x);//remove plus but
             panel_M.Controls.RemoveAt(x-1);//remove clear but
-
+            //test display
             foreach (Control a in panel_M.Controls) { label1.Text = label1.Text + (a.Name.ToString()) + "\n"; }
-        }
-
+        }//running
         private void M_operation(object sender, EventArgs e)
         {
             Control but = sender as Control;
 
             char sign;
-
             if (but.Text.Contains("+")) { sign = '+'; }
             else { sign = '-'; }
             
             Control m_select = panel_M.Controls["display_M" + but.Name.Last()]; //display_M + (M_count)
             //using solve method
             m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), sign);
+
+            optr_clicked = true; //reset after plus/minus
         }//running
         private void _mlist_Click(object sender, EventArgs e)
         {
