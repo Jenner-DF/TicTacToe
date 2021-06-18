@@ -460,7 +460,7 @@ namespace Calculator_Test_2
             panel_M.Controls.Clear();
             _mc.Enabled = false;
             _mr.Enabled = false;
-            _mstore.Enabled = false;
+            mlist.Enabled = false;
         }
 
         private void _mr_Click(object sender, EventArgs e)
@@ -492,49 +492,50 @@ namespace Calculator_Test_2
             _mr.Enabled = true;
             mlist.Enabled = true;
             Create_M_button();
-            void Create_M_button()
+        }
+
+        private void Create_M_button()
+        {
+            M_count++;
+            label1.Text = M_count.ToString();
+            Label display_M = new Label
             {
-                M_count++;
-                label1.Text = M_count.ToString();
-                Label display_M = new Label
-                {
-                    Name = "display_M" + M_count.ToString(),
-                    TextAlign = ContentAlignment.MiddleRight,
-                    Font = new Font("Microsoft YaHei", 12),
-                    Text = display_1.Text,
-                    AutoSize = false,
-                    Size = new Size(262, 29),
-                };
-                Button button_mc = new Button
-                {
-                    Name = "but" + M_count.ToString(),
-                    Text = "MC"
-                };
-                Button button_mc_add = new Button
-                {
-                    Name = "but" + M_count.ToString(),
-                    Text = "M+",
-                };
-                Button button_mc_minus = new Button
-                {
-                    Name = "but" + M_count.ToString(),
-                    Text = "M-"
-                };
+                Name = "display_M" + M_count.ToString(),
+                TextAlign = ContentAlignment.MiddleRight,
+                Font = new Font("Microsoft YaHei", 12),
+                Text = display_1.Text,
+                AutoSize = false,
+                Size = new Size(262, 29),
+            };
+            Button button_mc = new Button
+            {
+                Name = "but" + M_count.ToString(),
+                Text = "MC"
+            };
+            Button button_mc_add = new Button
+            {
+                Name = "but" + M_count.ToString(),
+                Text = "M+",
+            };
+            Button button_mc_minus = new Button
+            {
+                Name = "but" + M_count.ToString(),
+                Text = "M-"
+            };
 
-                button_mc_add.Click += M_operation;
-                button_mc_minus.Click += M_operation;
-                button_mc.Click += panel_m_clearbut;
+            button_mc_add.Click += M_operation;
+            button_mc_minus.Click += M_operation;
+            button_mc.Click += panel_m_clearbut;
 
-                panel_M.Controls.Add(display_M);
-                panel_M.Controls.Add(button_mc_add);
-                panel_M.Controls.Add(button_mc_minus);
-                panel_M.Controls.Add(button_mc);
+            panel_M.Controls.Add(display_M);
+            panel_M.Controls.Add(button_mc_add);
+            panel_M.Controls.Add(button_mc_minus);
+            panel_M.Controls.Add(button_mc);
 
-                panel_M.Controls.SetChildIndex(display_M, 0);
-                panel_M.Controls.SetChildIndex(button_mc_add, 1);
-                panel_M.Controls.SetChildIndex(button_mc_minus, 1);
-                panel_M.Controls.SetChildIndex(button_mc, 1);
-            }
+            panel_M.Controls.SetChildIndex(display_M, 0);
+            panel_M.Controls.SetChildIndex(button_mc_add, 1);
+            panel_M.Controls.SetChildIndex(button_mc_minus, 1);
+            panel_M.Controls.SetChildIndex(button_mc, 1);
         }
 
         private void panel_m_clearbut(object sender, EventArgs e)

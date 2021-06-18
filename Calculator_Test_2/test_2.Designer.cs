@@ -599,6 +599,7 @@
             this._mc.TabIndex = 66;
             this._mc.Text = "MC";
             this._mc.UseVisualStyleBackColor = true;
+            this._mc.Click += new System.EventHandler(this._mc_Click);
             // 
             // button1
             // 
