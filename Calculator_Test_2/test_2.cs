@@ -14,7 +14,7 @@ namespace Calculator_Test_2
     {
         bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked, error_clicked = false; //can merge reciprocal and symbol
         double first_num, second_num, symbol_base;
-        byte char_symbols, mc_count = 0;
+        byte char_symbols, M_count = 0;
         char optr_selected;
 
         readonly char[] optr_check = { '+', '-', 'x', '÷', '%', '/', '^', 'v' };
@@ -403,19 +403,19 @@ namespace Calculator_Test_2
             {
                 case '+':
                     the_solve = first + second;
-                    display_2.Text = first_num.ToString() + " + " + second_num.ToString();
+                    //display_2.Text = first.ToString() + " + " + second.ToString();
                     break;
                 case '-':
                     the_solve = first - second;
-                    display_2.Text = first_num.ToString() + " - " + second_num.ToString();
+                    //display_2.Text = first_num.ToString() + " - " + second_num.ToString();
                     break;
                 case 'x':
                     the_solve = first * second;
-                    display_2.Text = first_num.ToString() + " x " + second_num.ToString();
+                    //display_2.Text = first_num.ToString() + " x " + second_num.ToString();
                     break;
                 case '÷':
                     the_solve = first / second;
-                    display_2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
+                    //display_2.Text = first_num.ToString() + " ÷ " + second_num.ToString();
                     break;
                 //ADDING SYMBOLS
                 case '%':
@@ -457,77 +457,104 @@ namespace Calculator_Test_2
         //////M-BUTTONS//////
         private void _mc_Click(object sender, EventArgs e)
         {
-
+            panel_M.Controls.Clear();
+            _mc.Enabled = false;
+            _mr.Enabled = false;
+            _mstore.Enabled = false;
         }
 
         private void _mr_Click(object sender, EventArgs e)
         {
-
+            display_1.Text = panel_M.Controls[0].Text; 
         }
 
-        private void _mplus_Click(object sender, EventArgs e)
+        private void m_plus_minus(object sender, EventArgs e)
         {
-            //Control[] butts = { display_M, button_mc_minus, button_mc_add, button_mc }; FOR REFERENCE
-            mc_count++;
-            panel_M.Controls.AddRange(Create_M_button());
-
-            label1.Text = label1.Text + Create_M_button()[3] + "\n";
-            if (Create_M_button()[3].Name == "but1") { Create_M_button()[3].Text = "lol"; }
-        }
-        private Control[] Create_M_button()
-        {
-            Label display_M = new Label
+           Control control = sender as Control;
+           char sign = '+';
+           if (panel_M.Controls.Count  < 1)
             {
-                Name = "display_M" + mc_count.ToString(),
-                TextAlign = ContentAlignment.MiddleRight,
-                Font = new Font("Microsoft YaHei", 12),
-                Text = display_1.Text,
-                AutoSize = false,
-                Size = new Size(262, 29), 
-            };
-            Button button_mc = new Button
-            {
-                Name = "but" + mc_count.ToString(),
-                Text = "M_Clear"
-            };
-            Button button_mc_add = new Button
-            {
-                Name = "but" + mc_count.ToString(),
-                Text = "M_plus",
-            };
-            Button button_mc_minus = new Button
-            {
-                Name = "but" + mc_count.ToString(),
-                Text = "M_minus"
-            };
-
-            button_mc_add.Click += M_operation;
-            button_mc_minus.Click += M_operation;
-            Control[] butts = {display_M, button_mc_minus, button_mc_add, button_mc };
-            return butts;
+                _mc.Enabled = true;
+                _mr.Enabled = true;
+                mlist.Enabled = true;
+                Create_M_button();
+            }
+           else
+            {//determine operator if + or - clicked
+                if (!control.Text.Contains("+")) { sign = '-'; }
+                Control first_label = panel_M.Controls[0];
+                first_label.Text = solve(Convert.ToDouble(first_label.Text), Convert.ToDouble(display_1.Text), sign);
+            }
         }
-        private void M_operation(object sender, EventArgs e)
-        {
-            char sign;
-            Control but = sender as Control;
-            if (but.Text == "M_plus") { sign = '+'; }
-            else { sign = '-'; }
-
-            var get_m_label = "display_M" + but.Name.Substring(3);
-            Control m_select = Controls.Find(get_m_label, true)[0];
-            m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), sign);
-        }
-
-        private void _mminus_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void _mstore_Click(object sender, EventArgs e)
         {
+            _mc.Enabled = true;
+            _mr.Enabled = true;
+            mlist.Enabled = true;
+            Create_M_button();
+            void Create_M_button()
+            {
+                M_count++;
+                label1.Text = M_count.ToString();
+                Label display_M = new Label
+                {
+                    Name = "display_M" + M_count.ToString(),
+                    TextAlign = ContentAlignment.MiddleRight,
+                    Font = new Font("Microsoft YaHei", 12),
+                    Text = display_1.Text,
+                    AutoSize = false,
+                    Size = new Size(262, 29),
+                };
+                Button button_mc = new Button
+                {
+                    Name = "but" + M_count.ToString(),
+                    Text = "MC"
+                };
+                Button button_mc_add = new Button
+                {
+                    Name = "but" + M_count.ToString(),
+                    Text = "M+",
+                };
+                Button button_mc_minus = new Button
+                {
+                    Name = "but" + M_count.ToString(),
+                    Text = "M-"
+                };
 
+                button_mc_add.Click += M_operation;
+                button_mc_minus.Click += M_operation;
+                button_mc.Click += panel_m_clearbut;
+
+                panel_M.Controls.Add(display_M);
+                panel_M.Controls.Add(button_mc_add);
+                panel_M.Controls.Add(button_mc_minus);
+                panel_M.Controls.Add(button_mc);
+
+                panel_M.Controls.SetChildIndex(display_M, 0);
+                panel_M.Controls.SetChildIndex(button_mc_add, 1);
+                panel_M.Controls.SetChildIndex(button_mc_minus, 1);
+                panel_M.Controls.SetChildIndex(button_mc, 1);
+            }
         }
 
+        private void panel_m_clearbut(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void M_operation(object sender, EventArgs e)
+        {
+            Control but = sender as Control;
+
+            char sign;
+
+            if (but.Text.Contains("+")) { sign = '+'; }
+            else { sign = '-'; }
+            
+            Control m_select = panel_M.Controls["display_M" + but.Name.Last()]; //display_M + (M_count)
+            //using solve method
+            m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), sign);
+        }
         private void _mlist_Click(object sender, EventArgs e)
         {
             foreach (Control button in but_group1.Controls)

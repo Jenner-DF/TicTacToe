@@ -54,8 +54,8 @@
             this.num_0 = new System.Windows.Forms.Button();
             this._Sign = new System.Windows.Forms.Button();
             this.but_group1 = new System.Windows.Forms.Panel();
-            this.display_2 = new System.Windows.Forms.Label();
             this.panel_M = new System.Windows.Forms.FlowLayoutPanel();
+            this.display_2 = new System.Windows.Forms.Label();
             this.display_1 = new System.Windows.Forms.Label();
             this.Calculator_type = new System.Windows.Forms.Label();
             this.mlist = new System.Windows.Forms.Button();
@@ -447,6 +447,16 @@
             this.but_group1.TabIndex = 57;
             this.but_group1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_M_leave);
             // 
+            // panel_M
+            // 
+            this.panel_M.AutoScroll = true;
+            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.panel_M.Location = new System.Drawing.Point(0, 181);
+            this.panel_M.Name = "panel_M";
+            this.panel_M.Size = new System.Drawing.Size(314, 329);
+            this.panel_M.TabIndex = 58;
+            this.panel_M.Visible = false;
+            // 
             // display_2
             // 
             this.display_2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -457,16 +467,6 @@
             this.display_2.Size = new System.Drawing.Size(291, 37);
             this.display_2.TabIndex = 59;
             this.display_2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // panel_M
-            // 
-            this.panel_M.AutoScroll = true;
-            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_M.Location = new System.Drawing.Point(0, 181);
-            this.panel_M.Name = "panel_M";
-            this.panel_M.Size = new System.Drawing.Size(314, 329);
-            this.panel_M.TabIndex = 58;
-            this.panel_M.Visible = false;
             // 
             // display_1
             // 
@@ -493,6 +493,7 @@
             // mlist
             // 
             this.mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mlist.Enabled = false;
             this.mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.mlist.FlatAppearance.BorderSize = 0;
             this.mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -536,6 +537,7 @@
             this._mstore.TabIndex = 70;
             this._mstore.Text = "MS";
             this._mstore.UseVisualStyleBackColor = true;
+            this._mstore.Click += new System.EventHandler(this._mstore_Click);
             // 
             // _mminus
             // 
@@ -550,6 +552,7 @@
             this._mminus.TabIndex = 69;
             this._mminus.Text = "M-";
             this._mminus.UseVisualStyleBackColor = true;
+            this._mminus.Click += new System.EventHandler(this.m_plus_minus);
             // 
             // _mplus
             // 
@@ -564,7 +567,7 @@
             this._mplus.TabIndex = 68;
             this._mplus.Text = "M+";
             this._mplus.UseVisualStyleBackColor = true;
-            this._mplus.Click += new System.EventHandler(this._mplus_Click);
+            this._mplus.Click += new System.EventHandler(this.m_plus_minus);
             // 
             // _mr
             // 
@@ -580,6 +583,7 @@
             this._mr.TabIndex = 67;
             this._mr.Text = "MR";
             this._mr.UseVisualStyleBackColor = true;
+            this._mr.Click += new System.EventHandler(this._mr_Click);
             // 
             // _mc
             // 
@@ -598,7 +602,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(516, 27);
+            this.button1.Location = new System.Drawing.Point(356, 129);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 31);
             this.button1.TabIndex = 0;
@@ -619,8 +623,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(607, 507);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.but_group1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
