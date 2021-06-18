@@ -461,12 +461,12 @@ namespace Calculator_Test_2
             _mc.Enabled = false;
             _mr.Enabled = false;
             mlist.Enabled = false;
-        }
+        }//running
 
         private void _mr_Click(object sender, EventArgs e)
         {
             display_1.Text = panel_M.Controls[0].Text; 
-        }
+        }//running
 
         private void m_plus_minus(object sender, EventArgs e)
         {
@@ -485,19 +485,19 @@ namespace Calculator_Test_2
                 Control first_label = panel_M.Controls[0];
                 first_label.Text = solve(Convert.ToDouble(first_label.Text), Convert.ToDouble(display_1.Text), sign);
             }
-        }
+        }//running
         private void _mstore_Click(object sender, EventArgs e)
         {
             _mc.Enabled = true;
             _mr.Enabled = true;
             mlist.Enabled = true;
             Create_M_button();
-        }
+        }//running
 
         private void Create_M_button()
         {
             M_count++;
-            label1.Text = M_count.ToString();
+            label1.Text = M_count.ToString(); //test display
             Label display_M = new Label
             {
                 Name = "display_M" + M_count.ToString(),
@@ -509,17 +509,17 @@ namespace Calculator_Test_2
             };
             Button button_mc = new Button
             {
-                Name = "but" + M_count.ToString(),
+                Name = "butC" + M_count.ToString(),
                 Text = "MC"
             };
             Button button_mc_add = new Button
             {
-                Name = "but" + M_count.ToString(),
+                Name = "butA" + M_count.ToString(),
                 Text = "M+",
             };
             Button button_mc_minus = new Button
             {
-                Name = "but" + M_count.ToString(),
+                Name = "butM" + M_count.ToString(),
                 Text = "M-"
             };
 
@@ -533,14 +533,23 @@ namespace Calculator_Test_2
             panel_M.Controls.Add(button_mc);
 
             panel_M.Controls.SetChildIndex(display_M, 0);
-            panel_M.Controls.SetChildIndex(button_mc_add, 1);
-            panel_M.Controls.SetChildIndex(button_mc_minus, 1);
             panel_M.Controls.SetChildIndex(button_mc, 1);
-        }
+            panel_M.Controls.SetChildIndex(button_mc_minus, 2);
+            panel_M.Controls.SetChildIndex(button_mc_add, 3);
+           
+            
+        }//running
 
         private void panel_m_clearbut(object sender, EventArgs e)
         {
-         
+            Control control = sender as Control;
+            int x =  panel_M.Controls.GetChildIndex(control);
+            panel_M.Controls.RemoveAt(x - 1); //remove display
+            panel_M.Controls.RemoveAt(x); //remove minus but
+            panel_M.Controls.RemoveAt(x);//remove plus but
+            panel_M.Controls.RemoveAt(x-1);//remove clear but
+
+            foreach (Control a in panel_M.Controls) { label1.Text = label1.Text + (a.Name.ToString()) + "\n"; }
         }
 
         private void M_operation(object sender, EventArgs e)
@@ -555,7 +564,7 @@ namespace Calculator_Test_2
             Control m_select = panel_M.Controls["display_M" + but.Name.Last()]; //display_M + (M_count)
             //using solve method
             m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), sign);
-        }
+        }//running
         private void _mlist_Click(object sender, EventArgs e)
         {
             foreach (Control button in but_group1.Controls)
@@ -563,7 +572,7 @@ namespace Calculator_Test_2
                 if (button.Name == "panel_M") { button.Visible = true; }
                 else { button.Enabled = false; }
             } 
-        }
+        }//running
         private void panel_M_leave(object sender, MouseEventArgs e)
         {
             if (panel_M.Visible)
