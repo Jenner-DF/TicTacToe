@@ -110,22 +110,6 @@ namespace ContactTracing
              }*/
 
         }//textbox check
-       /* private bool Check_text2(Control box)
-        {
-            bool check = true;
-            if (box.Name == "text_mobnum")
-            {
-                if (!box.Text.All(char.IsDigit) || box.Text == "")
-                {
-                    check = false;
-                }
-            }
-            else if (box.Text == "")
-            {
-                check = false;
-            }
-            return check;
-        }*/
         private void Check_combox(object sender, EventArgs e = null)
         {
             ComboBox box = sender as ComboBox;
@@ -148,17 +132,6 @@ namespace ContactTracing
                  Controls.Find(comb, true)[0].BackgroundImage = pic_wrong;
              }*/
         }//combobox check
-        /*private bool Check_combox2(Control box)
-        {
-            bool check = true;
-
-            ComboBox box2 = box as ComboBox;
-            if (box2.SelectedIndex < 0)
-            {
-                check = false;
-            }
-            return check;
-        }*/
         private void Check_radio(object sender=null, EventArgs e=null)
         {
             if (!(rdio_female.Checked || rdio_male.Checked))

@@ -42,7 +42,7 @@ namespace ContactTracing
             }
             //next panel
             else
-            { 
+            {
                 active_panel.Enabled = false;
                 active_panel.Visible = false;
 
@@ -55,7 +55,7 @@ namespace ContactTracing
                 else if (panel_count != 2)
                 {
                     next_panel();
-                } 
+                }
             }
         }
         private void Check_text(object sender, EventArgs e)
@@ -124,12 +124,20 @@ namespace ContactTracing
         private bool Check_ActivePanel()
         {
             bool get_wrong = false;
-            foreach (Control check in active_panel.Controls)
+            if (panel_count == 2 && !check_terms.Checked)
             {
-                if (check.BackgroundImage != pic_check && check.Name.StartsWith("label"))
+                get_wrong = true;
+                return get_wrong;
+            }
+            else
+            {
+                foreach (Control check in active_panel.Controls)
                 {
-                    get_wrong = true;
-                    check.BackgroundImage = pic_wrong;
+                    if (check.BackgroundImage != pic_check && check.Name.StartsWith("label"))
+                    {
+                        get_wrong = true;
+                        check.BackgroundImage = pic_wrong;
+                    }
                 }
             }
             return (get_wrong);
@@ -192,6 +200,15 @@ namespace ContactTracing
 
             //add person count code
         }
+        private void but_cleardata_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                File.Create(@"Contact List.txt").Close();
+                text_data.Clear();
+                person_count = 0;
+            }
+        }
 
 
         //AESTHETICS//
@@ -204,7 +221,7 @@ namespace ContactTracing
         private void button1_Click(object sender, EventArgs e)
         {
             text_data.Visible = true;
-            //but_cleardata.Visible = true;
+            but_cleardata.Visible = true;
             StreamReader read = new StreamReader("Contact List.txt");
             text_data.Clear();
             while (!read.EndOfStream) { text_data.Text = text_data.Text + read.ReadLine() + Environment.NewLine; }
@@ -214,6 +231,7 @@ namespace ContactTracing
         private void text_data_Leave(object sender, EventArgs e)
         {
             text_data.Visible = false;
+            but_cleardata.Visible = false;
         }
 
         private void but_cancel_mouseleave(object sender, EventArgs e)

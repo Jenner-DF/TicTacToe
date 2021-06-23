@@ -31,6 +31,7 @@
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.Windows.Forms.Label label8;
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_entry2 = new System.Windows.Forms.Panel();
             this.check_terms = new System.Windows.Forms.CheckBox();
@@ -64,13 +65,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.text_data = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.but_cleardata = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             label7 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel_entry2.SuspendLayout();
             this.panel_entry1.SuspendLayout();
             this.panel_entry0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -87,33 +95,37 @@
             // 
             // label3
             // 
-            label3.AutoSize = true;
             label3.BackColor = System.Drawing.Color.Transparent;
-            label3.Font = new System.Drawing.Font("Raleway Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.Blue;
-            label3.Location = new System.Drawing.Point(21, 108);
+            label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            label3.Font = new System.Drawing.Font("Raleway Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            label3.Location = new System.Drawing.Point(50, 88);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(293, 22);
+            label3.Size = new System.Drawing.Size(252, 64);
             label3.TabIndex = 0;
-            label3.Text = "Antipolo City Contact Tracing Form";
+            label3.Text = "ANTIPOLO Bantay Covid Contact Tracing Form";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(label8);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.panel_entry2);
             this.panel1.Controls.Add(this.panel_entry1);
             this.panel1.Controls.Add(this.panel_entry0);
-            this.panel1.Controls.Add(label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(label7);
             this.panel1.Controls.Add(this.but_cancel);
             this.panel1.Controls.Add(this.but_submit);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(label3);
             this.panel1.Location = new System.Drawing.Point(12, 54);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(344, 421);
@@ -439,12 +451,12 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Raleway Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(46)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(143, 66);
+            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label1.Location = new System.Drawing.Point(135, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 16);
+            this.label1.Size = new System.Drawing.Size(163, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "sponsored by: De Fiesta";
+            this.label1.Text = "#ForAcademicPurposesOnly";
             // 
             // but_cancel
             // 
@@ -499,12 +511,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Raleway SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 150);
+            this.label4.Font = new System.Drawing.Font("Raleway Light", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(511, 273);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 22);
+            this.label4.Size = new System.Drawing.Size(55, 14);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Sign Up";
+            this.label4.Text = "Click me";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -526,12 +538,12 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MistyRose;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(495, 169);
+            this.button1.Location = new System.Drawing.Point(477, 157);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 95);
+            this.button1.Size = new System.Drawing.Size(119, 130);
             this.button1.TabIndex = 10;
             this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = false;
@@ -540,7 +552,7 @@
             // text_data
             // 
             this.text_data.Font = new System.Drawing.Font("Raleway Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.text_data.Location = new System.Drawing.Point(381, 54);
+            this.text_data.Location = new System.Drawing.Point(371, 54);
             this.text_data.Multiline = true;
             this.text_data.Name = "text_data";
             this.text_data.ReadOnly = true;
@@ -553,6 +565,70 @@
             this.text_data.Visible = false;
             this.text_data.Leave += new System.EventHandler(this.text_data_Leave);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(-1, 400);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(121, 24);
+            this.pictureBox3.TabIndex = 77;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Location = new System.Drawing.Point(234, 401);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(108, 24);
+            this.pictureBox2.TabIndex = 78;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = System.Drawing.Color.Transparent;
+            label8.Font = new System.Drawing.Font("Raleway Light", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.ForeColor = System.Drawing.Color.Black;
+            label8.Location = new System.Drawing.Point(99, 77);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(245, 16);
+            label8.TabIndex = 80;
+            label8.Text = "Email at 1antipolosupport@appcase.net";
+            // 
+            // but_cleardata
+            // 
+            this.but_cleardata.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.but_cleardata.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.but_cleardata.FlatAppearance.BorderSize = 0;
+            this.but_cleardata.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.HotTrack;
+            this.but_cleardata.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_cleardata.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_cleardata.ForeColor = System.Drawing.SystemColors.Info;
+            this.but_cleardata.Location = new System.Drawing.Point(459, 478);
+            this.but_cleardata.Name = "but_cleardata";
+            this.but_cleardata.Size = new System.Drawing.Size(112, 22);
+            this.but_cleardata.TabIndex = 74;
+            this.but_cleardata.Text = "CLEAR DATA";
+            this.but_cleardata.UseVisualStyleBackColor = false;
+            this.but_cleardata.Visible = false;
+            this.but_cleardata.Click += new System.EventHandler(this.but_cleardata_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(14, 150);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(317, 180);
+            this.groupBox1.TabIndex = 81;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sign up";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,7 +637,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(673, 543);
+            this.Controls.Add(this.but_cleardata);
             this.Controls.Add(this.text_data);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -578,6 +656,8 @@
             this.panel_entry0.ResumeLayout(false);
             this.panel_entry0.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,5 +698,9 @@
         private System.Windows.Forms.Label label_mobnum;
         private System.Windows.Forms.CheckBox check_terms;
         private System.Windows.Forms.TextBox text_data;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button but_cleardata;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
