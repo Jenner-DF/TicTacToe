@@ -560,8 +560,8 @@
             this.text_data.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.text_data.Size = new System.Drawing.Size(290, 418);
             this.text_data.TabIndex = 11;
-            this.text_data.Text = "Person 1\r\nDe Fiesta\r\nJenner\r\nNapo\r\nMarried\r\nSpouse\r\nRobinsons Hoems anitpolo city" +
-    "\r\n90876612312\r\n###FOR ANTIPOLO CITY ONLY###\r\n";
+            this.text_data.Text = "Person 1\r\nDe Fiesta\r\nJenner\r\nNapo\r\nMarried\r\nSpouse\r\nSa tabi-tabi lang\r\n9087661231" +
+    "2\r\n###FOR ANTIPOLO CITY ONLY###\r\n";
             this.text_data.Visible = false;
             this.text_data.Leave += new System.EventHandler(this.text_data_Leave);
             // 
