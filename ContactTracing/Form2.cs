@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,6 @@ namespace ContactTracing
 {
     public partial class Form2 : Form
     {
-        bool check_all, check_empty = false;
         int person_count, panel_count = 0;
         string[] data = new string[11];
         readonly Image pic_check = Image.FromFile("green_circle.png");
@@ -28,20 +28,15 @@ namespace ContactTracing
         {
             active_panel = panel_entry0;
             panel1.BackColor = Color.FromArgb(35, 0, 0, 0);
+
+            int readall = File.ReadAllLines("Contact List.txt").Count();
+            int get_pcount = readall / (data.Length);
+            person_count = get_pcount;
         }
         private void but_submit_Click(object sender, EventArgs e)
         {
-            bool get_wrong = false;
             //check if invalid input
-            foreach (Control check in active_panel.Controls)
-            { 
-                if (check.BackgroundImage != pic_check && check.Name.StartsWith("label"))
-                {
-                    get_wrong = true;
-                    check.BackgroundImage = pic_wrong;
-                }
-            }
-            if (get_wrong)
+            if (Check_ActivePanel())
             {
                 MessageBox.Show("Invalid input/s", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -51,35 +46,16 @@ namespace ContactTracing
                 active_panel.Enabled = false;
                 active_panel.Visible = false;
 
-                if (panel_count == 2 && check_terms.Checked && !get_wrong)
+                if (panel_count == 2 && check_terms.Checked)
                 {
-                    panel_count = 0;
-                    active_panel = panel_entry0;
-                    Form2 resetForm = new Form2();
-                    resetForm.Show();
-                    Dispose(false);
-
+                    person_count++;
+                    data_store();
+                    reset_Form();
                 }
                 else if (panel_count != 2)
                 {
-                    panel_count++;
-                    but_cancel.Text = "Back";
-                    if (panel_count == 2) { but_submit.Text = "Submit"; }
-                    active_panel = panel1.Controls["panel_entry" + panel_count.ToString()] as Panel;
-                    active_panel.Enabled = true;
-                    active_panel.Visible = true;
-                }
-                
-            }
-        }
-
-        private void inside_clicked_text(object sender, EventArgs e)
-        {
-            TextBox control = sender as TextBox;
-            if (control.Text.Contains(" Name") || control.Text.Contains("Address") || control.Text.Contains("Mobile #"))    
-            {
-                control.Text = "";
-                control.ForeColor = Color.FromKnownColor(KnownColor.WindowText);
+                    next_panel();
+                } 
             }
         }
         private void Check_text(object sender, EventArgs e)
@@ -91,7 +67,6 @@ namespace ContactTracing
             {
                 if (!box.Text.All(char.IsDigit) || box.Text.ToString().Length != 11 || box.Text == "")
                 {
-                    check_empty = true;
                     the_label.BackgroundImage = pic_wrong;
                 }
                 else
@@ -101,7 +76,6 @@ namespace ContactTracing
             }
             else if (box.Text == "")
             {
-                check_empty = true;
                 the_label.BackgroundImage = pic_wrong;
             }
             else
@@ -115,7 +89,6 @@ namespace ContactTracing
             Label the_label = active_panel.Controls["label" + box.Name.Substring(4)] as Label;
             if (box.SelectedIndex < 0)
             {
-                check_empty = true;
                 the_label.BackgroundImage = pic_wrong;
             }
             else
@@ -131,7 +104,6 @@ namespace ContactTracing
             if (date_birth.Value < limit.Date || date_birth.Value >= DateTime.Today)
             {
                 label_birth.BackgroundImage = pic_wrong;
-                check_empty = true;
             }
             else
             {
@@ -149,8 +121,29 @@ namespace ContactTracing
                 lbl_age.Text = "You are " + age_year.ToString() + " year/s old already!";
             }
         }
-
-        private void but_cancel_Click(object sender, EventArgs e)
+        private bool Check_ActivePanel()
+        {
+            bool get_wrong = false;
+            foreach (Control check in active_panel.Controls)
+            {
+                if (check.BackgroundImage != pic_check && check.Name.StartsWith("label"))
+                {
+                    get_wrong = true;
+                    check.BackgroundImage = pic_wrong;
+                }
+            }
+            return (get_wrong);
+        }
+        private void inside_clicked_text(object sender, EventArgs e)
+        {
+            TextBox control = sender as TextBox;
+            if (control.Text.Contains(" Name") || control.Text.Contains("Address") || control.Text.Contains("Mobile #"))
+            {
+                control.Text = "";
+                control.ForeColor = Color.FromKnownColor(KnownColor.WindowText);
+            }
+        }
+        private void but_backexit_Click(object sender, EventArgs e)
         {
             if (panel_count >= 1)
             {
@@ -171,7 +164,34 @@ namespace ContactTracing
                 }
             }
         }
+        private void next_panel()
+        {
+            panel_count++;
+            but_cancel.Text = "Back";
+            if (panel_count == 2) { but_submit.Text = "Submit"; }
+            active_panel = panel1.Controls["panel_entry" + panel_count.ToString()] as Panel;
+            active_panel.Enabled = true;
+            active_panel.Visible = true;
+        }
 
+        private void data_store()
+        {
+            data = new string[11]{"Person " + person_count.ToString(), text_Lname.Text.ToUpper(),text_Fname.Text, text_Mname.Text, cobx_Cstatus.Text,
+                                          cobx_sex.Text, date_birth.Text, cobx_brgy.Text, text_addr.Text, text_mobnum.Text,"#####*FOR ANTIPOLO CITY ONLY*#####"};
+           
+            StreamWriter outputFile = new StreamWriter(@"Contact List.txt", true);
+            //WriteToTheFile
+            foreach (string i in data) { outputFile.WriteLine(i); }
+            outputFile.Close();
+        }
+        private void reset_Form()
+        {
+            Form2 resetForm = new Form2();
+            resetForm.Show();
+            Dispose(false);
+
+            //add person count code
+        }
 
 
         //AESTHETICS//
@@ -180,6 +200,22 @@ namespace ContactTracing
             but_cancel.ForeColor = Color.FromKnownColor(KnownColor.MenuBar);
             but_cancel.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.MenuHighlight);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            text_data.Visible = true;
+            //but_cleardata.Visible = true;
+            StreamReader read = new StreamReader("Contact List.txt");
+            text_data.Clear();
+            while (!read.EndOfStream) { text_data.Text = text_data.Text + read.ReadLine() + Environment.NewLine; }
+            read.Close();
+        }
+
+        private void text_data_Leave(object sender, EventArgs e)
+        {
+            text_data.Visible = false;
+        }
+
         private void but_cancel_mouseleave(object sender, EventArgs e)
         {
             but_cancel.ForeColor = Color.FromKnownColor(KnownColor.MenuHighlight);

@@ -33,12 +33,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_entry2 = new System.Windows.Forms.Panel();
+            this.check_terms = new System.Windows.Forms.CheckBox();
             this.label_mobnum = new System.Windows.Forms.Label();
             this.cobx_brgy = new System.Windows.Forms.ComboBox();
             this.label_addr = new System.Windows.Forms.Label();
             this.text_mobnum = new System.Windows.Forms.TextBox();
-            this.text_addr = new System.Windows.Forms.TextBox();
             this.label_brgy = new System.Windows.Forms.Label();
+            this.text_addr = new System.Windows.Forms.TextBox();
             this.panel_entry1 = new System.Windows.Forms.Panel();
             this.label_birth = new System.Windows.Forms.Label();
             this.label_sex = new System.Windows.Forms.Label();
@@ -62,8 +63,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.check_terms = new System.Windows.Forms.CheckBox();
+            this.text_data = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -136,6 +136,19 @@
             this.panel_entry2.TabIndex = 75;
             this.panel_entry2.Visible = false;
             // 
+            // check_terms
+            // 
+            this.check_terms.AutoSize = true;
+            this.check_terms.BackColor = System.Drawing.Color.Transparent;
+            this.check_terms.Font = new System.Drawing.Font("Raleway Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_terms.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.check_terms.Location = new System.Drawing.Point(19, 127);
+            this.check_terms.Name = "check_terms";
+            this.check_terms.Size = new System.Drawing.Size(202, 20);
+            this.check_terms.TabIndex = 78;
+            this.check_terms.Text = "I Agree to Data Privacy Statement.";
+            this.check_terms.UseVisualStyleBackColor = false;
+            // 
             // label_mobnum
             // 
             this.label_mobnum.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,6 +212,16 @@
             this.text_mobnum.Enter += new System.EventHandler(this.inside_clicked_text);
             this.text_mobnum.Leave += new System.EventHandler(this.Check_text);
             // 
+            // label_brgy
+            // 
+            this.label_brgy.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_brgy.ForeColor = System.Drawing.Color.Red;
+            this.label_brgy.Location = new System.Drawing.Point(161, 63);
+            this.label_brgy.MaximumSize = new System.Drawing.Size(15, 15);
+            this.label_brgy.Name = "label_brgy";
+            this.label_brgy.Size = new System.Drawing.Size(15, 15);
+            this.label_brgy.TabIndex = 73;
+            // 
             // text_addr
             // 
             this.text_addr.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,16 +233,6 @@
             this.text_addr.Text = "Address";
             this.text_addr.Enter += new System.EventHandler(this.inside_clicked_text);
             this.text_addr.Leave += new System.EventHandler(this.Check_text);
-            // 
-            // label_brgy
-            // 
-            this.label_brgy.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_brgy.ForeColor = System.Drawing.Color.Red;
-            this.label_brgy.Location = new System.Drawing.Point(161, 63);
-            this.label_brgy.MaximumSize = new System.Drawing.Size(15, 15);
-            this.label_brgy.Name = "label_brgy";
-            this.label_brgy.Size = new System.Drawing.Size(15, 15);
-            this.label_brgy.TabIndex = 73;
             // 
             // panel_entry1
             // 
@@ -447,9 +460,9 @@
             this.but_cancel.Name = "but_cancel";
             this.but_cancel.Size = new System.Drawing.Size(98, 33);
             this.but_cancel.TabIndex = 4;
-            this.but_cancel.Text = "Exit";
+            this.but_cancel.Text = "Cancel";
             this.but_cancel.UseVisualStyleBackColor = false;
-            this.but_cancel.Click += new System.EventHandler(this.but_cancel_Click);
+            this.but_cancel.Click += new System.EventHandler(this.but_backexit_Click);
             this.but_cancel.MouseLeave += new System.EventHandler(this.but_cancel_mouseleave);
             this.but_cancel.MouseHover += new System.EventHandler(this.but_cancel_hover);
             // 
@@ -522,26 +535,23 @@
             this.button1.TabIndex = 10;
             this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label6
+            // text_data
             // 
-            this.label6.Location = new System.Drawing.Point(401, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(205, 85);
-            this.label6.TabIndex = 11;
-            // 
-            // check_terms
-            // 
-            this.check_terms.AutoSize = true;
-            this.check_terms.BackColor = System.Drawing.Color.Transparent;
-            this.check_terms.Font = new System.Drawing.Font("Raleway Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.check_terms.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.check_terms.Location = new System.Drawing.Point(19, 127);
-            this.check_terms.Name = "check_terms";
-            this.check_terms.Size = new System.Drawing.Size(202, 20);
-            this.check_terms.TabIndex = 78;
-            this.check_terms.Text = "I Agree to Data Privacy Statement.";
-            this.check_terms.UseVisualStyleBackColor = false;
+            this.text_data.Font = new System.Drawing.Font("Raleway Light", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text_data.Location = new System.Drawing.Point(381, 54);
+            this.text_data.Multiline = true;
+            this.text_data.Name = "text_data";
+            this.text_data.ReadOnly = true;
+            this.text_data.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.text_data.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.text_data.Size = new System.Drawing.Size(290, 418);
+            this.text_data.TabIndex = 11;
+            this.text_data.Text = "Person 1\r\nDe Fiesta\r\nJenner\r\nNapo\r\nMarried\r\nSpouse\r\nRobinsons Hoems anitpolo city" +
+    "\r\n90876612312\r\n###FOR ANTIPOLO CITY ONLY###\r\n";
+            this.text_data.Visible = false;
+            this.text_data.Leave += new System.EventHandler(this.text_data_Leave);
             // 
             // Form2
             // 
@@ -551,7 +561,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(673, 543);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.text_data);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -569,6 +579,7 @@
             this.panel_entry0.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -598,7 +609,6 @@
         private System.Windows.Forms.Label lbl_age;
         private System.Windows.Forms.Label label_sex;
         private System.Windows.Forms.Label label_Cstatus;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel_entry2;
         private System.Windows.Forms.Label label_brgy;
         private System.Windows.Forms.ComboBox cobx_brgy;
@@ -607,5 +617,6 @@
         private System.Windows.Forms.Label label_addr;
         private System.Windows.Forms.Label label_mobnum;
         private System.Windows.Forms.CheckBox check_terms;
+        private System.Windows.Forms.TextBox text_data;
     }
 }
