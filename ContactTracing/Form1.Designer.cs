@@ -66,6 +66,7 @@
             this.text_data = new System.Windows.Forms.TextBox();
             this.but_read = new System.Windows.Forms.Button();
             this.but_cleardata = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -311,6 +312,7 @@
             this.date_birth.Name = "date_birth";
             this.date_birth.Size = new System.Drawing.Size(185, 21);
             this.date_birth.TabIndex = 49;
+            this.date_birth.ValueChanged += new System.EventHandler(this.date_birth_ValueChanged);
             this.date_birth.Leave += new System.EventHandler(this.Check_datetime);
             // 
             // text_addr
@@ -540,12 +542,23 @@
             this.but_cleardata.Visible = false;
             this.but_cleardata.Click += new System.EventHandler(this.But_cleardata_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(204, 481);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 74;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(494, 516);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.but_cleardata);
             this.Controls.Add(this.but_read);
             this.Controls.Add(this.text_data);
@@ -612,6 +625,7 @@
         private System.Windows.Forms.Label label_Mname;
         private System.Windows.Forms.Label label_Fname;
         private System.Windows.Forms.Button but_cleardata;
+        private System.Windows.Forms.Button button1;
     }
 }
 

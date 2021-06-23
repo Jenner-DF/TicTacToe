@@ -264,6 +264,18 @@ namespace ContactTracing
             but_cancel.ForeColor = Color.FromKnownColor(KnownColor.MenuHighlight);
             but_cancel.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.MenuBar);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
+
+        private void date_birth_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void Text_data_Leave(object sender, EventArgs e)
         {
             Form1.ActiveForm.Width = 510;
