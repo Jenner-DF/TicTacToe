@@ -12,7 +12,7 @@ namespace Calculator_Test_2
 {
     public partial class Form1 : Form
     {
-        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, percent_clicked, error_clicked = false;
+        bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, m_clicked, error_clicked = false;
         double first_num, second_num, symbol_base;
         byte char_symbols, M_count = 0;
         char optr_selected;
@@ -212,7 +212,7 @@ namespace Calculator_Test_2
             {
                 display_1.Text = "0";
             }
-            symbols_clicked = true;//percent_clicked = true;
+            symbols_clicked = true;
         }//running
         private void num_click(object sender, EventArgs e)
         {
@@ -223,7 +223,7 @@ namespace Calculator_Test_2
             }
 
 
-            if (equal_clicked || symbols_clicked)// || percent_clicked)
+            if (equal_clicked || symbols_clicked)
             {
                 display_2.Text = "";
                 display_1.Text = nums.Text;
@@ -231,12 +231,13 @@ namespace Calculator_Test_2
                 equal_clicked = false;
                 num_clicked = true;
             }
-            else if (optr_clicked) //I separate it, will not work if i put it here both as optr needs to be click to run(nudaw?)  
+            else if (optr_clicked || m_clicked) //does not reset display 2,
             {
                 display_1.Text = nums.Text;
                 optr_clicked = false;
                 equal_clicked = false;
                 num_clicked = true;
+                m_clicked = false;
             }
             else if (display_1.Text == "0" || display_1.Text == "-0")
             {
@@ -248,7 +249,6 @@ namespace Calculator_Test_2
                 display_1.Text = display_1.Text + nums.Text;
             }
             symbols_clicked = false;
-            //percent_clicked = false;
             char_symbols = 0;
             
         }//running
@@ -287,7 +287,6 @@ namespace Calculator_Test_2
             }
             //button reset
             symbols_clicked = false;
-            //percent_clicked = false;
             char_symbols = 0;
             equal_clicked = false; //if(operator clicked only) second num will be display1
             optr_clicked = true;
@@ -358,7 +357,6 @@ namespace Calculator_Test_2
             //button reset
             equal_clicked = true;
             symbols_clicked = false;
-           // percent_clicked = false;
             char_symbols = 0;
         } //running 
 
@@ -427,12 +425,12 @@ namespace Calculator_Test_2
             _mc.Enabled = false;
             _mr.Enabled = false;
             mlist.Enabled = false;
-            optr_clicked = true; //reset after plus/minus
+            m_clicked = true; //reset display 1
         }//running
         private void _mr_Click(object sender, EventArgs e)
         {
             display_1.Text = panel_M.Controls[0].Text;
-            optr_clicked = true; //reset after plus/minus
+            m_clicked = true; //reset display 1
         }//running
         private void m_plus_minus(object sender, EventArgs e)
         {
@@ -451,7 +449,7 @@ namespace Calculator_Test_2
                 Control first_label = panel_M.Controls[0];
                 first_label.Text = solve(Convert.ToDouble(first_label.Text), Convert.ToDouble(display_1.Text), sign);
             }
-            optr_clicked = true; //reset after plus/minus
+            m_clicked = true; //reset display 1
         }//running
         private void _mstore_Click(object sender, EventArgs e)
         {
@@ -508,27 +506,26 @@ namespace Calculator_Test_2
         private void panel_m_clearbut(object sender, EventArgs e)
         {
             Control control = sender as Control;
-            int x =  panel_M.Controls.GetChildIndex(control);
+            int x =  panel_M.Controls.GetChildIndex(control); //get index of panel mc button
             panel_M.Controls.RemoveAt(x - 1); //remove display
             panel_M.Controls.RemoveAt(x); //remove minus but
             panel_M.Controls.RemoveAt(x);//remove plus but
             panel_M.Controls.RemoveAt(x-1);//remove clear but
-            //test display
-            foreach (Control a in panel_M.Controls) { label1.Text = label1.Text + (a.Name.ToString()) + "\n"; }
         }//running
         private void M_operation(object sender, EventArgs e)
         {
             Control but = sender as Control;
-
+            //plus or minus operator
             char sign;
             if (but.Text.Contains("+")) { sign = '+'; }
             else { sign = '-'; }
-            
-            Control m_select = panel_M.Controls["display_M" + but.Name.Last()]; //display_M + (M_count)
+
+            //get specified display_M
+            Control m_select = panel_M.Controls["display_M" + but.Name.Last()]; 
             //using solve method
             m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), sign);
 
-            optr_clicked = true; //reset after plus/minus
+            m_clicked = true; //reset display 1
         }//running
         private void open_Mtab(object sender, EventArgs e)
         {
