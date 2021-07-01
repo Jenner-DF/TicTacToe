@@ -463,7 +463,7 @@
             this.display_1.Name = "display_1";
             this.display_1.Size = new System.Drawing.Size(310, 55);
             this.display_1.TabIndex = 63;
-            this.display_1.Text = "1234567890";
+            this.display_1.Text = "0";
             this.display_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.display_1.TextChanged += new System.EventHandler(this.change_FontSize);
             // 
@@ -593,7 +593,7 @@
             // 
             this.panel_M.AutoScroll = true;
             this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_M.Location = new System.Drawing.Point(411, 175);
+            this.panel_M.Location = new System.Drawing.Point(2, 175);
             this.panel_M.Name = "panel_M";
             this.panel_M.Size = new System.Drawing.Size(314, 329);
             this.panel_M.TabIndex = 58;
@@ -604,7 +604,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(602, 507);
+            this.ClientSize = new System.Drawing.Size(318, 507);
             this.Controls.Add(this.panel_M);
             this.Controls.Add(this.but_group1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

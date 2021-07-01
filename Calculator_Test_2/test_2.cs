@@ -394,17 +394,22 @@ namespace Calculator_Test_2
            {
                 if (double.IsNaN(error) || double.IsInfinity(error))
                 {
-                    foreach (Control a in but_group1.Controls)
+                    foreach (Control control in but_group1.Controls)
                     {
-                        if (a.Name.StartsWith("_"))
+                        if (control.Name.StartsWith("_"))
                         {
-                            a.BackColor = Color.FromKnownColor(KnownColor.Silver);
-                            a.Enabled = false;
+                            control.BackColor = Color.FromKnownColor(KnownColor.Silver);
+                            control.Enabled = false;
                         }
                     }
                     error_clicked = true;
-                    string error_1 = "Invalid input";
-                    return error_1;
+                    string Error = "Invalid input";
+
+                    if (double.IsInfinity(error))
+                    {
+                        Error = "Overflow";
+                    }
+                    return Error;
                 }
                 else { return error.ToString(); }
             }//running
