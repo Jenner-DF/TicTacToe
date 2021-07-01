@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button3 = new System.Windows.Forms.Button();
-            this.Panel = new System.Windows.Forms.Panel();
+            this.panel_controls = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@
             this.label_whowill = new System.Windows.Forms.Label();
             this.label_qmark = new System.Windows.Forms.Label();
             this.label_win = new System.Windows.Forms.Label();
-            this.Panel.SuspendLayout();
+            this.panel_controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -90,36 +90,36 @@
             this.button3.Text = "3";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button_Click);
+            this.button3.Click += new System.EventHandler(this.Tile_Click);
             // 
-            // Panel
+            // panel_controls
             // 
-            this.Panel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Panel.Controls.Add(this.button9);
-            this.Panel.Controls.Add(this.button6);
-            this.Panel.Controls.Add(this.button8);
-            this.Panel.Controls.Add(this.button5);
-            this.Panel.Controls.Add(this.button7);
-            this.Panel.Controls.Add(this.button4);
-            this.Panel.Controls.Add(this.button3);
-            this.Panel.Controls.Add(this.button1);
-            this.Panel.Controls.Add(this.button2);
-            this.Panel.Controls.Add(this.pictureBox7);
-            this.Panel.Controls.Add(this.pictureBox8);
-            this.Panel.Controls.Add(this.pictureBox9);
-            this.Panel.Controls.Add(this.pictureBox4);
-            this.Panel.Controls.Add(this.pictureBox6);
-            this.Panel.Controls.Add(this.pictureBox1);
-            this.Panel.Controls.Add(this.pictureBox5);
-            this.Panel.Controls.Add(this.pictureBox3);
-            this.Panel.Controls.Add(this.pictureBox2);
-            this.Panel.Controls.Add(this.pictureBox10);
-            this.Panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Panel.Location = new System.Drawing.Point(28, 26);
-            this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(565, 545);
-            this.Panel.TabIndex = 36;
+            this.panel_controls.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel_controls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel_controls.Controls.Add(this.button9);
+            this.panel_controls.Controls.Add(this.button6);
+            this.panel_controls.Controls.Add(this.button8);
+            this.panel_controls.Controls.Add(this.button5);
+            this.panel_controls.Controls.Add(this.button7);
+            this.panel_controls.Controls.Add(this.button4);
+            this.panel_controls.Controls.Add(this.button3);
+            this.panel_controls.Controls.Add(this.button1);
+            this.panel_controls.Controls.Add(this.button2);
+            this.panel_controls.Controls.Add(this.pictureBox7);
+            this.panel_controls.Controls.Add(this.pictureBox8);
+            this.panel_controls.Controls.Add(this.pictureBox9);
+            this.panel_controls.Controls.Add(this.pictureBox4);
+            this.panel_controls.Controls.Add(this.pictureBox6);
+            this.panel_controls.Controls.Add(this.pictureBox1);
+            this.panel_controls.Controls.Add(this.pictureBox5);
+            this.panel_controls.Controls.Add(this.pictureBox3);
+            this.panel_controls.Controls.Add(this.pictureBox2);
+            this.panel_controls.Controls.Add(this.pictureBox10);
+            this.panel_controls.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel_controls.Location = new System.Drawing.Point(28, 26);
+            this.panel_controls.Name = "panel_controls";
+            this.panel_controls.Size = new System.Drawing.Size(565, 545);
+            this.panel_controls.TabIndex = 36;
             // 
             // button9
             // 
@@ -137,7 +137,7 @@
             this.button9.Text = "9";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Button_Click);
+            this.button9.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button6
             // 
@@ -155,7 +155,7 @@
             this.button6.Text = "6";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Button_Click);
+            this.button6.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button8
             // 
@@ -173,7 +173,7 @@
             this.button8.Text = "8";
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Button_Click);
+            this.button8.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button5
             // 
@@ -191,7 +191,7 @@
             this.button5.Text = "5";
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button_Click);
+            this.button5.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button7
             // 
@@ -210,7 +210,7 @@
             this.button7.Text = "7";
             this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Button_Click);
+            this.button7.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button4
             // 
@@ -229,7 +229,7 @@
             this.button4.Text = "4";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button_Click);
+            this.button4.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button1
             // 
@@ -248,7 +248,7 @@
             this.button1.Text = "1";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button_Click);
+            this.button1.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button2
             // 
@@ -266,7 +266,7 @@
             this.button2.Text = "2";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button_Click);
+            this.button2.Click += new System.EventHandler(this.Tile_Click);
             // 
             // pictureBox7
             // 
@@ -525,7 +525,7 @@
             this.Controls.Add(this.score_blue);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Panel);
+            this.Controls.Add(this.panel_controls);
             this.Controls.Add(this.panel_newgame);
             this.Controls.Add(this.score_reset);
             this.Controls.Add(this.new_game);
@@ -533,7 +533,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "TicTacToe";
-            this.Panel.ResumeLayout(false);
+            this.panel_controls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -551,7 +551,7 @@
 
         #endregion
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel Panel;
+        private System.Windows.Forms.Panel panel_controls;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox9;
