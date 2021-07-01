@@ -15,8 +15,8 @@ namespace TicTacToe
         private void Tile_Click(object sender, EventArgs e)
         {
            Button Click = sender as Button;
-           Click.Enabled = false;
-           Click.SendToBack();
+           Click.Enabled = false; //make tile unclickable
+           Click.SendToBack(); //to see image X/O
 
             if (!player)
             {
@@ -37,6 +37,7 @@ namespace TicTacToe
         } //running
         private void winner()
         {
+            //checking all pattern
             if      (button5.Text == button9.Text && button5.Text == button1.Text) { checkwin = true; }//diagonal from left
             else if (button5.Text == button3.Text && button5.Text == button7.Text) { checkwin = true; }//diagonal from right
             else if (button5.Text == button4.Text && button5.Text == button6.Text) { checkwin = true; }// horizontal mid
@@ -46,6 +47,7 @@ namespace TicTacToe
             else if (button7.Text == button8.Text && button7.Text == button9.Text) { checkwin = true; }//botleft to right
             else if (button9.Text == button6.Text && button9.Text == button3.Text) { checkwin = true; }//botright to top
 
+            //get winner
             if (checkwin)
             {
                 panel_controls.Enabled = false;
@@ -66,8 +68,7 @@ namespace TicTacToe
             {
                 winner_TIE();
             }
-
-            //get Winner
+            //methods
             void winner_blue()
             {
                 label_qmark.Text = "BLUE";
@@ -80,7 +81,6 @@ namespace TicTacToe
                 score_red.Text = (Convert.ToInt32(score_red.Text) + 1).ToString();
                 label_qmark.ForeColor = Color.FromKnownColor(KnownColor.IndianRed);
             }
-
             void winner_TIE()
             {
                 panel_controls.Enabled = false;
@@ -102,31 +102,41 @@ namespace TicTacToe
         private void Panel_clicked(object sender, EventArgs e)
         {
             panel_controls.Enabled = true;
+            //checkwin = true;
             for (int button_count = 1; button_count <= 9; button_count++)
             {
-                var reset_text = "button" + button_count; { checkwin = true; }
-                Controls.Find(reset_text, true)[0].Text = button_count.ToString();
-                Controls.Find(reset_text, true)[0].Enabled = true;
-                Controls.Find(reset_text, true)[0].BringToFront();
-                 
+                //reset button to origin
+                Button reset_button = panel_controls.Controls["button" + button_count] as Button;
+                reset_button.Text = button_count.ToString();
+                reset_button.Enabled = true;
+                reset_button.BringToFront();
+                reset_button.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.DodgerBlue); //always X first
+
+                //reset winner text
                 label_qmark.Text = "?";
                 label_win.Text = "WIN";
                 label_whowill.Text = "WHO WILL";
                 label_qmark.ForeColor = Color.FromKnownColor(KnownColor.SpringGreen);
-                try
-                {//X <- firstalways
-                    foreach (Button c in panel_controls.Controls) //reset to blue color when mouse hover
-                    {
-                        c.FlatAppearance.MouseOverBackColor = Color.FromKnownColor(KnownColor.DodgerBlue);
-                    }
-                }
-                catch { }
             }
             count = 0;
             checkwin = false;
             panel_newgame.Enabled = false;
         }//running
         //AESTHETICS
+        private void click_image(string btn_name)
+        {
+            var last = btn_name.Substring(btn_name.Length - 1);
+            PictureBox picturebox_name = panel_controls.Controls["pictureBox" + last] as PictureBox;
+
+            if (count % 2 == 0) //image 'O'
+            {
+                picturebox_name.BackgroundImage = Image.FromFile("tictactoe_O.png");
+            }
+            else //image 'X'
+            {
+                picturebox_name.BackgroundImage = Image.FromFile("tictactoe_X.png");
+            }
+        }//running
         private void colorchange()
         {//whenMouseHover
             try
@@ -144,21 +154,6 @@ namespace TicTacToe
                 }
             }
             catch { }
-        }//running
-        private void click_image(string btn_name)
-        {
-            var last = btn_name.Substring(btn_name.Length - 1);
-            var picturebox_name = "pictureBox" + last;
-
-            if (count % 2 == 0) //image O
-            {
-                //panel_controls[1].BackgroundImage = Image.FromFile("tictactoe_O.png");
-                Controls.Find(picturebox_name, true)[0].BackgroundImage = Image.FromFile("tictactoe_O.png");
-            }
-            else //image X
-            {
-                Controls.Find(picturebox_name, true)[0].BackgroundImage = Image.FromFile("tictactoe_X.png");
-            }
         }//running
     }
 }//all buttons running
