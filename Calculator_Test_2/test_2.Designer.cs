@@ -54,7 +54,6 @@
             this.num_0 = new System.Windows.Forms.Button();
             this._Sign = new System.Windows.Forms.Button();
             this.but_group1 = new System.Windows.Forms.Panel();
-            this.panel_M = new System.Windows.Forms.FlowLayoutPanel();
             this.display_2 = new System.Windows.Forms.Label();
             this.display_1 = new System.Windows.Forms.Label();
             this.Calculator_type = new System.Windows.Forms.Label();
@@ -66,8 +65,7 @@
             this._mplus = new System.Windows.Forms.Button();
             this._mr = new System.Windows.Forms.Button();
             this._mc = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel_M = new System.Windows.Forms.FlowLayoutPanel();
             this.but_group1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,9 +76,9 @@
             this.backspace.FlatAppearance.BorderSize = 0;
             this.backspace.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backspace.Image = ((System.Drawing.Image)(resources.GetObject("backspace.Image")));
-            this.backspace.Location = new System.Drawing.Point(226, 181);
+            this.backspace.Location = new System.Drawing.Point(233, 181);
             this.backspace.Name = "backspace";
-            this.backspace.Size = new System.Drawing.Size(78, 58);
+            this.backspace.Size = new System.Drawing.Size(80, 58);
             this.backspace.TabIndex = 51;
             this.backspace.UseVisualStyleBackColor = true;
             this.backspace.Click += new System.EventHandler(this._backspace_Click);
@@ -93,9 +91,9 @@
             this.clearAll.FlatAppearance.BorderSize = 0;
             this.clearAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.clearAll.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearAll.Location = new System.Drawing.Point(149, 181);
+            this.clearAll.Location = new System.Drawing.Point(155, 181);
             this.clearAll.Name = "clearAll";
-            this.clearAll.Size = new System.Drawing.Size(79, 58);
+            this.clearAll.Size = new System.Drawing.Size(80, 58);
             this.clearAll.TabIndex = 50;
             this.clearAll.Text = "C";
             this.clearAll.UseVisualStyleBackColor = true;
@@ -106,9 +104,9 @@
             this.clearEntry.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.clearEntry.FlatAppearance.BorderSize = 0;
             this.clearEntry.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearEntry.Location = new System.Drawing.Point(74, 181);
+            this.clearEntry.Location = new System.Drawing.Point(77, 181);
             this.clearEntry.Name = "clearEntry";
-            this.clearEntry.Size = new System.Drawing.Size(78, 58);
+            this.clearEntry.Size = new System.Drawing.Size(80, 58);
             this.clearEntry.TabIndex = 49;
             this.clearEntry.Text = "CE";
             this.clearEntry.UseVisualStyleBackColor = true;
@@ -119,9 +117,9 @@
             this._percent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._percent.FlatAppearance.BorderSize = 0;
             this._percent.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._percent.Location = new System.Drawing.Point(-1, 181);
+            this._percent.Location = new System.Drawing.Point(1, 181);
             this._percent.Name = "_percent";
-            this._percent.Size = new System.Drawing.Size(78, 58);
+            this._percent.Size = new System.Drawing.Size(80, 58);
             this._percent.TabIndex = 48;
             this._percent.Text = "%";
             this._percent.UseVisualStyleBackColor = true;
@@ -132,9 +130,9 @@
             this._divide.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._divide.FlatAppearance.BorderSize = 0;
             this._divide.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._divide.Location = new System.Drawing.Point(226, 234);
+            this._divide.Location = new System.Drawing.Point(233, 234);
             this._divide.Name = "_divide";
-            this._divide.Size = new System.Drawing.Size(78, 58);
+            this._divide.Size = new System.Drawing.Size(80, 58);
             this._divide.TabIndex = 47;
             this._divide.Text = "÷";
             this._divide.UseVisualStyleBackColor = true;
@@ -146,9 +144,9 @@
             this._sqrroot.FlatAppearance.BorderSize = 0;
             this._sqrroot.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._sqrroot.Image = ((System.Drawing.Image)(resources.GetObject("_sqrroot.Image")));
-            this._sqrroot.Location = new System.Drawing.Point(149, 234);
+            this._sqrroot.Location = new System.Drawing.Point(155, 234);
             this._sqrroot.Name = "_sqrroot";
-            this._sqrroot.Size = new System.Drawing.Size(79, 58);
+            this._sqrroot.Size = new System.Drawing.Size(80, 58);
             this._sqrroot.TabIndex = 46;
             this._sqrroot.UseVisualStyleBackColor = true;
             this._sqrroot.Click += new System.EventHandler(this._sqrroot_Click);
@@ -159,9 +157,9 @@
             this._sqr.FlatAppearance.BorderSize = 0;
             this._sqr.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._sqr.Image = ((System.Drawing.Image)(resources.GetObject("_sqr.Image")));
-            this._sqr.Location = new System.Drawing.Point(74, 234);
+            this._sqr.Location = new System.Drawing.Point(77, 234);
             this._sqr.Name = "_sqr";
-            this._sqr.Size = new System.Drawing.Size(78, 58);
+            this._sqr.Size = new System.Drawing.Size(80, 58);
             this._sqr.TabIndex = 45;
             this._sqr.UseVisualStyleBackColor = true;
             this._sqr.Click += new System.EventHandler(this._sqr_Click);
@@ -174,7 +172,7 @@
             this._reciprocal.Image = ((System.Drawing.Image)(resources.GetObject("_reciprocal.Image")));
             this._reciprocal.Location = new System.Drawing.Point(-1, 234);
             this._reciprocal.Name = "_reciprocal";
-            this._reciprocal.Size = new System.Drawing.Size(78, 58);
+            this._reciprocal.Size = new System.Drawing.Size(80, 58);
             this._reciprocal.TabIndex = 44;
             this._reciprocal.UseVisualStyleBackColor = true;
             this._reciprocal.Click += new System.EventHandler(this._reciprocal_Click);
@@ -184,7 +182,7 @@
             this._multiply.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._multiply.FlatAppearance.BorderSize = 0;
             this._multiply.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._multiply.Location = new System.Drawing.Point(224, 288);
+            this._multiply.Location = new System.Drawing.Point(233, 288);
             this._multiply.Name = "_multiply";
             this._multiply.Size = new System.Drawing.Size(80, 58);
             this._multiply.TabIndex = 43;
@@ -198,9 +196,9 @@
             this.num_9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.num_9.FlatAppearance.BorderSize = 0;
             this.num_9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_9.Location = new System.Drawing.Point(150, 288);
+            this.num_9.Location = new System.Drawing.Point(155, 288);
             this.num_9.Name = "num_9";
-            this.num_9.Size = new System.Drawing.Size(78, 58);
+            this.num_9.Size = new System.Drawing.Size(80, 58);
             this.num_9.TabIndex = 42;
             this.num_9.Text = "9";
             this.num_9.UseVisualStyleBackColor = false;
@@ -212,9 +210,9 @@
             this.num_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.num_8.FlatAppearance.BorderSize = 0;
             this.num_8.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_8.Location = new System.Drawing.Point(74, 288);
+            this.num_8.Location = new System.Drawing.Point(77, 288);
             this.num_8.Name = "num_8";
-            this.num_8.Size = new System.Drawing.Size(78, 58);
+            this.num_8.Size = new System.Drawing.Size(80, 58);
             this.num_8.TabIndex = 41;
             this.num_8.Text = "8";
             this.num_8.UseVisualStyleBackColor = false;
@@ -228,7 +226,7 @@
             this.num_7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num_7.Location = new System.Drawing.Point(-1, 288);
             this.num_7.Name = "num_7";
-            this.num_7.Size = new System.Drawing.Size(78, 58);
+            this.num_7.Size = new System.Drawing.Size(80, 58);
             this.num_7.TabIndex = 40;
             this.num_7.Text = "7";
             this.num_7.UseVisualStyleBackColor = false;
@@ -239,7 +237,7 @@
             this._subtract.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._subtract.FlatAppearance.BorderSize = 0;
             this._subtract.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._subtract.Location = new System.Drawing.Point(224, 341);
+            this._subtract.Location = new System.Drawing.Point(233, 341);
             this._subtract.Name = "_subtract";
             this._subtract.Size = new System.Drawing.Size(80, 58);
             this._subtract.TabIndex = 39;
@@ -253,7 +251,7 @@
             this.num_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.num_6.FlatAppearance.BorderSize = 0;
             this.num_6.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_6.Location = new System.Drawing.Point(148, 341);
+            this.num_6.Location = new System.Drawing.Point(155, 341);
             this.num_6.Name = "num_6";
             this.num_6.Size = new System.Drawing.Size(80, 58);
             this.num_6.TabIndex = 38;
@@ -267,9 +265,9 @@
             this.num_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.num_5.FlatAppearance.BorderSize = 0;
             this.num_5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_5.Location = new System.Drawing.Point(74, 341);
+            this.num_5.Location = new System.Drawing.Point(77, 341);
             this.num_5.Name = "num_5";
-            this.num_5.Size = new System.Drawing.Size(78, 58);
+            this.num_5.Size = new System.Drawing.Size(80, 58);
             this.num_5.TabIndex = 37;
             this.num_5.Text = "5";
             this.num_5.UseVisualStyleBackColor = false;
@@ -283,7 +281,7 @@
             this.num_4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num_4.Location = new System.Drawing.Point(-1, 341);
             this.num_4.Name = "num_4";
-            this.num_4.Size = new System.Drawing.Size(78, 58);
+            this.num_4.Size = new System.Drawing.Size(80, 58);
             this.num_4.TabIndex = 36;
             this.num_4.Text = "4";
             this.num_4.UseVisualStyleBackColor = false;
@@ -294,9 +292,9 @@
             this._add.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._add.FlatAppearance.BorderSize = 0;
             this._add.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._add.Location = new System.Drawing.Point(226, 397);
+            this._add.Location = new System.Drawing.Point(233, 397);
             this._add.Name = "_add";
-            this._add.Size = new System.Drawing.Size(78, 58);
+            this._add.Size = new System.Drawing.Size(80, 58);
             this._add.TabIndex = 35;
             this._add.Text = "+";
             this._add.UseVisualStyleBackColor = true;
@@ -308,9 +306,9 @@
             this.num_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.num_3.FlatAppearance.BorderSize = 0;
             this.num_3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_3.Location = new System.Drawing.Point(150, 397);
+            this.num_3.Location = new System.Drawing.Point(155, 397);
             this.num_3.Name = "num_3";
-            this.num_3.Size = new System.Drawing.Size(78, 58);
+            this.num_3.Size = new System.Drawing.Size(80, 58);
             this.num_3.TabIndex = 34;
             this.num_3.Text = "3";
             this.num_3.UseVisualStyleBackColor = false;
@@ -322,9 +320,9 @@
             this.num_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.num_2.FlatAppearance.BorderSize = 0;
             this.num_2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_2.Location = new System.Drawing.Point(74, 397);
+            this.num_2.Location = new System.Drawing.Point(77, 397);
             this.num_2.Name = "num_2";
-            this.num_2.Size = new System.Drawing.Size(78, 58);
+            this.num_2.Size = new System.Drawing.Size(80, 58);
             this.num_2.TabIndex = 33;
             this.num_2.Text = "2";
             this.num_2.UseVisualStyleBackColor = false;
@@ -338,7 +336,7 @@
             this.num_1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.num_1.Location = new System.Drawing.Point(-1, 397);
             this.num_1.Name = "num_1";
-            this.num_1.Size = new System.Drawing.Size(78, 58);
+            this.num_1.Size = new System.Drawing.Size(80, 58);
             this.num_1.TabIndex = 32;
             this.num_1.Text = "1";
             this.num_1.UseVisualStyleBackColor = false;
@@ -351,7 +349,7 @@
             this.equals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(163)))), ((int)(((byte)(202)))));
             this.equals.FlatAppearance.BorderSize = 0;
             this.equals.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equals.Location = new System.Drawing.Point(224, 450);
+            this.equals.Location = new System.Drawing.Point(233, 450);
             this.equals.Name = "equals";
             this.equals.Size = new System.Drawing.Size(80, 60);
             this.equals.TabIndex = 31;
@@ -366,9 +364,9 @@
             this._decimal.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this._decimal.FlatAppearance.BorderSize = 0;
             this._decimal.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._decimal.Location = new System.Drawing.Point(149, 450);
+            this._decimal.Location = new System.Drawing.Point(155, 450);
             this._decimal.Name = "_decimal";
-            this._decimal.Size = new System.Drawing.Size(78, 60);
+            this._decimal.Size = new System.Drawing.Size(80, 58);
             this._decimal.TabIndex = 30;
             this._decimal.Text = ".";
             this._decimal.UseVisualStyleBackColor = false;
@@ -380,9 +378,9 @@
             this.num_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.num_0.FlatAppearance.BorderSize = 0;
             this.num_0.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num_0.Location = new System.Drawing.Point(74, 450);
+            this.num_0.Location = new System.Drawing.Point(77, 450);
             this.num_0.Name = "num_0";
-            this.num_0.Size = new System.Drawing.Size(78, 58);
+            this.num_0.Size = new System.Drawing.Size(80, 58);
             this.num_0.TabIndex = 29;
             this.num_0.Text = "0";
             this.num_0.UseVisualStyleBackColor = false;
@@ -396,7 +394,7 @@
             this._Sign.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._Sign.Location = new System.Drawing.Point(-1, 450);
             this._Sign.Name = "_Sign";
-            this._Sign.Size = new System.Drawing.Size(78, 58);
+            this._Sign.Size = new System.Drawing.Size(80, 58);
             this._Sign.TabIndex = 28;
             this._Sign.Text = "+/-";
             this._Sign.UseVisualStyleBackColor = false;
@@ -404,9 +402,13 @@
             // 
             // but_group1
             // 
-            this.but_group1.Controls.Add(this.panel_M);
-            this.but_group1.Controls.Add(this.display_2);
             this.but_group1.Controls.Add(this.equals);
+            this.but_group1.Controls.Add(this.num_8);
+            this.but_group1.Controls.Add(this.num_9);
+            this.but_group1.Controls.Add(this._sqrroot);
+            this.but_group1.Controls.Add(this._sqr);
+            this.but_group1.Controls.Add(this.num_5);
+            this.but_group1.Controls.Add(this.display_2);
             this.but_group1.Controls.Add(this.display_1);
             this.but_group1.Controls.Add(this.Calculator_type);
             this.but_group1.Controls.Add(this.mlist);
@@ -420,25 +422,20 @@
             this.but_group1.Controls.Add(this._decimal);
             this.but_group1.Controls.Add(this._mr);
             this.but_group1.Controls.Add(this._mc);
-            this.but_group1.Controls.Add(this.backspace);
-            this.but_group1.Controls.Add(this._subtract);
-            this.but_group1.Controls.Add(this.num_8);
-            this.but_group1.Controls.Add(this.num_9);
             this.but_group1.Controls.Add(this.num_6);
             this.but_group1.Controls.Add(this.num_3);
             this.but_group1.Controls.Add(this._Sign);
             this.but_group1.Controls.Add(this.num_7);
             this.but_group1.Controls.Add(this.num_4);
             this.but_group1.Controls.Add(this.num_1);
+            this.but_group1.Controls.Add(this._reciprocal);
             this.but_group1.Controls.Add(this.clearAll);
             this.but_group1.Controls.Add(this.clearEntry);
             this.but_group1.Controls.Add(this._percent);
+            this.but_group1.Controls.Add(this.backspace);
             this.but_group1.Controls.Add(this._divide);
-            this.but_group1.Controls.Add(this._sqrroot);
-            this.but_group1.Controls.Add(this._sqr);
-            this.but_group1.Controls.Add(this._reciprocal);
             this.but_group1.Controls.Add(this._multiply);
-            this.but_group1.Controls.Add(this.num_5);
+            this.but_group1.Controls.Add(this._subtract);
             this.but_group1.Controls.Add(this._add);
             this.but_group1.Location = new System.Drawing.Point(3, -6);
             this.but_group1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
@@ -446,16 +443,6 @@
             this.but_group1.Size = new System.Drawing.Size(317, 520);
             this.but_group1.TabIndex = 57;
             this.but_group1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_M_leave);
-            // 
-            // panel_M
-            // 
-            this.panel_M.AutoScroll = true;
-            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_M.Location = new System.Drawing.Point(0, 181);
-            this.panel_M.Name = "panel_M";
-            this.panel_M.Size = new System.Drawing.Size(314, 329);
-            this.panel_M.TabIndex = 58;
-            this.panel_M.Visible = false;
             // 
             // display_2
             // 
@@ -472,12 +459,13 @@
             // 
             this.display_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.display_1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.display_1.Location = new System.Drawing.Point(4, 90);
+            this.display_1.Location = new System.Drawing.Point(9, 90);
             this.display_1.Name = "display_1";
             this.display_1.Size = new System.Drawing.Size(310, 55);
             this.display_1.TabIndex = 63;
-            this.display_1.Text = "0";
+            this.display_1.Text = "1234567890";
             this.display_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.display_1.TextChanged += new System.EventHandler(this.change_FontSize);
             // 
             // Calculator_type
             // 
@@ -500,7 +488,7 @@
             this.mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
             this.mlist.Location = new System.Drawing.Point(249, 148);
             this.mlist.Name = "mlist";
-            this.mlist.Size = new System.Drawing.Size(56, 34);
+            this.mlist.Size = new System.Drawing.Size(64, 34);
             this.mlist.TabIndex = 71;
             this.mlist.Text = "M";
             this.mlist.UseVisualStyleBackColor = true;
@@ -533,7 +521,7 @@
             this._mstore.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
             this._mstore.Location = new System.Drawing.Point(200, 148);
             this._mstore.Name = "_mstore";
-            this._mstore.Size = new System.Drawing.Size(50, 34);
+            this._mstore.Size = new System.Drawing.Size(60, 34);
             this._mstore.TabIndex = 70;
             this._mstore.Text = "MS";
             this._mstore.UseVisualStyleBackColor = true;
@@ -548,7 +536,7 @@
             this._mminus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
             this._mminus.Location = new System.Drawing.Point(151, 148);
             this._mminus.Name = "_mminus";
-            this._mminus.Size = new System.Drawing.Size(50, 34);
+            this._mminus.Size = new System.Drawing.Size(60, 34);
             this._mminus.TabIndex = 69;
             this._mminus.Text = "M-";
             this._mminus.UseVisualStyleBackColor = true;
@@ -563,7 +551,7 @@
             this._mplus.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
             this._mplus.Location = new System.Drawing.Point(102, 148);
             this._mplus.Name = "_mplus";
-            this._mplus.Size = new System.Drawing.Size(50, 34);
+            this._mplus.Size = new System.Drawing.Size(60, 34);
             this._mplus.TabIndex = 68;
             this._mplus.Text = "M+";
             this._mplus.UseVisualStyleBackColor = true;
@@ -579,7 +567,7 @@
             this._mr.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
             this._mr.Location = new System.Drawing.Point(53, 148);
             this._mr.Name = "_mr";
-            this._mr.Size = new System.Drawing.Size(50, 34);
+            this._mr.Size = new System.Drawing.Size(60, 34);
             this._mr.TabIndex = 67;
             this._mr.Text = "MR";
             this._mr.UseVisualStyleBackColor = true;
@@ -595,37 +583,29 @@
             this._mc.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
             this._mc.Location = new System.Drawing.Point(0, 148);
             this._mc.Name = "_mc";
-            this._mc.Size = new System.Drawing.Size(54, 34);
+            this._mc.Size = new System.Drawing.Size(64, 34);
             this._mc.TabIndex = 66;
             this._mc.Text = "MC";
             this._mc.UseVisualStyleBackColor = true;
             this._mc.Click += new System.EventHandler(this._mc_Click);
             // 
-            // button1
+            // panel_M
             // 
-            this.button1.Location = new System.Drawing.Point(356, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(340, 187);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(239, 311);
-            this.label1.TabIndex = 58;
+            this.panel_M.AutoScroll = true;
+            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.panel_M.Location = new System.Drawing.Point(411, 175);
+            this.panel_M.Name = "panel_M";
+            this.panel_M.Size = new System.Drawing.Size(314, 329);
+            this.panel_M.TabIndex = 58;
+            this.panel_M.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(607, 507);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(602, 507);
+            this.Controls.Add(this.panel_M);
             this.Controls.Add(this.but_group1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
@@ -664,8 +644,6 @@
         private System.Windows.Forms.Button _Sign;
         private System.Windows.Forms.Panel but_group1;
         private System.Windows.Forms.FlowLayoutPanel panel_M;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button mlist;
         private System.Windows.Forms.Button _mstore;
         private System.Windows.Forms.Button _mminus;

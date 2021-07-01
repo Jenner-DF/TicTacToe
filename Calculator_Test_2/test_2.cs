@@ -15,12 +15,22 @@ namespace Calculator_Test_2
         bool optr_clicked, num_clicked, equal_clicked, symbols_clicked, m_clicked, error_clicked = false;
         double first_num, second_num, symbol_base;
         byte char_symbols, M_count = 0;
-        char optr_selected;
-        readonly char[] optr_check = { '+', '-', 'x', '÷', '%', '/', '^', 'v' };
+        char optr_selected, initial_optr;
+        readonly char[] optr_check = { '+', '-', 'x', '÷'};
 
         public Form1()
         {
             InitializeComponent();
+        }
+        private void change_FontSize(object sender, EventArgs e)
+        {
+            Label control = sender as Label;
+
+            if      (control.Text.Length <= 11) { control.Font = new Font(Font.FontFamily, 33, FontStyle.Bold); }
+            else if (control.Text.Length == 12) { control.Font = new Font(Font.FontFamily, 30, FontStyle.Bold); }
+            else if (control.Text.Length == 13) { control.Font = new Font(Font.FontFamily, 27, FontStyle.Bold); }
+            else                                { control.Font = new Font(Font.FontFamily, 24, FontStyle.Bold); }
+
         }
         private void error_enable_but()
         {//enables disabled button
@@ -190,22 +200,16 @@ namespace Calculator_Test_2
         } //running
         private void _percent_Click(object sender, EventArgs e)
         {
-            string percent_name;
-            if (display_2.Text.Contains('+') || display_2.Text.Contains('-'))
+            if (optr_check.Any(display_2.Text.Contains))
             {
-                percent_name = (Convert.ToDouble(display_1.Text) / 100 * first_num).ToString();
-                display_2.Text = display_2.Text.Insert(display_2.Text.Length, " " + percent_name);
-                display_1.Text = percent_name;
-            }
-            else if(display_2.Text.Contains('÷') || display_2.Text.Contains('x'))
-            {
-                percent_name = (Convert.ToDouble(display_1.Text) / 100).ToString();
-                display_2.Text = display_2.Text.Insert(display_2.Text.Length, " " + percent_name);
-                display_1.Text = percent_name;
+                string percent_value = solve(Convert.ToDouble(display_1.Text), first_num, '%');
+                display_1.Text = percent_value;
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, " " + percent_value);
             }
             else
             {
-                display_1.Text = "0";
+                display_1.Text = 0.ToString();
+                display_2.Text = 0.ToString();
             }
             symbols_clicked = true;
         }//running
@@ -257,7 +261,6 @@ namespace Calculator_Test_2
                 second_num = Convert.ToDouble(display_1.Text);
 
                 //get optr in display2
-                char initial_optr = char.Parse(display_2.Text.Substring(first_num.ToString().Length+1,1)); 
 
                 //test diplay
                 test_label.Text = first_num.ToString();
@@ -274,11 +277,12 @@ namespace Calculator_Test_2
             {
                 display_2.Text = Convert.ToDouble(display_1.Text) + " " + optr.Text;
                 first_num = Convert.ToDouble(display_1.Text);
-                
-             
+
                 //test display
                 test_label.Text = display_2.Text;
             }
+            //get optr display 2
+            initial_optr = char.Parse(display_2.Text.Substring(first_num.ToString().Length + 1, 1));
             //button reset
             symbols_clicked = false;
             char_symbols = 0;
@@ -303,10 +307,10 @@ namespace Calculator_Test_2
                     }
                     else
                     {
-                        display_2.Text = display_1.Text + " =";
+                        display_2.Text = display_1.Text + " ="; 
                     }
                 }
-                else if (equal_clicked )//&& optr_check.Any(display_2.Text.Contains)) // if equals button clicked once // if num clicked: else will run
+                else if (equal_clicked )
                 { 
                     first_num = Convert.ToDouble(display_1.Text);
                     display_2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
@@ -355,7 +359,6 @@ namespace Calculator_Test_2
         private string solve(double first=0, double second=0, char optr_selected='+')
         {
             double the_solve = 0;
-
             switch (optr_selected)
             {
                 case '+':
@@ -371,8 +374,9 @@ namespace Calculator_Test_2
                     the_solve = first / second;
                     break;
                 //ADDING SYMBOLS
-                case '%': //NOT FINISH
-                    the_solve = first_num * (Convert.ToDouble(first) / 100);
+                case '%':
+                    if (initial_optr == '+' || initial_optr == '-') { the_solve = Convert.ToDouble(first) / 100 * second; }
+                    else { the_solve = Convert.ToDouble(first) / 100; }
                     break;
                 case '/':
                     the_solve = 1 / Convert.ToDouble(first);
@@ -405,6 +409,7 @@ namespace Calculator_Test_2
                 else { return error.ToString(); }
             }//running
         }//running
+
 
 
 
@@ -536,6 +541,6 @@ namespace Calculator_Test_2
                 }
             }  
         }//running
-       
+
     }
 }
