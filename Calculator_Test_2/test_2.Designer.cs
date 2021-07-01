@@ -504,7 +504,7 @@
             this.mlist.TabIndex = 71;
             this.mlist.Text = "M";
             this.mlist.UseVisualStyleBackColor = true;
-            this.mlist.Click += new System.EventHandler(this._mlist_Click);
+            this.mlist.Click += new System.EventHandler(this.open_Mtab);
             // 
             // test_label
             // 
