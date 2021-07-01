@@ -98,6 +98,8 @@ namespace Calculator_Test_2
             if (error_clicked)
             {
                 error_enable_but();
+                display_1.Text = "0";
+                display_2.Text = "";
             }
             if (display_1.Text.Length == 1)
             {
@@ -424,7 +426,7 @@ namespace Calculator_Test_2
             panel_M.Controls.Clear();
             _mc.Enabled = false;
             _mr.Enabled = false;
-            mlist.Enabled = false;
+            _mlist.Enabled = false;
             m_clicked = true; //reset display 1
         }//running
         private void _mr_Click(object sender, EventArgs e)
@@ -440,7 +442,7 @@ namespace Calculator_Test_2
             {
                 _mc.Enabled = true;
                 _mr.Enabled = true;
-                mlist.Enabled = true;
+                _mlist.Enabled = true;
                 Create_M_button();
             }
            else
@@ -456,7 +458,7 @@ namespace Calculator_Test_2
             _mc.Enabled = true;
             _mr.Enabled = true;
             m_clicked = true;
-            mlist.Enabled = true;
+            _mlist.Enabled = true;
             Create_M_button();
         }//running
         private void Create_M_button()

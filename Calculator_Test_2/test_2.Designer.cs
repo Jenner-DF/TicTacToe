@@ -57,7 +57,7 @@
             this.display_2 = new System.Windows.Forms.Label();
             this.display_1 = new System.Windows.Forms.Label();
             this.Calculator_type = new System.Windows.Forms.Label();
-            this.mlist = new System.Windows.Forms.Button();
+            this._mlist = new System.Windows.Forms.Button();
             this.test_label = new System.Windows.Forms.Label();
             this.test_label2 = new System.Windows.Forms.Label();
             this._mstore = new System.Windows.Forms.Button();
@@ -402,6 +402,7 @@
             // 
             // but_group1
             // 
+            this.but_group1.Controls.Add(this.panel_M);
             this.but_group1.Controls.Add(this.equals);
             this.but_group1.Controls.Add(this.num_8);
             this.but_group1.Controls.Add(this.num_9);
@@ -411,7 +412,7 @@
             this.but_group1.Controls.Add(this.display_2);
             this.but_group1.Controls.Add(this.display_1);
             this.but_group1.Controls.Add(this.Calculator_type);
-            this.but_group1.Controls.Add(this.mlist);
+            this.but_group1.Controls.Add(this._mlist);
             this.but_group1.Controls.Add(this.test_label);
             this.but_group1.Controls.Add(this.test_label2);
             this.but_group1.Controls.Add(this._mstore);
@@ -478,21 +479,21 @@
             this.Calculator_type.TabIndex = 62;
             this.Calculator_type.Text = "Standard";
             // 
-            // mlist
+            // _mlist
             // 
-            this.mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mlist.Enabled = false;
-            this.mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.mlist.FlatAppearance.BorderSize = 0;
-            this.mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
-            this.mlist.Location = new System.Drawing.Point(249, 148);
-            this.mlist.Name = "mlist";
-            this.mlist.Size = new System.Drawing.Size(64, 34);
-            this.mlist.TabIndex = 71;
-            this.mlist.Text = "M";
-            this.mlist.UseVisualStyleBackColor = true;
-            this.mlist.Click += new System.EventHandler(this.open_Mtab);
+            this._mlist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._mlist.Enabled = false;
+            this._mlist.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this._mlist.FlatAppearance.BorderSize = 0;
+            this._mlist.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this._mlist.Font = new System.Drawing.Font("Microsoft YaHei", 9.5F, System.Drawing.FontStyle.Bold);
+            this._mlist.Location = new System.Drawing.Point(249, 148);
+            this._mlist.Name = "_mlist";
+            this._mlist.Size = new System.Drawing.Size(64, 34);
+            this._mlist.TabIndex = 71;
+            this._mlist.Text = "M";
+            this._mlist.UseVisualStyleBackColor = true;
+            this._mlist.Click += new System.EventHandler(this.open_Mtab);
             // 
             // test_label
             // 
@@ -593,7 +594,7 @@
             // 
             this.panel_M.AutoScroll = true;
             this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_M.Location = new System.Drawing.Point(2, 175);
+            this.panel_M.Location = new System.Drawing.Point(2, 181);
             this.panel_M.Name = "panel_M";
             this.panel_M.Size = new System.Drawing.Size(314, 329);
             this.panel_M.TabIndex = 58;
@@ -605,7 +606,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(318, 507);
-            this.Controls.Add(this.panel_M);
             this.Controls.Add(this.but_group1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
@@ -644,7 +644,7 @@
         private System.Windows.Forms.Button _Sign;
         private System.Windows.Forms.Panel but_group1;
         private System.Windows.Forms.FlowLayoutPanel panel_M;
-        private System.Windows.Forms.Button mlist;
+        private System.Windows.Forms.Button _mlist;
         private System.Windows.Forms.Button _mstore;
         private System.Windows.Forms.Button _mminus;
         private System.Windows.Forms.Button _mplus;
