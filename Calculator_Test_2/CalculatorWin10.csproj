@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="test_2.cs">
+    <Compile Include="CalculatorWin10.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="test_2.Designer.cs">
-      <DependentUpon>test_2.cs</DependentUpon>
+    <Compile Include="CalculatorWin10.Designer.cs">
+      <DependentUpon>CalculatorWin10.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="test_2.resx">
-      <DependentUpon>test_2.cs</DependentUpon>
+    <EmbeddedResource Include="CalculatorWin10.resx">
+      <DependentUpon>CalculatorWin10.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
