@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace TicTacToe
 {
-    public partial class Form1 : Form
+    public partial class Tictactoe : Form
     {
         bool player, checkwin = false;
         byte count = 0;
-        public Form1()
+        public Tictactoe()
         {
             InitializeComponent();
         }
