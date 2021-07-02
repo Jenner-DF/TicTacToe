@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe
 {
-    partial class Form1
+    partial class Tictactoe
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label_checkwin = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tictactoe));
             this.button3 = new System.Windows.Forms.Button();
-            this.Panel = new System.Windows.Forms.Panel();
+            this.panel_controls = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -62,7 +61,7 @@
             this.label_whowill = new System.Windows.Forms.Label();
             this.label_qmark = new System.Windows.Forms.Label();
             this.label_win = new System.Windows.Forms.Label();
-            this.Panel.SuspendLayout();
+            this.panel_controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -75,16 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
-            // label_checkwin
-            // 
-            this.label_checkwin.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label_checkwin.Location = new System.Drawing.Point(636, 430);
-            this.label_checkwin.Name = "label_checkwin";
-            this.label_checkwin.Size = new System.Drawing.Size(147, 31);
-            this.label_checkwin.TabIndex = 20;
-            this.label_checkwin.Text = "_donotremove";
-            this.label_checkwin.Visible = false;
-            // 
             // button3
             // 
             this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -93,6 +82,7 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Location = new System.Drawing.Point(397, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 125);
@@ -100,36 +90,36 @@
             this.button3.Text = "3";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button_Click);
+            this.button3.Click += new System.EventHandler(this.Tile_Click);
             // 
-            // Panel
+            // panel_controls
             // 
-            this.Panel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Panel.Controls.Add(this.button9);
-            this.Panel.Controls.Add(this.button6);
-            this.Panel.Controls.Add(this.button8);
-            this.Panel.Controls.Add(this.button5);
-            this.Panel.Controls.Add(this.button7);
-            this.Panel.Controls.Add(this.button4);
-            this.Panel.Controls.Add(this.button3);
-            this.Panel.Controls.Add(this.button1);
-            this.Panel.Controls.Add(this.button2);
-            this.Panel.Controls.Add(this.pictureBox7);
-            this.Panel.Controls.Add(this.pictureBox8);
-            this.Panel.Controls.Add(this.pictureBox9);
-            this.Panel.Controls.Add(this.pictureBox4);
-            this.Panel.Controls.Add(this.pictureBox6);
-            this.Panel.Controls.Add(this.pictureBox1);
-            this.Panel.Controls.Add(this.pictureBox5);
-            this.Panel.Controls.Add(this.pictureBox3);
-            this.Panel.Controls.Add(this.pictureBox2);
-            this.Panel.Controls.Add(this.pictureBox10);
-            this.Panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Panel.Location = new System.Drawing.Point(28, 26);
-            this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(565, 545);
-            this.Panel.TabIndex = 36;
+            this.panel_controls.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel_controls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel_controls.Controls.Add(this.button9);
+            this.panel_controls.Controls.Add(this.button6);
+            this.panel_controls.Controls.Add(this.button8);
+            this.panel_controls.Controls.Add(this.button5);
+            this.panel_controls.Controls.Add(this.button7);
+            this.panel_controls.Controls.Add(this.button4);
+            this.panel_controls.Controls.Add(this.button3);
+            this.panel_controls.Controls.Add(this.button1);
+            this.panel_controls.Controls.Add(this.button2);
+            this.panel_controls.Controls.Add(this.pictureBox7);
+            this.panel_controls.Controls.Add(this.pictureBox8);
+            this.panel_controls.Controls.Add(this.pictureBox9);
+            this.panel_controls.Controls.Add(this.pictureBox4);
+            this.panel_controls.Controls.Add(this.pictureBox6);
+            this.panel_controls.Controls.Add(this.pictureBox1);
+            this.panel_controls.Controls.Add(this.pictureBox5);
+            this.panel_controls.Controls.Add(this.pictureBox3);
+            this.panel_controls.Controls.Add(this.pictureBox2);
+            this.panel_controls.Controls.Add(this.pictureBox10);
+            this.panel_controls.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel_controls.Location = new System.Drawing.Point(28, 26);
+            this.panel_controls.Name = "panel_controls";
+            this.panel_controls.Size = new System.Drawing.Size(565, 545);
+            this.panel_controls.TabIndex = 36;
             // 
             // button9
             // 
@@ -139,6 +129,7 @@
             this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button9.Location = new System.Drawing.Point(397, 395);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(139, 125);
@@ -146,7 +137,7 @@
             this.button9.Text = "9";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Button_Click);
+            this.button9.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button6
             // 
@@ -156,6 +147,7 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button6.Location = new System.Drawing.Point(397, 204);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(139, 125);
@@ -163,7 +155,7 @@
             this.button6.Text = "6";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Button_Click);
+            this.button6.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button8
             // 
@@ -173,6 +165,7 @@
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button8.Location = new System.Drawing.Point(166, 372);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(194, 137);
@@ -180,7 +173,7 @@
             this.button8.Text = "8";
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Button_Click);
+            this.button8.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button5
             // 
@@ -190,6 +183,7 @@
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button5.Location = new System.Drawing.Point(166, 198);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(194, 137);
@@ -197,7 +191,7 @@
             this.button5.Text = "5";
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button_Click);
+            this.button5.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button7
             // 
@@ -208,6 +202,7 @@
             this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button7.Location = new System.Drawing.Point(17, 383);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(113, 137);
@@ -215,7 +210,7 @@
             this.button7.Text = "7";
             this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Button_Click);
+            this.button7.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button4
             // 
@@ -226,6 +221,7 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button4.Location = new System.Drawing.Point(17, 194);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 137);
@@ -233,7 +229,7 @@
             this.button4.Text = "4";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button_Click);
+            this.button4.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button1
             // 
@@ -244,6 +240,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(17, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 137);
@@ -251,7 +248,7 @@
             this.button1.Text = "1";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button_Click);
+            this.button1.Click += new System.EventHandler(this.Tile_Click);
             // 
             // button2
             // 
@@ -261,6 +258,7 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(166, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(194, 137);
@@ -268,7 +266,7 @@
             this.button2.Text = "2";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button_Click);
+            this.button2.Click += new System.EventHandler(this.Tile_Click);
             // 
             // pictureBox7
             // 
@@ -527,8 +525,7 @@
             this.Controls.Add(this.score_blue);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Panel);
-            this.Controls.Add(this.label_checkwin);
+            this.Controls.Add(this.panel_controls);
             this.Controls.Add(this.panel_newgame);
             this.Controls.Add(this.score_reset);
             this.Controls.Add(this.new_game);
@@ -536,8 +533,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "TicTacToe";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Panel.ResumeLayout(false);
+            this.panel_controls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -554,9 +550,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label_checkwin;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel Panel;
+        private System.Windows.Forms.Panel panel_controls;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox9;
