@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label7;
-            System.Windows.Forms.Label label3;
-            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label labelnumeruno;
+            System.Windows.Forms.Label labelantipolobantaycovid;
+            System.Windows.Forms.Label labelemailat;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactTracing));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelWindow = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -59,20 +59,19 @@
             this.text_Lname = new System.Windows.Forms.TextBox();
             this.text_Mname = new System.Windows.Forms.TextBox();
             this.text_Fname = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelacademicponly = new System.Windows.Forms.Label();
             this.but_cancel = new System.Windows.Forms.Button();
             this.but_submit = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelantipolo = new System.Windows.Forms.Label();
             this.Signup_gbox = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelclickme = new System.Windows.Forms.Label();
             this.open_data_but = new System.Windows.Forms.Button();
             this.text_data = new System.Windows.Forms.TextBox();
             this.but_cleardata = new System.Windows.Forms.Button();
-            label7 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            labelnumeruno = new System.Windows.Forms.Label();
+            labelantipolobantaycovid = new System.Windows.Forms.Label();
+            labelemailat = new System.Windows.Forms.Label();
+            this.panelWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -81,67 +80,66 @@
             this.panel_entry0.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label7
+            // labelnumeruno
             // 
-            label7.AutoSize = true;
-            label7.BackColor = System.Drawing.Color.Transparent;
-            label7.Font = new System.Drawing.Font("Raleway Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.ForeColor = System.Drawing.Color.Blue;
-            label7.Location = new System.Drawing.Point(101, -6);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(247, 44);
-            label7.TabIndex = 8;
-            label7.Text = "NUMERO UNO,";
+            labelnumeruno.AutoSize = true;
+            labelnumeruno.BackColor = System.Drawing.Color.Transparent;
+            labelnumeruno.Font = new System.Drawing.Font("Raleway Black", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelnumeruno.ForeColor = System.Drawing.Color.Blue;
+            labelnumeruno.Location = new System.Drawing.Point(101, -6);
+            labelnumeruno.Name = "labelnumeruno";
+            labelnumeruno.Size = new System.Drawing.Size(247, 44);
+            labelnumeruno.TabIndex = 8;
+            labelnumeruno.Text = "NUMERO UNO,";
             // 
-            // label3
+            // labelantipolobantaycovid
             // 
-            label3.BackColor = System.Drawing.Color.Transparent;
-            label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            label3.Font = new System.Drawing.Font("Raleway Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            label3.Location = new System.Drawing.Point(50, 88);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(252, 64);
-            label3.TabIndex = 0;
-            label3.Text = "ANTIPOLO Bantay Covid Contact Tracing Form";
-            label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            labelantipolobantaycovid.BackColor = System.Drawing.Color.Transparent;
+            labelantipolobantaycovid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            labelantipolobantaycovid.Font = new System.Drawing.Font("Raleway Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelantipolobantaycovid.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            labelantipolobantaycovid.Location = new System.Drawing.Point(50, 88);
+            labelantipolobantaycovid.Name = "labelantipolobantaycovid";
+            labelantipolobantaycovid.Size = new System.Drawing.Size(252, 64);
+            labelantipolobantaycovid.TabIndex = 0;
+            labelantipolobantaycovid.Text = "ANTIPOLO Bantay Covid Contact Tracing Form";
+            labelantipolobantaycovid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // labelemailat
             // 
-            label8.AutoSize = true;
-            label8.BackColor = System.Drawing.Color.Transparent;
-            label8.Font = new System.Drawing.Font("Raleway Light", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.ForeColor = System.Drawing.Color.Black;
-            label8.Location = new System.Drawing.Point(99, 77);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(245, 16);
-            label8.TabIndex = 80;
-            label8.Text = "Email at 1antipolosupport@appcase.net";
+            labelemailat.AutoSize = true;
+            labelemailat.BackColor = System.Drawing.Color.Transparent;
+            labelemailat.Font = new System.Drawing.Font("Raleway Light", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelemailat.ForeColor = System.Drawing.Color.Black;
+            labelemailat.Location = new System.Drawing.Point(99, 77);
+            labelemailat.Name = "labelemailat";
+            labelemailat.Size = new System.Drawing.Size(245, 16);
+            labelemailat.TabIndex = 80;
+            labelemailat.Text = "Email at 1antipolosupport@appcase.net";
             // 
-            // panel1
+            // panelWindow
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(label8);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.panel_entry2);
-            this.panel1.Controls.Add(this.panel_entry1);
-            this.panel1.Controls.Add(this.panel_entry0);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(label7);
-            this.panel1.Controls.Add(this.but_cancel);
-            this.panel1.Controls.Add(this.but_submit);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.Signup_gbox);
-            this.panel1.Controls.Add(label3);
-            this.panel1.Location = new System.Drawing.Point(12, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(344, 421);
-            this.panel1.TabIndex = 1;
+            this.panelWindow.BackColor = System.Drawing.Color.White;
+            this.panelWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWindow.Controls.Add(labelemailat);
+            this.panelWindow.Controls.Add(this.pictureBox1);
+            this.panelWindow.Controls.Add(this.pictureBox2);
+            this.panelWindow.Controls.Add(this.pictureBox3);
+            this.panelWindow.Controls.Add(this.panel_entry2);
+            this.panelWindow.Controls.Add(this.panel_entry1);
+            this.panelWindow.Controls.Add(this.panel_entry0);
+            this.panelWindow.Controls.Add(this.labelacademicponly);
+            this.panelWindow.Controls.Add(labelnumeruno);
+            this.panelWindow.Controls.Add(this.but_cancel);
+            this.panelWindow.Controls.Add(this.but_submit);
+            this.panelWindow.Controls.Add(this.labelantipolo);
+            this.panelWindow.Controls.Add(this.Signup_gbox);
+            this.panelWindow.Controls.Add(labelantipolobantaycovid);
+            this.panelWindow.Location = new System.Drawing.Point(12, 54);
+            this.panelWindow.Name = "panelWindow";
+            this.panelWindow.Size = new System.Drawing.Size(344, 421);
+            this.panelWindow.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -481,27 +479,17 @@
             this.text_Fname.Enter += new System.EventHandler(this.inside_clicked_textbox);
             this.text_Fname.Leave += new System.EventHandler(this.Check_text);
             // 
-            // label2
+            // labelacademicponly
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Raleway SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 22);
-            this.label2.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Raleway Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label1.Location = new System.Drawing.Point(135, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "#ForAcademicPurposesOnly";
+            this.labelacademicponly.AutoSize = true;
+            this.labelacademicponly.BackColor = System.Drawing.Color.Transparent;
+            this.labelacademicponly.Font = new System.Drawing.Font("Raleway Black", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelacademicponly.ForeColor = System.Drawing.Color.ForestGreen;
+            this.labelacademicponly.Location = new System.Drawing.Point(135, 62);
+            this.labelacademicponly.Name = "labelacademicponly";
+            this.labelacademicponly.Size = new System.Drawing.Size(163, 16);
+            this.labelacademicponly.TabIndex = 0;
+            this.labelacademicponly.Text = "#ForAcademicPurposesOnly";
             // 
             // but_cancel
             // 
@@ -541,17 +529,17 @@
             this.but_submit.UseVisualStyleBackColor = false;
             this.but_submit.Click += new System.EventHandler(this.but_submit_Click);
             // 
-            // label5
+            // labelantipolo
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Raleway Black", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(46)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(127, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(184, 42);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "ANTIPOLO!";
+            this.labelantipolo.AutoSize = true;
+            this.labelantipolo.BackColor = System.Drawing.Color.Transparent;
+            this.labelantipolo.Font = new System.Drawing.Font("Raleway Black", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelantipolo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(46)))), ((int)(((byte)(64)))));
+            this.labelantipolo.Location = new System.Drawing.Point(127, 24);
+            this.labelantipolo.Name = "labelantipolo";
+            this.labelantipolo.Size = new System.Drawing.Size(184, 42);
+            this.labelantipolo.TabIndex = 0;
+            this.labelantipolo.Text = "ANTIPOLO!";
             // 
             // Signup_gbox
             // 
@@ -565,17 +553,17 @@
             this.Signup_gbox.TabStop = false;
             this.Signup_gbox.Text = "Sign up";
             // 
-            // label4
+            // labelclickme
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Raleway Light", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(511, 273);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 14);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Click me";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelclickme.AutoSize = true;
+            this.labelclickme.BackColor = System.Drawing.Color.Transparent;
+            this.labelclickme.Font = new System.Drawing.Font("Raleway Light", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelclickme.Location = new System.Drawing.Point(511, 273);
+            this.labelclickme.Name = "labelclickme";
+            this.labelclickme.Size = new System.Drawing.Size(55, 14);
+            this.labelclickme.TabIndex = 1;
+            this.labelclickme.Text = "Click me";
+            this.labelclickme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // open_data_but
             // 
@@ -629,7 +617,7 @@
             this.but_cleardata.Visible = false;
             this.but_cleardata.Click += new System.EventHandler(this.but_cleardata_Click);
             // 
-            // Form2
+            // ContactTracing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -639,17 +627,17 @@
             this.ClientSize = new System.Drawing.Size(673, 543);
             this.Controls.Add(this.but_cleardata);
             this.Controls.Add(this.text_data);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelclickme);
             this.Controls.Add(this.open_data_but);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelWindow);
             this.MaximizeBox = false;
-            this.Name = "Form2";
+            this.Name = "ContactTracing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contact Tracing Form";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelWindow.ResumeLayout(false);
+            this.panelWindow.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -665,18 +653,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelWindow;
         private System.Windows.Forms.TextBox text_Fname;
         private System.Windows.Forms.TextBox text_Lname;
         private System.Windows.Forms.TextBox text_Mname;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelclickme;
+        private System.Windows.Forms.Label labelantipolo;
         private System.Windows.Forms.Button but_submit;
         private System.Windows.Forms.Button but_cancel;
         private System.Windows.Forms.Button open_data_but;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelacademicponly;
         private System.Windows.Forms.Label label_Fname;
         private System.Windows.Forms.Label label_Mname;
         private System.Windows.Forms.Label label_Lname;

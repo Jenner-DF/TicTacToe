@@ -28,7 +28,7 @@ namespace ContactTracing
         {
             active_panel = panel_entry0;
             //panel opacity
-            panel1.BackColor = Color.FromArgb(35, 0, 0, 0);
+            panelWindow.BackColor = Color.FromArgb(35, 0, 0, 0);
 
             //load data from txt file
             int readall = File.ReadAllLines("Contact List.txt").Count();
@@ -65,7 +65,7 @@ namespace ContactTracing
                     panel_count++;
                     but_cancel.Text = "Back";
                     if (panel_count == 2) { but_submit.Text = "Submit"; }
-                    active_panel = panel1.Controls["panel_entry" + panel_count.ToString()] as Panel;
+                    active_panel = panelWindow.Controls["panel_entry" + panel_count.ToString()] as Panel;
                     active_panel.Enabled = true;
                     active_panel.Visible = true;
                 }
@@ -81,9 +81,36 @@ namespace ContactTracing
                 }
                 void reset_Form()
                 {
-                    ContactTracing resetForm = new ContactTracing();
-                    resetForm.Show();
-                    //Dispose(false); not needed for now(to avoid explanation hehe) 
+                    text_Fname.Text = "First Name";
+                    text_Mname.Text = "Middle Name";
+                    text_Lname.Text = "Last Name";
+                    text_mobnum.Text = "Mobile #";
+                    text_addr.Text = "Address";
+                    cobx_brgy.Text = "--Barangay--";
+                    cobx_Cstatus.Text = "--Civil Status--";
+                    cobx_sex.Text = "--Sex--";
+                    date_birth.Value = DateTime.Today;
+                    lbl_age.Text = "Enter your BirthDate:";
+                    check_terms.Checked = false;
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Panel get_panel = panelWindow.Controls["panel_entry" + i.ToString()] as Panel;
+                        foreach (Control control in get_panel.Controls)
+                        {
+                            if (control.Name.StartsWith("text_"))
+                            {
+                                control.ForeColor = Color.FromKnownColor(KnownColor.WindowFrame);
+                            }
+                            if (control.Name.StartsWith("label_"))
+                            {
+                                control.BackgroundImage = null;
+                            }
+                        }
+                    }
+                    //back to first panel
+                    but_backexit_Click(null, null);
+                    but_backexit_Click(null, null);
                 }
             }
         }
@@ -192,7 +219,7 @@ namespace ContactTracing
                 active_panel.Enabled = false;
                 active_panel.Visible = false;
                 panel_count--;
-                active_panel = panel1.Controls["panel_entry" + panel_count.ToString()] as Panel;
+                active_panel = panelWindow.Controls["panel_entry" + panel_count.ToString()] as Panel;
                 active_panel.Enabled = true;
                 active_panel.Visible = true;
                 but_submit.Text = "Next";
