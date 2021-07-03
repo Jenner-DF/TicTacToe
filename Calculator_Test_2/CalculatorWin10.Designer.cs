@@ -49,23 +49,21 @@
             this.num_3 = new System.Windows.Forms.Button();
             this.num_2 = new System.Windows.Forms.Button();
             this.num_1 = new System.Windows.Forms.Button();
-            this.equals = new System.Windows.Forms.Button();
+            this._equals = new System.Windows.Forms.Button();
             this._decimal = new System.Windows.Forms.Button();
             this.num_0 = new System.Windows.Forms.Button();
             this._Sign = new System.Windows.Forms.Button();
             this.but_group1 = new System.Windows.Forms.Panel();
+            this.panel_M = new System.Windows.Forms.FlowLayoutPanel();
             this.display_2 = new System.Windows.Forms.Label();
             this.display_1 = new System.Windows.Forms.Label();
             this.Calculator_type = new System.Windows.Forms.Label();
             this._mlist = new System.Windows.Forms.Button();
-            this.test_label = new System.Windows.Forms.Label();
-            this.test_label2 = new System.Windows.Forms.Label();
             this._mstore = new System.Windows.Forms.Button();
             this._mminus = new System.Windows.Forms.Button();
             this._mplus = new System.Windows.Forms.Button();
             this._mr = new System.Windows.Forms.Button();
             this._mc = new System.Windows.Forms.Button();
-            this.panel_M = new System.Windows.Forms.FlowLayoutPanel();
             this.but_group1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -342,20 +340,20 @@
             this.num_1.UseVisualStyleBackColor = false;
             this.num_1.Click += new System.EventHandler(this.num_click);
             // 
-            // equals
+            // _equals
             // 
-            this.equals.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.equals.AutoSize = true;
-            this.equals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(163)))), ((int)(((byte)(202)))));
-            this.equals.FlatAppearance.BorderSize = 0;
-            this.equals.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equals.Location = new System.Drawing.Point(233, 450);
-            this.equals.Name = "equals";
-            this.equals.Size = new System.Drawing.Size(80, 60);
-            this.equals.TabIndex = 31;
-            this.equals.Text = "=";
-            this.equals.UseVisualStyleBackColor = false;
-            this.equals.Click += new System.EventHandler(this._equals_Click);
+            this._equals.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._equals.AutoSize = true;
+            this._equals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(163)))), ((int)(((byte)(202)))));
+            this._equals.FlatAppearance.BorderSize = 0;
+            this._equals.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._equals.Location = new System.Drawing.Point(233, 450);
+            this._equals.Name = "_equals";
+            this._equals.Size = new System.Drawing.Size(80, 60);
+            this._equals.TabIndex = 31;
+            this._equals.Text = "=";
+            this._equals.UseVisualStyleBackColor = false;
+            this._equals.Click += new System.EventHandler(this._equals_Click);
             // 
             // _decimal
             // 
@@ -403,7 +401,8 @@
             // but_group1
             // 
             this.but_group1.Controls.Add(this.panel_M);
-            this.but_group1.Controls.Add(this.equals);
+            this.but_group1.Controls.Add(this._divide);
+            this.but_group1.Controls.Add(this._equals);
             this.but_group1.Controls.Add(this.num_8);
             this.but_group1.Controls.Add(this.num_9);
             this.but_group1.Controls.Add(this._sqrroot);
@@ -413,8 +412,6 @@
             this.but_group1.Controls.Add(this.display_1);
             this.but_group1.Controls.Add(this.Calculator_type);
             this.but_group1.Controls.Add(this._mlist);
-            this.but_group1.Controls.Add(this.test_label);
-            this.but_group1.Controls.Add(this.test_label2);
             this.but_group1.Controls.Add(this._mstore);
             this.but_group1.Controls.Add(this.num_0);
             this.but_group1.Controls.Add(this._mminus);
@@ -434,7 +431,6 @@
             this.but_group1.Controls.Add(this.clearEntry);
             this.but_group1.Controls.Add(this._percent);
             this.but_group1.Controls.Add(this.backspace);
-            this.but_group1.Controls.Add(this._divide);
             this.but_group1.Controls.Add(this._multiply);
             this.but_group1.Controls.Add(this._subtract);
             this.but_group1.Controls.Add(this._add);
@@ -444,6 +440,16 @@
             this.but_group1.Size = new System.Drawing.Size(317, 520);
             this.but_group1.TabIndex = 57;
             this.but_group1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_M_leave);
+            // 
+            // panel_M
+            // 
+            this.panel_M.AutoScroll = true;
+            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.panel_M.Location = new System.Drawing.Point(3, 182);
+            this.panel_M.Name = "panel_M";
+            this.panel_M.Size = new System.Drawing.Size(314, 329);
+            this.panel_M.TabIndex = 58;
+            this.panel_M.Visible = false;
             // 
             // display_2
             // 
@@ -494,24 +500,6 @@
             this._mlist.Text = "M";
             this._mlist.UseVisualStyleBackColor = true;
             this._mlist.Click += new System.EventHandler(this.open_Mtab);
-            // 
-            // test_label
-            // 
-            this.test_label.AutoSize = true;
-            this.test_label.Location = new System.Drawing.Point(41, 33);
-            this.test_label.Name = "test_label";
-            this.test_label.Size = new System.Drawing.Size(36, 13);
-            this.test_label.TabIndex = 60;
-            this.test_label.Text = "test_1";
-            // 
-            // test_label2
-            // 
-            this.test_label2.AutoSize = true;
-            this.test_label2.Location = new System.Drawing.Point(99, 33);
-            this.test_label2.Name = "test_label2";
-            this.test_label2.Size = new System.Drawing.Size(36, 13);
-            this.test_label2.TabIndex = 61;
-            this.test_label2.Text = "test_2";
             // 
             // _mstore
             // 
@@ -590,16 +578,6 @@
             this._mc.UseVisualStyleBackColor = true;
             this._mc.Click += new System.EventHandler(this._mc_Click);
             // 
-            // panel_M
-            // 
-            this.panel_M.AutoScroll = true;
-            this.panel_M.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panel_M.Location = new System.Drawing.Point(2, 181);
-            this.panel_M.Name = "panel_M";
-            this.panel_M.Size = new System.Drawing.Size(314, 329);
-            this.panel_M.TabIndex = 58;
-            this.panel_M.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -638,7 +616,7 @@
         private System.Windows.Forms.Button num_3;
         private System.Windows.Forms.Button num_2;
         private System.Windows.Forms.Button num_1;
-        private System.Windows.Forms.Button equals;
+        private System.Windows.Forms.Button _equals;
         private System.Windows.Forms.Button _decimal;
         private System.Windows.Forms.Button num_0;
         private System.Windows.Forms.Button _Sign;
@@ -653,8 +631,6 @@
         private System.Windows.Forms.Label display_1;
         private System.Windows.Forms.Label display_2;
         private System.Windows.Forms.Label Calculator_type;
-        private System.Windows.Forms.Label test_label2;
-        private System.Windows.Forms.Label test_label;
     }
 }
 

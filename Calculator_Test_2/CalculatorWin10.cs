@@ -17,6 +17,7 @@ namespace Calculator_Test_2
         byte char_symbols, M_count = 0;
         char optr_selected, initial_optr;
         readonly char[] optr_check = { '+', '-', 'x', '÷' };
+        readonly char[] symbol_check = {'^', 'v', '/' };
 
         public Form1()
         {
@@ -32,10 +33,19 @@ namespace Calculator_Test_2
             else { control.Font = new Font(Font.FontFamily, 24, FontStyle.Bold); }
 
         } //change fontsize to fit
+        private void reset_ALL()
+        {
+            display_2.Text = "";
+            display_1.Text = "0";
+            optr_clicked = false;
+            equal_clicked = false;
+            num_clicked = false;
+            symbols_clicked = false;
+            char_symbols = 0;
+        }
         private void error_enabled_but() //enables disabled button
         {
-            display_1.Text = "0";
-            display_2.Text = "";
+            reset_ALL();
             error_clicked = false;
             foreach (Control control in but_group1.Controls)
 
@@ -45,6 +55,10 @@ namespace Calculator_Test_2
                     if (control.Name == "_Sign" || control.Name == "_decimal")
                     {
                         control.BackColor = Color.FromArgb(242, 242, 242);
+                    }
+                    else if (control.Name == "_equals")
+                    {
+                        control.BackColor = Color.FromArgb(144, 163, 202);
                     }
                     else
                     {
@@ -68,23 +82,14 @@ namespace Calculator_Test_2
         {
             if (error_clicked) { error_enabled_but(); }
             display_1.Text = "0";
-        } //clears display1
+        } //clear display1
         private void _clearAll_Click(object sender, EventArgs e)
         {
             if (error_clicked)
             {
                 error_enabled_but();
             }
-            display_2.Text = "";
-            display_1.Text = "0";
-            test_label.Text = "";
-            test_label2.Text = "";
-            optr_clicked = false;
-            equal_clicked = false;
-            num_clicked = false;
-            symbols_clicked = false;
-            char_symbols = 0;
-
+            reset_ALL();
         } //reset to 0
         private void _backspace_Click(object sender, EventArgs e)
         {
@@ -92,16 +97,16 @@ namespace Calculator_Test_2
 
             if (display_1.Text.Length == 1) { display_1.Text = "0"; }
             else { display_1.Text = display_1.Text.Remove(display_1.Text.Length - 1); }
-        }//clears newest digit
+        }//remove newest digit
         private void _reciprocal_Click(object sender, EventArgs e)
         {
             var reciprocal_char = "1/( ";
 
             //adding characters to display_2
-            if (symbols_clicked)
+            if (symbols_clicked && symbol_check.Any(display_2.Text.Contains))
             {
-                var minus_symbol = symbol_base.ToString().Length + (char_symbols);
-                display_2.Text = display_2.Text.Insert(display_2.Text.Length - minus_symbol, reciprocal_char);
+                var left_side_index = symbol_base.ToString().Length + (char_symbols);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length - left_side_index, reciprocal_char);
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length, " )");
             }
             else
@@ -110,31 +115,25 @@ namespace Calculator_Test_2
 
                 symbol_base = Convert.ToDouble(display_1.Text);
                 var reciprocal_name = reciprocal_char + symbol_base.ToString() + " )";
-                display_2.Text = display_2.Text.Insert(display_2.Text.Length, reciprocal_name);
-                symbols_clicked = true;  // when clicked
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length, " " + reciprocal_name);
+               
             }
-            char_symbols += 6;
+            symbols_clicked = true;
+            char_symbols += 6; //length of added characters
 
             //solving
             display_1.Text = solve(Convert.ToDouble(display_1.Text), optr_selected: '/');
-
-        }//running
+        }//symbols
         private void _sqr_Click(object sender, EventArgs e)
         {
             var sqr_char = "sqr( ";
 
             //adding characters to display_2
-            if (symbols_clicked)
+            if (symbols_clicked && symbol_check.Any(display_2.Text.Contains))
             {
-                //to display 
-                test_label2.Text = display_2.Text.Length.ToString();
-
-                var minus_symbol = symbol_base.ToString().Length + (char_symbols);
-                display_2.Text = display_2.Text.Insert(display_2.Text.Length - minus_symbol, sqr_char);
+                var left_side_index = symbol_base.ToString().Length + (char_symbols);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length - left_side_index, sqr_char);
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length, " )");
-
-                //to display 
-                test_label.Text = (minus_symbol).ToString();
             }
             else
             {
@@ -143,26 +142,22 @@ namespace Calculator_Test_2
                 symbol_base = Convert.ToDouble(display_1.Text);
                 var sqr_name = sqr_char + symbol_base.ToString() + " )";
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length, " " + sqr_name);
-
-                //to display
-                test_label.Text = display_2.Text;
-                test_label2.Text = display_2.Text.Length.ToString();
-                symbols_clicked = true;  // when clicked
             }
+            symbols_clicked = true;
             char_symbols += 7;
 
             //solving
             display_1.Text = solve(Convert.ToDouble(display_1.Text), optr_selected: '^');
-        }//running
+        }//symbols
         private void _sqrroot_Click(object sender, EventArgs e)
         {
             var sqr_root_char = "√( ";
 
             //adding characters to display_2
-            if (symbols_clicked)
+            if (symbols_clicked && symbol_check.Any(display_2.Text.Contains))
             {
-                var minus_symbol = symbol_base.ToString().Length + (char_symbols);
-                display_2.Text = display_2.Text.Insert(display_2.Text.Length - minus_symbol, sqr_root_char);
+                var left_side_index = symbol_base.ToString().Length + (char_symbols);
+                display_2.Text = display_2.Text.Insert(display_2.Text.Length - left_side_index, sqr_root_char);
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length, " )");
             }
             else
@@ -170,19 +165,15 @@ namespace Calculator_Test_2
                 if (equal_clicked) { display_2.Text = ""; }
 
                 symbol_base = Convert.ToDouble(display_1.Text);
-                var sqrroot_name = sqr_root_char + symbol_base.ToString() + " )"; //added space for proper format (ex. 10 +sqr => 10 + sqr) 
+                var sqrroot_name = sqr_root_char + symbol_base.ToString() + " )";
                 display_2.Text = display_2.Text.Insert(display_2.Text.Length, " " + sqrroot_name);
-                symbols_clicked = true;  // when clicked
-
-                //to display
-                test_label.Text = display_2.Text;
-                test_label2.Text = display_2.Text.Length.ToString();
             }
+            symbols_clicked = true;
             char_symbols += 5;
 
             //solving
             display_1.Text = solve(Convert.ToDouble(display_1.Text), optr_selected: 'v');
-        } //running
+        } //symbols
         private void _percent_Click(object sender, EventArgs e)
         {
             string percent_value;
@@ -207,7 +198,7 @@ namespace Calculator_Test_2
                 display_2.Text = 0.ToString();
             }
             symbols_clicked = true;
-        }//running
+        }//symbbols
         private void num_click(object sender, EventArgs e)
         {
             Button nums = sender as Button;
@@ -215,7 +206,6 @@ namespace Calculator_Test_2
             {
                 error_enabled_but();
             }
-
 
             if (equal_clicked || symbols_clicked)
             {
@@ -236,17 +226,17 @@ namespace Calculator_Test_2
             else if (display_1.Text == "0")
             {
                 display_1.Text = nums.Text;
-                test_label.Text = display_2.Text.Substring(0, display_2.Text.Length);
             }
             else
             {
                 display_1.Text = display_1.Text + nums.Text;
             }
             error_clicked = false;
+            //reset count symbol
             symbols_clicked = false;
             char_symbols = 0;
 
-        }//running
+        }//numbers 0-9 
         private void Operator(object sender, EventArgs e)
         {
             Button optr = sender as Button;
@@ -256,24 +246,18 @@ namespace Calculator_Test_2
             {
                 second_num = Convert.ToDouble(display_1.Text);
 
-                //test diplay
-                test_label.Text = first_num.ToString();
-                test_label2.Text = display_1.Text;
-
                 //solving using method
                 var ans = solve(first_num, second_num, initial_optr);
                 display_1.Text = ans;
                 display_2.Text = ans + " " + optr.Text;
                 first_num = Convert.ToDouble(display_1.Text);
+
                 num_clicked = false; // to not increment when operator button is clicked again
             }
             else
             {
                 display_2.Text = Convert.ToDouble(display_1.Text) + " " + optr.Text;
                 first_num = Convert.ToDouble(display_1.Text);
-
-                //test display
-                test_label.Text = display_2.Text;
             }
             //get optr display 2
             initial_optr = char.Parse(display_2.Text.Substring(first_num.ToString().Length + 1, 1));
@@ -283,68 +267,40 @@ namespace Calculator_Test_2
             equal_clicked = false; //if(operator clicked only) second num will be display1
             optr_clicked = true;
 
-        }//running
+        }//optr
         private void _equals_Click(object sender, EventArgs e)
         {
-            if (error_clicked)//disables button
+            if (!optr_check.Any(display_2.Text.Contains)  && !symbols_clicked ) //to increment if symbols_clicked after optr
             {
-                error_enabled_but();
-            }
-
-           
-            if (!optr_check.Any(display_2.Text.Contains)  && !symbols_clicked ) //to increment if symbols_clicked only
-            {
-                if (display_1.Text == "Invalid input")
-                {
-                    display_1.Text = "0";
-                }
-                else
-                {
                     display_2.Text = display_1.Text + " =";
-                }
             }
             else if (equal_clicked) //equal button clicked second time
             {
                 first_num = Convert.ToDouble(display_1.Text);
                 display_2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
-
-                if (display_1.Text == "Invalid input")
-                {
-                    display_1.Text = "0";
-                }
-                else
-                {
-                    var ans = solve(first_num, second_num, optr_selected);
-                    display_1.Text = ans;
-                }
-
-                //test display
-                test_label.Text = optr_selected.ToString();
+                //solving using method
+                var ans = solve(first_num, second_num, optr_selected);
+                display_1.Text = ans;
+                
             }
             else  //if equals button clicked for first time
             {
                 //constant
                 second_num = Convert.ToDouble(display_1.Text);
 
-                //solving
+                //solving using method
                 var ans = solve(first_num, second_num, optr_selected);
                 display_1.Text = ans;
                 display_2.Text = first_num.ToString() + " " + optr_selected.ToString() + " " + second_num.ToString();
 
                 //equal_clicked = true;
                 num_clicked = false; // to not increment if operator is clicked
-
-                //test display
-                test_label.Text = first_num.ToString();
-                test_label2.Text = second_num.ToString();
             }
-            
-
             //button reset
             equal_clicked = true;
             symbols_clicked = false;
             char_symbols = 0;
-        } //running 
+        } //equals button
         private string solve(double first = 0, double second = 0, char optr_selected = '+')
         {
             double the_solve = 0;
@@ -379,11 +335,13 @@ namespace Calculator_Test_2
             }
             return error_return(the_solve);
 
+            //check error
             string error_return(double error)
             {
                 if (double.IsNaN(error) || double.IsInfinity(error))
                 {
                     error_clicked = true;
+                    //disables all controls with "_" in name
                     foreach (Control control in but_group1.Controls)
                     {
                         if (control.Name.StartsWith("_"))
@@ -396,12 +354,9 @@ namespace Calculator_Test_2
                     if (double.IsInfinity(error)) { Error = "Overflow"; } //different name for inf error
                     return Error;
                 }
-                else { return error.ToString(); }
-            }//running
-        }//running
-
-
-
+                else { return error.ToString(); } // no error
+            }
+        }//all operations
 
         //////M-BUTTONS//////
         private void _mc_Click(object sender, EventArgs e)
@@ -411,12 +366,12 @@ namespace Calculator_Test_2
             _mr.Enabled = false;
             _mlist.Enabled = false;
             m_clicked = true; //reset display 1
-        }//running
+        }//clear M list
         private void _mr_Click(object sender, EventArgs e)
         {
             display_1.Text = panel_M.Controls[0].Text;
             m_clicked = true;
-        }//running
+        }//get first M value at display_1
         private void m_plus_minus(object sender, EventArgs e)
         {
             Control control = sender as Control;
@@ -435,7 +390,7 @@ namespace Calculator_Test_2
                 first_label.Text = solve(Convert.ToDouble(first_label.Text), Convert.ToDouble(display_1.Text), sign);
             }
             m_clicked = true;
-        }//running
+        }//add or subtract first M value
         private void _mstore_Click(object sender, EventArgs e)
         {
             _mlist.Enabled = true;
@@ -443,7 +398,7 @@ namespace Calculator_Test_2
             _mr.Enabled = true;
             m_clicked = true;
             Create_M_button();
-        }//running
+        }//add new M value
         private void Create_M_button()
         {
             M_count++;
@@ -487,7 +442,7 @@ namespace Calculator_Test_2
             panel_M.Controls.SetChildIndex(button_mc_add, 3);
 
 
-        }//running
+        }//create [m+,m-,mc] buttons at m panel
         private void panel_m_clearbut(object sender, EventArgs e)
         {
             Control control = sender as Control;
@@ -496,7 +451,7 @@ namespace Calculator_Test_2
             panel_M.Controls.RemoveAt(x); //remove minus but
             panel_M.Controls.RemoveAt(x);//remove plus but
             panel_M.Controls.RemoveAt(x - 1);//remove clear but
-        }//running
+        }//remove individual M value
         private void M_operation(object sender, EventArgs e)
         {
             Control but = sender as Control;
@@ -509,9 +464,8 @@ namespace Calculator_Test_2
             Control m_select = panel_M.Controls["display_M" + but.Name.Last()];
             //solving using method
             m_select.Text = solve(Convert.ToDouble(m_select.Text), Convert.ToDouble(display_1.Text), sign);
-
             m_clicked = true;
-        }//running
+        }//M operation
         private void open_Mtab(object sender, EventArgs e)
         {
             //disable all, except panel_M
@@ -520,7 +474,7 @@ namespace Calculator_Test_2
                 if (button.Name == "panel_M") { button.Visible = true; }
                 else { button.Enabled = false; }
             }
-        }//running
+        }//view M list
         private void panel_M_leave(object sender, MouseEventArgs e)
         {
             if (panel_M.Visible)
@@ -540,7 +494,6 @@ namespace Calculator_Test_2
                     }
                 }
             }
-        }//running
-
+        }//go back to calculator
     }
 }
